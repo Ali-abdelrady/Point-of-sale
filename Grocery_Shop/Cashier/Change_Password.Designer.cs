@@ -158,7 +158,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(562, 221);
+            this.ControlBox = false;
             this.Controls.Add(this.Confirmation_Txtbox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.Password_Txtbox);
@@ -166,10 +168,9 @@
             this.Controls.Add(this.Cancel_Btn);
             this.Controls.Add(this.Save_Btn);
             this.Controls.Add(this.panel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Change_Password";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Change_Password";
             this.Load += new System.EventHandler(this.Change_Password_Load);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);

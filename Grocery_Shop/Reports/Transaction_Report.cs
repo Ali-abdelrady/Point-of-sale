@@ -1,4 +1,5 @@
-﻿using Microsoft.Reporting.WinForms;
+﻿using Grocery_Shop.Classes;
+using Microsoft.Reporting.WinForms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,9 +15,8 @@ namespace Grocery_Shop.Reports
 {
     public partial class Transaction_Report : Form
     {
-        //Database Connection
-        static string sql = "Data Source =ALIABDERADY\\SQLEXPRESS01; Initial Catalog=Shop; Integrated Security=True; User ID=''; Password = ''";
-        SqlConnection con = new SqlConnection(sql);
+        private SqlConnection con;
+        DatabaseManger dbManger = new DatabaseManger();
         string store_name="";
         string store_address= "";
         string emp_id= "";
@@ -24,20 +24,18 @@ namespace Grocery_Shop.Reports
         public Transaction_Report()
         {
             InitializeComponent();
+            con = DatabaseManger.CreateConnection();
         }
 
         private void Transaction_Report_Load(object sender, EventArgs e)
         {
             Load_ReceiptInfo();
-            DataTable dt = new DataTable();
             string query = "SELECT \r\np.Product_Id AS PCODE,\r\np.Name AS DESCRIPTION,\r\np.Price AS PRICE,\r\nSUM(items.Discount) AS DISCOUNT,\r\nSUM(items.Quantity) AS QTY,\r\nSUM(items.Item_Total) AS TOTAL_SALES\r\nFROM((Products AS p INNER JOIN Transaction_Item AS items ON p.Product_Id=items.Product_Id)\r\nINNER JOIN Transactions AS t ON t.Transaction_Id=items.Transaction_Id)\r\nWHERE t.Transaction_Id=IDENT_CURRENT('Transactions')\r\nGROUP BY p.Product_Id, p.Name, p.Price\r\nORDER BY p.Name ASC;\r\n";
-            SqlCommand cmd = new SqlCommand(query, con);
-            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-            adapter.Fill(dt);
-            reportViewer1.LocalReport.DataSources.Clear();
-            ReportDataSource source = new ReportDataSource("SoldItems", dt);
-            reportViewer1.LocalReport.ReportPath = @"C:\Users\hp\source\repos\Grocery_Shop\Grocery_Shop\Reports\Transaction_Details.rdlc";
-            reportViewer1.LocalReport.DataSources.Add(source);
+            DataTable dt = dbManger.getDataTableFromUserQuery(query);
+
+            ReportServices service = new ReportServices(reportViewer1, "SoldItems", "Transaction_Details",dt);
+            service.Display_Report();
+            //Additonal Stuff
             ReportParameter Store = new ReportParameter("Store", store_name);
             ReportParameter Address = new ReportParameter("Address", store_address);
             ReportParameter Cashier = new ReportParameter("Cashier", emp_id);
@@ -46,7 +44,6 @@ namespace Grocery_Shop.Reports
             reportViewer1.LocalReport.SetParameters(Address);
             reportViewer1.LocalReport.SetParameters(Cashier);
             reportViewer1.LocalReport.SetParameters(Transaction);
-
             reportViewer1.RefreshReport();
         }
 
@@ -60,11 +57,11 @@ namespace Grocery_Shop.Reports
             DataTable dt = new DataTable();
             try
             {
-                string query = "SELECT s.Name AS STORE_NAME, s.Address AS ADDRESS, e.Emp_Id AS CASHIER, IDENT_CURRENT('Transactions') AS REF\r\nFROM Store_Details AS s, Employees AS e\r\nWHERE e.User_Id=2;\r\n";
+                string query = "SELECT s.Name AS STORE_NAME, s.Address AS ADDRESS, e.Emp_Id AS CASHIER, IDENT_CURRENT('Transactions') AS REF\r\nFROM Store_Details AS s, Employees AS e\r\nWHERE e.Emp_Id=@emp_id;\r\n";
                 con.Open();
                 SqlCommand cmd = new SqlCommand(query, con);
-/*                cmd.Parameters.AddWithValue("@user_id", Global.User_Id);
-                cmd.ExecuteNonQuery();*/
+                cmd.Parameters.AddWithValue("@emp_id", Global.Emp_Id);
+                cmd.ExecuteNonQuery();
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                 adapter.Fill(dt);
                 store_name = dt.Rows[0]["STORE_NAME"].ToString();

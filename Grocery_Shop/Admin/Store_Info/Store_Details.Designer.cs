@@ -175,8 +175,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(562, 262);
+            this.ControlBox = false;
             this.Controls.Add(this.Cancel_Btn);
             this.Controls.Add(this.Save_Btn);
             this.Controls.Add(this.label5);
@@ -186,10 +187,9 @@
             this.Controls.Add(this.StoreName_Txtbox);
             this.Controls.Add(this.cur_lbl);
             this.Controls.Add(this.panel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Store_Details";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Store_Details";
             this.Load += new System.EventHandler(this.Store_Details_Load);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);

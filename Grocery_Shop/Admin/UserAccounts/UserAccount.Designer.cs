@@ -28,21 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.metroTabControl1 = new MetroFramework.Controls.MetroTabControl();
             this.CreateAccount_Page = new System.Windows.Forms.TabPage();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.Phone_Textbox = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.Address_Textbox = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.Salalry_Textbox = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.LastName_Textbox = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.MidName_Textbox = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.firstName_Textbox = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.Create_Btn = new System.Windows.Forms.Button();
             this.Role_Combox = new System.Windows.Forms.ComboBox();
@@ -54,8 +54,6 @@
             this.Create_Username_txtbox = new System.Windows.Forms.TextBox();
             this.cur_lbl = new System.Windows.Forms.Label();
             this.ChangePassword_Page = new System.Windows.Forms.TabPage();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label15 = new System.Windows.Forms.Label();
             this.New_Password_Txtbox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.Update_Btn = new System.Windows.Forms.Button();
@@ -65,34 +63,23 @@
             this.label5 = new System.Windows.Forms.Label();
             this.Current_Username_Txtbox = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.DeleteAccount_Page = new System.Windows.Forms.TabPage();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.Password = new System.Windows.Forms.Label();
-            this.Deleted_Password_Txtbox = new System.Windows.Forms.TextBox();
-            this.Delete_Btn = new System.Windows.Forms.Button();
-            this.Deleted_Username_Txtbox = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
             this.metroTabPage1 = new MetroFramework.Controls.MetroTabPage();
             this.User_Table = new System.Windows.Forms.DataGridView();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Name_COl = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Address_Col = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Email_Col = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Phone_Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Salary_col = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UserName_Col = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Password_Col = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Delete = new System.Windows.Forms.DataGridViewImageColumn();
             this.Search_Txtbox = new System.Windows.Forms.TextBox();
-            this.Load_InvetoryList = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.Close_Btn = new System.Windows.Forms.Label();
             this.product_list_lbl = new System.Windows.Forms.Label();
             this.metroTabControl1.SuspendLayout();
             this.CreateAccount_Page.SuspendLayout();
             this.ChangePassword_Page.SuspendLayout();
-            this.DeleteAccount_Page.SuspendLayout();
             this.metroTabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.User_Table)).BeginInit();
             this.panel1.SuspendLayout();
@@ -104,11 +91,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.metroTabControl1.Controls.Add(this.CreateAccount_Page);
             this.metroTabControl1.Controls.Add(this.ChangePassword_Page);
-            this.metroTabControl1.Controls.Add(this.DeleteAccount_Page);
             this.metroTabControl1.Controls.Add(this.metroTabPage1);
             this.metroTabControl1.Location = new System.Drawing.Point(3, 63);
             this.metroTabControl1.Name = "metroTabControl1";
-            this.metroTabControl1.SelectedIndex = 3;
+            this.metroTabControl1.SelectedIndex = 1;
             this.metroTabControl1.Size = new System.Drawing.Size(1116, 703);
             this.metroTabControl1.TabIndex = 0;
             this.metroTabControl1.UseSelectable = true;
@@ -116,17 +102,17 @@
             // CreateAccount_Page
             // 
             this.CreateAccount_Page.BackColor = System.Drawing.Color.White;
-            this.CreateAccount_Page.Controls.Add(this.textBox4);
+            this.CreateAccount_Page.Controls.Add(this.Phone_Textbox);
             this.CreateAccount_Page.Controls.Add(this.label9);
-            this.CreateAccount_Page.Controls.Add(this.textBox5);
+            this.CreateAccount_Page.Controls.Add(this.Address_Textbox);
             this.CreateAccount_Page.Controls.Add(this.label13);
-            this.CreateAccount_Page.Controls.Add(this.textBox6);
+            this.CreateAccount_Page.Controls.Add(this.Salalry_Textbox);
             this.CreateAccount_Page.Controls.Add(this.label14);
-            this.CreateAccount_Page.Controls.Add(this.textBox1);
+            this.CreateAccount_Page.Controls.Add(this.LastName_Textbox);
             this.CreateAccount_Page.Controls.Add(this.label10);
-            this.CreateAccount_Page.Controls.Add(this.textBox2);
+            this.CreateAccount_Page.Controls.Add(this.MidName_Textbox);
             this.CreateAccount_Page.Controls.Add(this.label11);
-            this.CreateAccount_Page.Controls.Add(this.textBox3);
+            this.CreateAccount_Page.Controls.Add(this.firstName_Textbox);
             this.CreateAccount_Page.Controls.Add(this.label12);
             this.CreateAccount_Page.Controls.Add(this.Create_Btn);
             this.CreateAccount_Page.Controls.Add(this.Role_Combox);
@@ -137,23 +123,25 @@
             this.CreateAccount_Page.Controls.Add(this.label6);
             this.CreateAccount_Page.Controls.Add(this.Create_Username_txtbox);
             this.CreateAccount_Page.Controls.Add(this.cur_lbl);
+            this.CreateAccount_Page.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.CreateAccount_Page.Location = new System.Drawing.Point(4, 38);
             this.CreateAccount_Page.Name = "CreateAccount_Page";
             this.CreateAccount_Page.Size = new System.Drawing.Size(1108, 661);
             this.CreateAccount_Page.TabIndex = 0;
             this.CreateAccount_Page.Text = "CREATE ACCOUNT";
             // 
-            // textBox4
+            // Phone_Textbox
             // 
-            this.textBox4.Location = new System.Drawing.Point(403, 304);
-            this.textBox4.Multiline = true;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(486, 30);
-            this.textBox4.TabIndex = 79;
+            this.Phone_Textbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.Phone_Textbox.Location = new System.Drawing.Point(403, 304);
+            this.Phone_Textbox.Multiline = true;
+            this.Phone_Textbox.Name = "Phone_Textbox";
+            this.Phone_Textbox.Size = new System.Drawing.Size(486, 30);
+            this.Phone_Textbox.TabIndex = 79;
             // 
             // label9
             // 
-            this.label9.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.label9.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(212, 305);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(182, 30);
@@ -161,17 +149,18 @@
             this.label9.Text = "PHONE NUMBER";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // textBox5
+            // Address_Textbox
             // 
-            this.textBox5.Location = new System.Drawing.Point(403, 267);
-            this.textBox5.Multiline = true;
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(486, 30);
-            this.textBox5.TabIndex = 77;
+            this.Address_Textbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.Address_Textbox.Location = new System.Drawing.Point(403, 267);
+            this.Address_Textbox.Multiline = true;
+            this.Address_Textbox.Name = "Address_Textbox";
+            this.Address_Textbox.Size = new System.Drawing.Size(486, 30);
+            this.Address_Textbox.TabIndex = 77;
             // 
             // label13
             // 
-            this.label13.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.label13.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.Location = new System.Drawing.Point(212, 266);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(129, 30);
@@ -179,17 +168,18 @@
             this.label13.Text = "ADDRESS";
             this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // textBox6
+            // Salalry_Textbox
             // 
-            this.textBox6.Location = new System.Drawing.Point(403, 229);
-            this.textBox6.Multiline = true;
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(486, 30);
-            this.textBox6.TabIndex = 75;
+            this.Salalry_Textbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.Salalry_Textbox.Location = new System.Drawing.Point(403, 229);
+            this.Salalry_Textbox.Multiline = true;
+            this.Salalry_Textbox.Name = "Salalry_Textbox";
+            this.Salalry_Textbox.Size = new System.Drawing.Size(486, 30);
+            this.Salalry_Textbox.TabIndex = 75;
             // 
             // label14
             // 
-            this.label14.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.label14.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.Location = new System.Drawing.Point(212, 228);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(129, 30);
@@ -197,17 +187,18 @@
             this.label14.Text = "SALARY";
             this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // textBox1
+            // LastName_Textbox
             // 
-            this.textBox1.Location = new System.Drawing.Point(403, 188);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(486, 30);
-            this.textBox1.TabIndex = 73;
+            this.LastName_Textbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.LastName_Textbox.Location = new System.Drawing.Point(403, 188);
+            this.LastName_Textbox.Multiline = true;
+            this.LastName_Textbox.Name = "LastName_Textbox";
+            this.LastName_Textbox.Size = new System.Drawing.Size(486, 30);
+            this.LastName_Textbox.TabIndex = 73;
             // 
             // label10
             // 
-            this.label10.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.label10.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(212, 189);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(182, 30);
@@ -215,17 +206,18 @@
             this.label10.Text = "LAST NAME";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // textBox2
+            // MidName_Textbox
             // 
-            this.textBox2.Location = new System.Drawing.Point(403, 151);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(486, 30);
-            this.textBox2.TabIndex = 71;
+            this.MidName_Textbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.MidName_Textbox.Location = new System.Drawing.Point(403, 151);
+            this.MidName_Textbox.Multiline = true;
+            this.MidName_Textbox.Name = "MidName_Textbox";
+            this.MidName_Textbox.Size = new System.Drawing.Size(486, 30);
+            this.MidName_Textbox.TabIndex = 71;
             // 
             // label11
             // 
-            this.label11.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.label11.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.Location = new System.Drawing.Point(212, 150);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(129, 30);
@@ -233,17 +225,18 @@
             this.label11.Text = "MIDDLE NAME";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // textBox3
+            // firstName_Textbox
             // 
-            this.textBox3.Location = new System.Drawing.Point(403, 113);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(486, 30);
-            this.textBox3.TabIndex = 69;
+            this.firstName_Textbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.firstName_Textbox.Location = new System.Drawing.Point(403, 113);
+            this.firstName_Textbox.Multiline = true;
+            this.firstName_Textbox.Name = "firstName_Textbox";
+            this.firstName_Textbox.Size = new System.Drawing.Size(486, 30);
+            this.firstName_Textbox.TabIndex = 69;
             // 
             // label12
             // 
-            this.label12.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.label12.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.Location = new System.Drawing.Point(212, 112);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(129, 30);
@@ -261,27 +254,27 @@
             this.Create_Btn.Name = "Create_Btn";
             this.Create_Btn.Size = new System.Drawing.Size(167, 36);
             this.Create_Btn.TabIndex = 67;
-            this.Create_Btn.Text = "Create";
+            this.Create_Btn.Text = "CREATE";
             this.Create_Btn.UseVisualStyleBackColor = false;
             this.Create_Btn.Click += new System.EventHandler(this.Create_Btn_Click);
             // 
             // Role_Combox
             // 
-            this.Role_Combox.Font = new System.Drawing.Font("Tahoma", 15F);
+            this.Role_Combox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.Role_Combox.FormattingEnabled = true;
             this.Role_Combox.IntegralHeight = false;
-            this.Role_Combox.ItemHeight = 24;
+            this.Role_Combox.ItemHeight = 16;
             this.Role_Combox.Items.AddRange(new object[] {
             "admin",
             "cashier"});
             this.Role_Combox.Location = new System.Drawing.Point(403, 457);
             this.Role_Combox.Name = "Role_Combox";
-            this.Role_Combox.Size = new System.Drawing.Size(486, 32);
+            this.Role_Combox.Size = new System.Drawing.Size(486, 24);
             this.Role_Combox.TabIndex = 66;
             // 
             // label1
             // 
-            this.label1.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.label1.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(212, 456);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(129, 30);
@@ -291,6 +284,7 @@
             // 
             // Password_Confimation_Txtbox
             // 
+            this.Password_Confimation_Txtbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.Password_Confimation_Txtbox.Location = new System.Drawing.Point(403, 415);
             this.Password_Confimation_Txtbox.Multiline = true;
             this.Password_Confimation_Txtbox.Name = "Password_Confimation_Txtbox";
@@ -299,7 +293,7 @@
             // 
             // label2
             // 
-            this.label2.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.label2.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(212, 416);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(182, 30);
@@ -309,6 +303,7 @@
             // 
             // Create_Password_Txtbox
             // 
+            this.Create_Password_Txtbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.Create_Password_Txtbox.Location = new System.Drawing.Point(403, 378);
             this.Create_Password_Txtbox.Multiline = true;
             this.Create_Password_Txtbox.Name = "Create_Password_Txtbox";
@@ -317,7 +312,7 @@
             // 
             // label6
             // 
-            this.label6.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.label6.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(212, 377);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(129, 30);
@@ -327,6 +322,7 @@
             // 
             // Create_Username_txtbox
             // 
+            this.Create_Username_txtbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.Create_Username_txtbox.Location = new System.Drawing.Point(403, 340);
             this.Create_Username_txtbox.Multiline = true;
             this.Create_Username_txtbox.Name = "Create_Username_txtbox";
@@ -335,7 +331,7 @@
             // 
             // cur_lbl
             // 
-            this.cur_lbl.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.cur_lbl.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cur_lbl.Location = new System.Drawing.Point(212, 339);
             this.cur_lbl.Name = "cur_lbl";
             this.cur_lbl.Size = new System.Drawing.Size(129, 30);
@@ -346,8 +342,6 @@
             // ChangePassword_Page
             // 
             this.ChangePassword_Page.BackColor = System.Drawing.Color.White;
-            this.ChangePassword_Page.Controls.Add(this.comboBox1);
-            this.ChangePassword_Page.Controls.Add(this.label15);
             this.ChangePassword_Page.Controls.Add(this.New_Password_Txtbox);
             this.ChangePassword_Page.Controls.Add(this.label3);
             this.ChangePassword_Page.Controls.Add(this.Update_Btn);
@@ -363,33 +357,9 @@
             this.ChangePassword_Page.TabIndex = 1;
             this.ChangePassword_Page.Text = "CHANGE PASSWORD";
             // 
-            // comboBox1
-            // 
-            this.comboBox1.Font = new System.Drawing.Font("Tahoma", 15F);
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.IntegralHeight = false;
-            this.comboBox1.ItemHeight = 24;
-            this.comboBox1.Items.AddRange(new object[] {
-            "admin",
-            "cashier"});
-            this.comboBox1.Location = new System.Drawing.Point(412, 237);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(486, 32);
-            this.comboBox1.TabIndex = 63;
-            // 
-            // label15
-            // 
-            this.label15.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.label15.Location = new System.Drawing.Point(221, 236);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(129, 30);
-            this.label15.TabIndex = 62;
-            this.label15.Text = "ROLE";
-            this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // New_Password_Txtbox
             // 
-            this.New_Password_Txtbox.Location = new System.Drawing.Point(412, 276);
+            this.New_Password_Txtbox.Location = new System.Drawing.Point(412, 258);
             this.New_Password_Txtbox.Multiline = true;
             this.New_Password_Txtbox.Name = "New_Password_Txtbox";
             this.New_Password_Txtbox.Size = new System.Drawing.Size(486, 30);
@@ -397,8 +367,8 @@
             // 
             // label3
             // 
-            this.label3.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.label3.Location = new System.Drawing.Point(221, 274);
+            this.label3.Font = new System.Drawing.Font("Tahoma", 11F);
+            this.label3.Location = new System.Drawing.Point(221, 256);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(129, 30);
             this.label3.TabIndex = 60;
@@ -411,7 +381,7 @@
             this.Update_Btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Update_Btn.Font = new System.Drawing.Font("Tahoma", 10F);
             this.Update_Btn.ForeColor = System.Drawing.SystemColors.Control;
-            this.Update_Btn.Location = new System.Drawing.Point(737, 356);
+            this.Update_Btn.Location = new System.Drawing.Point(737, 334);
             this.Update_Btn.Name = "Update_Btn";
             this.Update_Btn.Size = new System.Drawing.Size(164, 36);
             this.Update_Btn.TabIndex = 58;
@@ -421,7 +391,7 @@
             // 
             // Confirm_NewPassword_Txtbox
             // 
-            this.Confirm_NewPassword_Txtbox.Location = new System.Drawing.Point(412, 316);
+            this.Confirm_NewPassword_Txtbox.Location = new System.Drawing.Point(412, 298);
             this.Confirm_NewPassword_Txtbox.Multiline = true;
             this.Confirm_NewPassword_Txtbox.Name = "Confirm_NewPassword_Txtbox";
             this.Confirm_NewPassword_Txtbox.Size = new System.Drawing.Size(486, 30);
@@ -429,8 +399,8 @@
             // 
             // label4
             // 
-            this.label4.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.label4.Location = new System.Drawing.Point(221, 316);
+            this.label4.Font = new System.Drawing.Font("Tahoma", 11F);
+            this.label4.Location = new System.Drawing.Point(221, 298);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(182, 30);
             this.label4.TabIndex = 52;
@@ -439,7 +409,7 @@
             // 
             // Current_Password_Txtbox
             // 
-            this.Current_Password_Txtbox.Location = new System.Drawing.Point(412, 200);
+            this.Current_Password_Txtbox.Location = new System.Drawing.Point(412, 222);
             this.Current_Password_Txtbox.Multiline = true;
             this.Current_Password_Txtbox.Name = "Current_Password_Txtbox";
             this.Current_Password_Txtbox.Size = new System.Drawing.Size(486, 30);
@@ -447,8 +417,8 @@
             // 
             // label5
             // 
-            this.label5.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.label5.Location = new System.Drawing.Point(221, 199);
+            this.label5.Font = new System.Drawing.Font("Tahoma", 11F);
+            this.label5.Location = new System.Drawing.Point(221, 221);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(129, 30);
             this.label5.TabIndex = 50;
@@ -457,7 +427,7 @@
             // 
             // Current_Username_Txtbox
             // 
-            this.Current_Username_Txtbox.Location = new System.Drawing.Point(412, 162);
+            this.Current_Username_Txtbox.Location = new System.Drawing.Point(412, 184);
             this.Current_Username_Txtbox.Multiline = true;
             this.Current_Username_Txtbox.Name = "Current_Username_Txtbox";
             this.Current_Username_Txtbox.Size = new System.Drawing.Size(486, 30);
@@ -465,110 +435,19 @@
             // 
             // label7
             // 
-            this.label7.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.label7.Location = new System.Drawing.Point(221, 161);
+            this.label7.Font = new System.Drawing.Font("Tahoma", 11F);
+            this.label7.Location = new System.Drawing.Point(221, 183);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(129, 30);
             this.label7.TabIndex = 48;
             this.label7.Text = "USERNAME";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // DeleteAccount_Page
-            // 
-            this.DeleteAccount_Page.BackColor = System.Drawing.Color.White;
-            this.DeleteAccount_Page.Controls.Add(this.comboBox2);
-            this.DeleteAccount_Page.Controls.Add(this.label16);
-            this.DeleteAccount_Page.Controls.Add(this.Password);
-            this.DeleteAccount_Page.Controls.Add(this.Deleted_Password_Txtbox);
-            this.DeleteAccount_Page.Controls.Add(this.Delete_Btn);
-            this.DeleteAccount_Page.Controls.Add(this.Deleted_Username_Txtbox);
-            this.DeleteAccount_Page.Controls.Add(this.label8);
-            this.DeleteAccount_Page.Location = new System.Drawing.Point(4, 38);
-            this.DeleteAccount_Page.Name = "DeleteAccount_Page";
-            this.DeleteAccount_Page.Size = new System.Drawing.Size(1108, 661);
-            this.DeleteAccount_Page.TabIndex = 2;
-            this.DeleteAccount_Page.Text = "DELETE ACCOUNT";
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.Font = new System.Drawing.Font("Tahoma", 15F);
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.IntegralHeight = false;
-            this.comboBox2.ItemHeight = 24;
-            this.comboBox2.Items.AddRange(new object[] {
-            "admin",
-            "cashier"});
-            this.comboBox2.Location = new System.Drawing.Point(353, 278);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(486, 32);
-            this.comboBox2.TabIndex = 65;
-            // 
-            // label16
-            // 
-            this.label16.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.label16.Location = new System.Drawing.Point(219, 279);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(95, 30);
-            this.label16.TabIndex = 64;
-            this.label16.Text = "ROLE";
-            this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // Password
-            // 
-            this.Password.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.Password.Location = new System.Drawing.Point(218, 235);
-            this.Password.Name = "Password";
-            this.Password.Size = new System.Drawing.Size(129, 30);
-            this.Password.TabIndex = 61;
-            this.Password.Text = "PASSWORD";
-            this.Password.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // Deleted_Password_Txtbox
-            // 
-            this.Deleted_Password_Txtbox.Location = new System.Drawing.Point(353, 236);
-            this.Deleted_Password_Txtbox.Multiline = true;
-            this.Deleted_Password_Txtbox.Name = "Deleted_Password_Txtbox";
-            this.Deleted_Password_Txtbox.Size = new System.Drawing.Size(486, 30);
-            this.Deleted_Password_Txtbox.TabIndex = 60;
-            // 
-            // Delete_Btn
-            // 
-            this.Delete_Btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(45)))), ((int)(((byte)(50)))));
-            this.Delete_Btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Delete_Btn.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.Delete_Btn.ForeColor = System.Drawing.SystemColors.Control;
-            this.Delete_Btn.Location = new System.Drawing.Point(736, 316);
-            this.Delete_Btn.Name = "Delete_Btn";
-            this.Delete_Btn.Size = new System.Drawing.Size(103, 36);
-            this.Delete_Btn.TabIndex = 59;
-            this.Delete_Btn.Text = "DELETE";
-            this.Delete_Btn.UseVisualStyleBackColor = false;
-            this.Delete_Btn.Click += new System.EventHandler(this.Delete_Btn_Click);
-            // 
-            // Deleted_Username_Txtbox
-            // 
-            this.Deleted_Username_Txtbox.Location = new System.Drawing.Point(353, 192);
-            this.Deleted_Username_Txtbox.Multiline = true;
-            this.Deleted_Username_Txtbox.Name = "Deleted_Username_Txtbox";
-            this.Deleted_Username_Txtbox.Size = new System.Drawing.Size(486, 30);
-            this.Deleted_Username_Txtbox.TabIndex = 58;
-            // 
-            // label8
-            // 
-            this.label8.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.label8.Location = new System.Drawing.Point(218, 191);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(129, 30);
-            this.label8.TabIndex = 57;
-            this.label8.Text = "USERNAME";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // metroTabPage1
             // 
             this.metroTabPage1.BackColor = System.Drawing.Color.White;
             this.metroTabPage1.Controls.Add(this.User_Table);
             this.metroTabPage1.Controls.Add(this.Search_Txtbox);
-            this.metroTabPage1.Controls.Add(this.Load_InvetoryList);
             this.metroTabPage1.Font = new System.Drawing.Font("Tahoma", 11F);
             this.metroTabPage1.HorizontalScrollbarBarColor = true;
             this.metroTabPage1.HorizontalScrollbarHighlightOnWheel = false;
@@ -586,6 +465,7 @@
             // 
             this.User_Table.AllowUserToAddRows = false;
             this.User_Table.AllowUserToDeleteRows = false;
+            this.User_Table.AllowUserToResizeColumns = false;
             this.User_Table.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -594,20 +474,20 @@
             this.User_Table.BackgroundColor = System.Drawing.Color.White;
             this.User_Table.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.User_Table.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(45)))), ((int)(((byte)(50)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 11F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.User_Table.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.User_Table.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(45)))), ((int)(((byte)(50)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Tahoma", 11F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.User_Table.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.User_Table.ColumnHeadersHeight = 40;
+            this.User_Table.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.User_Table.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Id,
             this.Name_COl,
             this.Address_Col,
-            this.Email_Col,
             this.Phone_Number,
             this.Salary_col,
             this.UserName_Col,
@@ -618,12 +498,12 @@
             this.User_Table.Location = new System.Drawing.Point(-4, 66);
             this.User_Table.Name = "User_Table";
             this.User_Table.ReadOnly = true;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(251)))), ((int)(((byte)(248)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.MenuHighlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-            this.User_Table.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(251)))), ((int)(((byte)(248)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.MenuHighlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
+            this.User_Table.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.User_Table.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.User_Table.Size = new System.Drawing.Size(1112, 599);
             this.User_Table.TabIndex = 69;
@@ -636,7 +516,7 @@
             this.Id.HeaderText = "#";
             this.Id.Name = "Id";
             this.Id.ReadOnly = true;
-            this.Id.Width = 43;
+            this.Id.Width = 42;
             // 
             // Name_COl
             // 
@@ -655,14 +535,6 @@
             this.Address_Col.ReadOnly = true;
             this.Address_Col.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // Email_Col
-            // 
-            this.Email_Col.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Email_Col.DataPropertyName = "EMAIL";
-            this.Email_Col.HeaderText = "EMAIL";
-            this.Email_Col.Name = "Email_Col";
-            this.Email_Col.ReadOnly = true;
-            // 
             // Phone_Number
             // 
             this.Phone_Number.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -678,7 +550,7 @@
             this.Salary_col.HeaderText = "SALARY";
             this.Salary_col.Name = "Salary_col";
             this.Salary_col.ReadOnly = true;
-            this.Salary_col.Width = 84;
+            this.Salary_col.Width = 83;
             // 
             // UserName_Col
             // 
@@ -696,7 +568,7 @@
             this.Password_Col.HeaderText = "PASSWORD";
             this.Password_Col.Name = "Password_Col";
             this.Password_Col.ReadOnly = true;
-            this.Password_Col.Width = 109;
+            this.Password_Col.Width = 108;
             // 
             // Delete
             // 
@@ -718,25 +590,11 @@
             this.Search_Txtbox.Name = "Search_Txtbox";
             this.Search_Txtbox.Size = new System.Drawing.Size(353, 25);
             this.Search_Txtbox.TabIndex = 70;
-            this.Search_Txtbox.Text = "   Search here";
+            this.Search_Txtbox.Text = " Search here";
             this.Search_Txtbox.WordWrap = false;
             this.Search_Txtbox.TextChanged += new System.EventHandler(this.Search_Txtbox_TextChanged);
             this.Search_Txtbox.Enter += new System.EventHandler(this.Search_Txtbox_Enter);
             this.Search_Txtbox.Leave += new System.EventHandler(this.Search_Txtbox_Leave);
-            // 
-            // Load_InvetoryList
-            // 
-            this.Load_InvetoryList.BackColor = System.Drawing.Color.White;
-            this.Load_InvetoryList.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.Load_InvetoryList.Image = global::Grocery_Shop.Properties.Resources.icons8_cycle_30;
-            this.Load_InvetoryList.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Load_InvetoryList.Location = new System.Drawing.Point(978, 12);
-            this.Load_InvetoryList.Name = "Load_InvetoryList";
-            this.Load_InvetoryList.Size = new System.Drawing.Size(127, 37);
-            this.Load_InvetoryList.TabIndex = 68;
-            this.Load_InvetoryList.Text = "     LOAD DATA";
-            this.Load_InvetoryList.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.Load_InvetoryList.Click += new System.EventHandler(this.Load_InvetoryList_Click);
             // 
             // panel1
             // 
@@ -793,8 +651,6 @@
             this.CreateAccount_Page.PerformLayout();
             this.ChangePassword_Page.ResumeLayout(false);
             this.ChangePassword_Page.PerformLayout();
-            this.DeleteAccount_Page.ResumeLayout(false);
-            this.DeleteAccount_Page.PerformLayout();
             this.metroTabPage1.ResumeLayout(false);
             this.metroTabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.User_Table)).EndInit();
@@ -807,7 +663,6 @@
 
         private MetroFramework.Controls.MetroTabControl metroTabControl1;
         private System.Windows.Forms.TabPage CreateAccount_Page;
-        private System.Windows.Forms.TabPage DeleteAccount_Page;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label Close_Btn;
         private System.Windows.Forms.Label product_list_lbl;
@@ -821,27 +676,18 @@
         private System.Windows.Forms.TextBox Current_Username_Txtbox;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox New_Password_Txtbox;
-        private System.Windows.Forms.Button Delete_Btn;
-        private System.Windows.Forms.TextBox Deleted_Username_Txtbox;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label Password;
-        private System.Windows.Forms.TextBox Deleted_Password_Txtbox;
         private MetroFramework.Controls.MetroTabPage metroTabPage1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox Phone_Textbox;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox Address_Textbox;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox Salalry_Textbox;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox LastName_Textbox;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox MidName_Textbox;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox firstName_Textbox;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button Create_Btn;
         private System.Windows.Forms.ComboBox Role_Combox;
@@ -852,13 +698,11 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox Create_Username_txtbox;
         private System.Windows.Forms.Label cur_lbl;
-        private System.Windows.Forms.Label Load_InvetoryList;
         private System.Windows.Forms.DataGridView User_Table;
         private System.Windows.Forms.TextBox Search_Txtbox;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn Name_COl;
         private System.Windows.Forms.DataGridViewTextBoxColumn Address_Col;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Email_Col;
         private System.Windows.Forms.DataGridViewTextBoxColumn Phone_Number;
         private System.Windows.Forms.DataGridViewTextBoxColumn Salary_col;
         private System.Windows.Forms.DataGridViewTextBoxColumn UserName_Col;

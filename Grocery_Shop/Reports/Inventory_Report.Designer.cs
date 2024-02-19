@@ -123,6 +123,7 @@
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Inventory_Report";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Inventory_Report";
             this.Load += new System.EventHandler(this.Inventory_Report_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Inventory_ListBindingSource)).EndInit();

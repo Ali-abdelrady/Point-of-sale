@@ -1,8 +1,12 @@
-﻿using System;
+﻿using Grocery_Shop.Classes;
+using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Grocery_Shop
 {
@@ -15,6 +19,7 @@ namespace Grocery_Shop
         private string category;
         private float price;
         private int cur_amount;
+        private SqlConnection con;
         public Product()
         {
             id = 0;
@@ -24,6 +29,7 @@ namespace Grocery_Shop
             category = string.Empty;
             price = 0;
             cur_amount = 0;
+            con = DatabaseManger.CreateConnection();
         }
         public int Product_Id
         {
@@ -60,6 +66,7 @@ namespace Grocery_Shop
             set { cur_amount = value; }
             get { return cur_amount; }
         }
+
 
     }
 }

@@ -1,4 +1,6 @@
-﻿using Grocery_Shop.Cashier;
+﻿using Google.Protobuf.WellKnownTypes;
+using Grocery_Shop.Cashier;
+using Grocery_Shop.Classes;
 using Grocery_Shop.Reports;
 using System;
 using System.Collections.Generic;
@@ -20,8 +22,7 @@ namespace Grocery_Shop
     {
 
         //Database Connection
-        static string sql = "Data Source =ALIABDERADY\\SQLEXPRESS01; Initial Catalog=Shop; Integrated Security=True; User ID=''; Password = ''";
-        SqlConnection con = new SqlConnection(sql);
+        private SqlConnection con;
 
         Cashier_Mainform cashier;
         DataTable solditems;
@@ -30,9 +31,10 @@ namespace Grocery_Shop
         public Settle_Payment(Cashier_Mainform cashier, DataGridView dgv, List<int> products_id)
         {
             InitializeComponent();
+            con = DatabaseManger.CreateConnection();
             this.cashier = cashier;
-            Purchases_Table = dgv;
             this.products_id = products_id;
+            Purchases_Table = dgv;
         }
         private void Settle_Payment_Load(object sender, EventArgs e)
         {
@@ -40,114 +42,44 @@ namespace Grocery_Shop
         }
         private void one_btn_Click(object sender, EventArgs e)
         {
-            if (Paid_Lbl.Text == "0" && Paid_Lbl.Text != null)
-            {
-                Paid_Lbl.Text = "1";
-            }
-            else
-            {
-                Paid_Lbl.Text = Paid_Lbl.Text + "1";
-            }
+            Calc_Addition("1");
         }   
         private void two_btn_Click(object sender, EventArgs e)
         {
-            if (Paid_Lbl.Text == "0" && Paid_Lbl.Text != null)
-            {
-                Paid_Lbl.Text = "2";
-            }
-            else
-            {
-                Paid_Lbl.Text = Paid_Lbl.Text + "2";
-            }
+            Calc_Addition("2");
         } 
         private void three_btn_Click(object sender, EventArgs e)
         {
-            if (Paid_Lbl.Text == "0" && Paid_Lbl.Text != null)
-            {
-                Paid_Lbl.Text = "3";
-            }
-            else
-            {
-                Paid_Lbl.Text = Paid_Lbl.Text + "3";
-            }
+            Calc_Addition("3");
         }
         private void four_btn_Click(object sender, EventArgs e)
         {
-            if (Paid_Lbl.Text == "0" && Paid_Lbl.Text != null)
-            {
-                Paid_Lbl.Text = "4";
-            }
-            else
-            {
-                Paid_Lbl.Text = Paid_Lbl.Text + "4";
-            }
+            Calc_Addition("4");
         }
         private void five_btn_Click(object sender, EventArgs e)
         {
-            if (Paid_Lbl.Text == "0" && Paid_Lbl.Text != null)
-            {
-                Paid_Lbl.Text = "5";
-            }
-            else
-            {
-                Paid_Lbl.Text = Paid_Lbl.Text + "5";
-            }
+            Calc_Addition("5");
         }
         private void six_btn_Click(object sender, EventArgs e)
         {
-            if (Paid_Lbl.Text == "0" && Paid_Lbl.Text != null)
-            {
-                Paid_Lbl.Text = "6";
-            }
-            else
-            {
-                Paid_Lbl.Text = Paid_Lbl.Text + "6";
-            }
+            Calc_Addition("6");
         }
         private void seven_btn_Click(object sender, EventArgs e)
         {
-            if (Paid_Lbl.Text == "0" && Paid_Lbl.Text != null)
-            {
-                Paid_Lbl.Text = "7";
-            }
-            else
-            {
-                Paid_Lbl.Text = Paid_Lbl.Text + "7";
-            }
+            Calc_Addition("7");
         }
         private void eight_btn_Click(object sender, EventArgs e)
         {
-            if (Paid_Lbl.Text == "0" && Paid_Lbl.Text != null)
-            {
-                Paid_Lbl.Text = "8";
-            }
-            else
-            {
-                Paid_Lbl.Text = Paid_Lbl.Text + "8";
-            }
+            Calc_Addition("8");
         }   
         private void nine_btn_Click(object sender, EventArgs e)
         {
-            if (Paid_Lbl.Text == "0" && Paid_Lbl.Text != null)
-            {
-                Paid_Lbl.Text = "9";
-            }
-            else
-            {
-                Paid_Lbl.Text = Paid_Lbl.Text + "9";
-            }
+            Calc_Addition("9");
         }
 
         private void zero_btn_Click(object sender, EventArgs e)
         {
-            if (Paid_Lbl.Text == "0" && Paid_Lbl.Text != null)
-            {
-                Paid_Lbl.Text = "0";
-            }
-            else
-            {
-                Paid_Lbl.Text = Paid_Lbl.Text + "0";
-            }
+            Calc_Addition("0");
         }
 
         private void back_btn_Click(object sender, EventArgs e)
@@ -191,62 +123,23 @@ namespace Grocery_Shop
 
         private void enter_btn_Click(object sender, EventArgs e)
         {  
-            int pcode=0;
-            int qty = 0;
-            float discount = 0;
-            float total = 0;
-            // insert data into transaction table and get the transaction id
-            try
-            {
-                con.Open();
-                string query1 = "INSERT INTO Transactions (Store_Id,User_Id,Transaction_Date) VALUES (1,@user_id,@date)";
-                SqlCommand cmd = new SqlCommand(query1, con);
-                cmd.Parameters.AddWithValue("@user_id", Global.User_Id);
-                cmd.Parameters.AddWithValue("@date", DateTime.Now.ToShortDateString());
-                cmd.ExecuteNonQuery();
-                MessageBox.Show("Added Succssefuly");
-            }
-            catch
-            {
-                MessageBox.Show(" Failed to add the transaction");
-            }
-            finally
-            {
-                con.Close();
-            }
+
+            // insert data into transaction table and get the transaction 
+            InsertInto_Transaction_Table();
 
             //insert data into transaction item table 
-            foreach (DataGridViewRow row in Purchases_Table.Rows)
-            {
-                pcode = products_id[row.Index];
-                qty = int.Parse(row.Cells["QTY"].Value.ToString());
-                discount = float.Parse(row.Cells["DISCOUNT"].Value.ToString());
-                total = float.Parse(row.Cells["TOTAL"].Value.ToString());
+            InsertInto_TransactionItems_Table();
 
-                try
-                {
-                    con.Open();
-                    string query = "INSERT INTO Transaction_Item (Transaction_Id,Product_Id,Quantity,Discount,Item_Total) VALUES (IDENT_CURRENT('Transactions'),@pcode,@qty,@discount,@total)";
-                    SqlCommand cmd = new SqlCommand(query, con);
-                    cmd.Parameters.AddWithValue("@pcode", pcode);
-                    cmd.Parameters.AddWithValue("@qty", qty);
-                    cmd.Parameters.AddWithValue("@discount", discount);
-                    cmd.Parameters.AddWithValue("@total", total);
-                    cmd.ExecuteNonQuery();
-                }
-                catch
-                {
-                    MessageBox.Show(" Failed to add the transaction");
-                }
-                finally
-                {
-                    con.Close();
+            // Update Product Quantity
+            Update_ProductQty();
 
-                }
-            }
+            //Clear Table
+            cashier.Clear_Purchases_Table();
             this.Close();
+            //open Report Form
             Transaction_Report form = new Transaction_Report();
-            form.Show();
+            form.ShowDialog();
+            cashier.Calc_Final_Price();
         }
 
         private void enter_btn_KeyDown(object sender, KeyEventArgs e)
@@ -313,49 +206,6 @@ namespace Grocery_Shop
 
         }
 
-        private void Settle_Payment_KeyPress(object sender, KeyPressEventArgs e)
-        {
-
-            switch (e.KeyChar)
-            {
-                case (char)13:
-                    enter_btn.PerformClick();
-                    break;
-                case (char)Keys.Back:
-                    back_btn.PerformClick();
-                    break;
-                case '0':
-                    zero_btn.PerformClick();
-                    break;
-                case '1':
-                    one_btn.PerformClick();
-                    break;
-                case '2':
-                    two_btn.PerformClick();
-                    break;
-                case '3':
-                    three_btn.PerformClick();
-                    break;
-                case '4':
-                    four_btn.PerformClick();
-                    break;
-                case '5':
-                    five_btn.PerformClick();
-                    break;
-                case '6':
-                    six_btn.PerformClick();
-                    break;
-                case '7':
-                    seven_btn.PerformClick();
-                    break;
-                case '8':
-                    eight_btn.PerformClick();
-                    break;
-                case '9':
-                    nine_btn.PerformClick();
-                    break;
-            }
-        }
 
         private void Settle_Paymet_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -367,6 +217,100 @@ namespace Grocery_Shop
             if(e.KeyCode==Keys.NumPad9)
             {
                 nine_btn.PerformClick();
+            }
+        }
+        void Calc_Addition(string num)
+        {
+            if (Paid_Lbl.Text == "0" && Paid_Lbl.Text != null)
+            {
+                Paid_Lbl.Text = num;
+            }
+            else
+            {
+                Paid_Lbl.Text = Paid_Lbl.Text + num;
+            }
+        }
+        void InsertInto_Transaction_Table()
+        {
+            try
+            {
+                con.Open();
+                string query1 = "INSERT INTO Transactions (Store_Id,Emp_Id,Transaction_Date) VALUES (1,@emp_id,@date)";
+                SqlCommand cmd = new SqlCommand(query1, con);
+                cmd.Parameters.AddWithValue("@emp_id", Global.Emp_Id);
+                cmd.Parameters.AddWithValue("@date", DateTime.Now.ToShortDateString());
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Added Succssefuly");
+            }
+            catch
+            {
+                MessageBox.Show(" Failed to add the transaction");
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+        void InsertInto_TransactionItems_Table()
+        {
+            int pcode;
+            int qty;
+            float discount;
+            float total;
+            foreach (DataGridViewRow row in Purchases_Table.Rows)
+            {
+                pcode = products_id[row.Index];
+                qty = int.Parse(row.Cells["QTY"].Value.ToString());
+                discount = float.Parse(row.Cells["DISCOUNT"].Value.ToString());
+                total = float.Parse(row.Cells["TOTAL"].Value.ToString());
+
+                try
+                {
+                    con.Open();
+                    string query = "INSERT INTO Transaction_Item (Transaction_Id,Product_Id,Quantity,Discount,Item_Total) VALUES (IDENT_CURRENT('Transactions'),@pcode,@qty,@discount,@total)";
+                    SqlCommand cmd = new SqlCommand(query, con);
+                    cmd.Parameters.AddWithValue("@pcode", pcode);
+                    cmd.Parameters.AddWithValue("@qty", qty);
+                    cmd.Parameters.AddWithValue("@discount", discount);
+                    cmd.Parameters.AddWithValue("@total", total);
+                    cmd.ExecuteNonQuery();
+                }
+                catch
+                {
+                    MessageBox.Show(" Failed to add the transaction");
+                }
+                finally
+                {
+                    con.Close();
+
+                }
+            }
+        }
+        void Update_ProductQty()
+        {
+            int pcode;
+            int qty;
+            foreach (DataGridViewRow row in Purchases_Table.Rows)
+            {
+                pcode = products_id[row.Index];
+                qty = int.Parse(row.Cells["QTY"].Value.ToString());
+                try
+                {
+                    con.Open();
+                    string query = "UPDATE Products SET Cur_Amount-=@qty WHERE Product_Id = @pcode;";
+                    SqlCommand cmd = new SqlCommand(query, con);
+                    cmd.Parameters.AddWithValue("@pcode", pcode);
+                    cmd.Parameters.AddWithValue("@qty", qty);
+                    cmd.ExecuteNonQuery();
+                }
+                catch
+                {
+                    MessageBox.Show(" Failed to Update quantity");
+                }
+                finally
+                {
+                    con.Close();
+                }
             }
         }
     }

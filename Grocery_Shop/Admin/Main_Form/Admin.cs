@@ -4,18 +4,25 @@ using SixLabors.ImageSharp.ColorSpaces;
 using System.Drawing;
 using System;
 using System.Windows.Forms;
-
-
+using System.Data.SqlClient;
+using System.Data;
+using System.Collections.Generic;
+using Grocery_Shop.Login;
+using Grocery_Shop.Classes;
+using Grocery_Shop.Cashier;
 
 namespace Grocery_Shop
 {
     public partial class Admin : Form
     {
-       
+        //Database Connection
+        private SqlConnection con;
+
+        Authenticator authenticator = new Authenticator();
         public Admin()
         {
             InitializeComponent();
-            
+            con = DatabaseManger.CreateConnection();
         }
 
         private void Admin_Load(object sender, EventArgs e)
@@ -86,7 +93,7 @@ namespace Grocery_Shop
         private void Logout_Btn_Click(object sender, EventArgs e)
         {
             this.Hide();
-            login_form log = new login_form();
+            login_form log = new login_form(authenticator);
             log.Show();
         }
 
@@ -198,9 +205,13 @@ namespace Grocery_Shop
             StockEntry_Btn.MouseEnter += Left_Frame_MouseEnter;
             StockEntry_Btn.MouseLeave += Left_Frame_MouseLeave;
 
-            //Records
+            //Records                                       
             Records_Btn.MouseEnter += Left_Frame_MouseEnter;
             Records_Btn.MouseLeave += Left_Frame_MouseLeave;
+
+            //Sales History                                       
+            SalesHistory_Btn.MouseEnter += Left_Frame_MouseEnter;
+            SalesHistory_Btn.MouseLeave += Left_Frame_MouseLeave;
 
             //Store details
             StoreDetails_Btn.MouseEnter += Left_Frame_MouseEnter;
@@ -229,6 +240,12 @@ namespace Grocery_Shop
             stockEntry_Form2.Visible = false;
             records_Form2.Visible = false;
             vendor_List1.Visible = false;
+        }
+
+        private void SalesHistory_Btn_Click(object sender, EventArgs e)
+        {
+            Daily_Sales daily_Sales = new Daily_Sales();
+            daily_Sales.ShowDialog();
         }
     }
 }

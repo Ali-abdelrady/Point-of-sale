@@ -79,19 +79,19 @@
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Load_InvetoryList = new System.Windows.Forms.Label();
             this.Preview_Inventroy = new System.Windows.Forms.Label();
             this.metroTabPage4 = new MetroFramework.Controls.MetroTabPage();
             this.End_Date = new System.Windows.Forms.DateTimePicker();
             this.Start_Date = new System.Windows.Forms.DateTimePicker();
             this.label12 = new System.Windows.Forms.Label();
             this.StockHistory_Table = new System.Windows.Forms.DataGridView();
-            this.Stock_Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Vendor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Stock_Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Load_StockHistory = new System.Windows.Forms.Label();
             this.Preivew_Stock = new System.Windows.Forms.Label();
             this.metroTabPage1 = new MetroFramework.Controls.MetroTabPage();
@@ -103,28 +103,24 @@
             this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Load_Criticalitems = new System.Windows.Forms.Label();
             this.Preview_CriticalItems = new System.Windows.Forms.Label();
-            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.Cancelled_Order = new MetroFramework.Controls.MetroTabPage();
-            this.Order_EndDate = new System.Windows.Forms.DateTimePicker();
-            this.Order_StartDate = new System.Windows.Forms.DateTimePicker();
+            this.Canceled_EndDate = new System.Windows.Forms.DateTimePicker();
+            this.Canceled_StartDate = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.CancelledOrders_Table = new System.Windows.Forms.DataGridView();
-            this.Load_OrderData = new System.Windows.Forms.Label();
-            this.Preview_CancelledOrders = new System.Windows.Forms.Label();
             this.Ref = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Reason = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Action = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Reason = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Load_CanceledOrders = new System.Windows.Forms.Label();
+            this.Preview_CancelledOrders = new System.Windows.Forms.Label();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel1.SuspendLayout();
             this.Records_Page.SuspendLayout();
             this.TopSales_Page.SuspendLayout();
@@ -193,7 +189,7 @@
             this.Records_Page.Controls.Add(this.Cancelled_Order);
             this.Records_Page.Location = new System.Drawing.Point(6, 57);
             this.Records_Page.Name = "Records_Page";
-            this.Records_Page.SelectedIndex = 5;
+            this.Records_Page.SelectedIndex = 0;
             this.Records_Page.Size = new System.Drawing.Size(1100, 709);
             this.Records_Page.TabIndex = 22;
             this.Records_Page.UseSelectable = true;
@@ -226,7 +222,7 @@
             this.tsEndDate.Name = "tsEndDate";
             this.tsEndDate.Size = new System.Drawing.Size(265, 25);
             this.tsEndDate.TabIndex = 56;
-            this.tsEndDate.Value = new System.DateTime(2023, 9, 16, 0, 0, 0, 0);
+            this.tsEndDate.Value = new System.DateTime(2024, 2, 14, 0, 0, 0, 0);
             // 
             // Load_TopSales
             // 
@@ -262,7 +258,7 @@
             this.tsStartDate.Name = "tsStartDate";
             this.tsStartDate.Size = new System.Drawing.Size(265, 25);
             this.tsStartDate.TabIndex = 52;
-            this.tsStartDate.Value = new System.DateTime(2023, 9, 16, 0, 0, 0, 0);
+            this.tsStartDate.Value = new System.DateTime(2024, 2, 14, 0, 0, 0, 0);
             // 
             // label1
             // 
@@ -440,7 +436,7 @@
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.MenuHighlight;
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
             this.SoldItems_Table.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.SoldItems_Table.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.SoldItems_Table.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.SoldItems_Table.Size = new System.Drawing.Size(1097, 596);
             this.SoldItems_Table.TabIndex = 56;
             // 
@@ -537,7 +533,6 @@
             // 
             this.metroTabPage3.BackColor = System.Drawing.Color.White;
             this.metroTabPage3.Controls.Add(this.Inventory_List);
-            this.metroTabPage3.Controls.Add(this.Load_InvetoryList);
             this.metroTabPage3.Controls.Add(this.Preview_Inventroy);
             this.metroTabPage3.Font = new System.Drawing.Font("Tahoma", 11F);
             this.metroTabPage3.HorizontalScrollbarBarColor = true;
@@ -591,7 +586,7 @@
             dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.MenuHighlight;
             dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
             this.Inventory_List.RowsDefaultCellStyle = dataGridViewCellStyle6;
-            this.Inventory_List.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.Inventory_List.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.Inventory_List.Size = new System.Drawing.Size(1096, 599);
             this.Inventory_List.TabIndex = 62;
             // 
@@ -656,20 +651,6 @@
             this.Column8.HeaderText = "STOCK ON HAND";
             this.Column8.Name = "Column8";
             this.Column8.ReadOnly = true;
-            // 
-            // Load_InvetoryList
-            // 
-            this.Load_InvetoryList.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Load_InvetoryList.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.Load_InvetoryList.Image = global::Grocery_Shop.Properties.Resources.icons8_cycle_30;
-            this.Load_InvetoryList.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Load_InvetoryList.Location = new System.Drawing.Point(802, 18);
-            this.Load_InvetoryList.Name = "Load_InvetoryList";
-            this.Load_InvetoryList.Size = new System.Drawing.Size(127, 37);
-            this.Load_InvetoryList.TabIndex = 67;
-            this.Load_InvetoryList.Text = "     LOAD DATA";
-            this.Load_InvetoryList.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.Load_InvetoryList.Click += new System.EventHandler(this.Load_InvetoryList_Click);
             // 
             // Preview_Inventroy
             // 
@@ -759,12 +740,13 @@
             this.StockHistory_Table.ColumnHeadersHeight = 40;
             this.StockHistory_Table.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.StockHistory_Table.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Stock_Id,
             this.dataGridViewTextBoxColumn7,
             this.dataGridViewTextBoxColumn8,
             this.dataGridViewTextBoxColumn10,
             this.dataGridViewTextBoxColumn12,
-            this.dataGridViewTextBoxColumn11});
+            this.Vendor,
+            this.dataGridViewTextBoxColumn11,
+            this.Stock_Id});
             this.StockHistory_Table.EnableHeadersVisualStyles = false;
             this.StockHistory_Table.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(160)))), ((int)(((byte)(223)))));
             this.StockHistory_Table.Location = new System.Drawing.Point(-4, 75);
@@ -776,19 +758,9 @@
             dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black;
             this.StockHistory_Table.RowsDefaultCellStyle = dataGridViewCellStyle8;
-            this.StockHistory_Table.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.StockHistory_Table.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.StockHistory_Table.Size = new System.Drawing.Size(1100, 596);
             this.StockHistory_Table.TabIndex = 62;
-            // 
-            // Stock_Id
-            // 
-            this.Stock_Id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.Stock_Id.DataPropertyName = "Stock_Id";
-            this.Stock_Id.HeaderText = "REF";
-            this.Stock_Id.Name = "Stock_Id";
-            this.Stock_Id.ReadOnly = true;
-            this.Stock_Id.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Stock_Id.Width = 56;
             // 
             // dataGridViewTextBoxColumn7
             // 
@@ -830,6 +802,13 @@
             this.dataGridViewTextBoxColumn12.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewTextBoxColumn12.Width = 200;
             // 
+            // Vendor
+            // 
+            this.Vendor.DataPropertyName = "Vendor_Name";
+            this.Vendor.HeaderText = "VENDOR";
+            this.Vendor.Name = "Vendor";
+            this.Vendor.ReadOnly = true;
+            // 
             // dataGridViewTextBoxColumn11
             // 
             this.dataGridViewTextBoxColumn11.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -839,6 +818,16 @@
             this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
             this.dataGridViewTextBoxColumn11.ReadOnly = true;
             this.dataGridViewTextBoxColumn11.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // Stock_Id
+            // 
+            this.Stock_Id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Stock_Id.DataPropertyName = "Stock_Id";
+            this.Stock_Id.HeaderText = "REF";
+            this.Stock_Id.Name = "Stock_Id";
+            this.Stock_Id.ReadOnly = true;
+            this.Stock_Id.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Stock_Id.Width = 56;
             // 
             // Load_StockHistory
             // 
@@ -872,7 +861,6 @@
             // 
             this.metroTabPage1.BackColor = System.Drawing.Color.White;
             this.metroTabPage1.Controls.Add(this.CriticalItems_Table);
-            this.metroTabPage1.Controls.Add(this.Load_Criticalitems);
             this.metroTabPage1.Controls.Add(this.Preview_CriticalItems);
             this.metroTabPage1.Font = new System.Drawing.Font("Tahoma", 11F);
             this.metroTabPage1.HorizontalScrollbarBarColor = true;
@@ -926,7 +914,7 @@
             dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.MenuHighlight;
             dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.Black;
             this.CriticalItems_Table.RowsDefaultCellStyle = dataGridViewCellStyle10;
-            this.CriticalItems_Table.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.CriticalItems_Table.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.CriticalItems_Table.Size = new System.Drawing.Size(1092, 599);
             this.CriticalItems_Table.TabIndex = 69;
             this.CriticalItems_Table.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CriticalItems_Table_CellContentClick);
@@ -995,20 +983,6 @@
             this.dataGridViewTextBoxColumn18.ReadOnly = true;
             this.dataGridViewTextBoxColumn18.Width = 62;
             // 
-            // Load_Criticalitems
-            // 
-            this.Load_Criticalitems.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Load_Criticalitems.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.Load_Criticalitems.Image = global::Grocery_Shop.Properties.Resources.icons8_cycle_30;
-            this.Load_Criticalitems.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Load_Criticalitems.Location = new System.Drawing.Point(801, 7);
-            this.Load_Criticalitems.Name = "Load_Criticalitems";
-            this.Load_Criticalitems.Size = new System.Drawing.Size(127, 37);
-            this.Load_Criticalitems.TabIndex = 70;
-            this.Load_Criticalitems.Text = "     LOAD DATA";
-            this.Load_Criticalitems.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.Load_Criticalitems.Click += new System.EventHandler(this.Load_Criticalitems_Click);
-            // 
             // Preview_CriticalItems
             // 
             this.Preview_CriticalItems.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -1023,32 +997,15 @@
             this.Preview_CriticalItems.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.Preview_CriticalItems.Click += new System.EventHandler(this.Preview_CriticalItems_Click);
             // 
-            // dataGridViewImageColumn1
-            // 
-            this.dataGridViewImageColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.dataGridViewImageColumn1.DataPropertyName = "Delete";
-            this.dataGridViewImageColumn1.HeaderText = "DELETE";
-            this.dataGridViewImageColumn1.Image = ((System.Drawing.Image)(resources.GetObject("dataGridViewImageColumn1.Image")));
-            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            // 
-            // dataGridViewImageColumn2
-            // 
-            this.dataGridViewImageColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.dataGridViewImageColumn2.DataPropertyName = "Delete";
-            this.dataGridViewImageColumn2.HeaderText = "EDIT";
-            this.dataGridViewImageColumn2.Image = ((System.Drawing.Image)(resources.GetObject("dataGridViewImageColumn2.Image")));
-            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
-            this.dataGridViewImageColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewImageColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
             // Cancelled_Order
             // 
-            this.Cancelled_Order.Controls.Add(this.Order_EndDate);
-            this.Cancelled_Order.Controls.Add(this.Order_StartDate);
+            this.Cancelled_Order.Controls.Add(this.Canceled_EndDate);
+            this.Cancelled_Order.Controls.Add(this.Canceled_StartDate);
             this.Cancelled_Order.Controls.Add(this.label2);
             this.Cancelled_Order.Controls.Add(this.CancelledOrders_Table);
-            this.Cancelled_Order.Controls.Add(this.Load_OrderData);
+            this.Cancelled_Order.Controls.Add(this.Load_CanceledOrders);
             this.Cancelled_Order.Controls.Add(this.Preview_CancelledOrders);
+            this.Cancelled_Order.Font = new System.Drawing.Font("Tahoma", 11F);
             this.Cancelled_Order.HorizontalScrollbarBarColor = true;
             this.Cancelled_Order.HorizontalScrollbarHighlightOnWheel = false;
             this.Cancelled_Order.HorizontalScrollbarSize = 10;
@@ -1061,23 +1018,23 @@
             this.Cancelled_Order.VerticalScrollbarHighlightOnWheel = false;
             this.Cancelled_Order.VerticalScrollbarSize = 10;
             // 
-            // Order_EndDate
+            // Canceled_EndDate
             // 
-            this.Order_EndDate.CalendarFont = new System.Drawing.Font("Tahoma", 11F);
-            this.Order_EndDate.Font = new System.Drawing.Font("Tahoma", 11F);
-            this.Order_EndDate.Location = new System.Drawing.Point(429, 13);
-            this.Order_EndDate.Name = "Order_EndDate";
-            this.Order_EndDate.Size = new System.Drawing.Size(265, 25);
-            this.Order_EndDate.TabIndex = 73;
+            this.Canceled_EndDate.CalendarFont = new System.Drawing.Font("Tahoma", 11F);
+            this.Canceled_EndDate.Font = new System.Drawing.Font("Tahoma", 11F);
+            this.Canceled_EndDate.Location = new System.Drawing.Point(429, 13);
+            this.Canceled_EndDate.Name = "Canceled_EndDate";
+            this.Canceled_EndDate.Size = new System.Drawing.Size(265, 25);
+            this.Canceled_EndDate.TabIndex = 73;
             // 
-            // Order_StartDate
+            // Canceled_StartDate
             // 
-            this.Order_StartDate.CalendarFont = new System.Drawing.Font("Tahoma", 11F);
-            this.Order_StartDate.Font = new System.Drawing.Font("Tahoma", 11F);
-            this.Order_StartDate.Location = new System.Drawing.Point(120, 13);
-            this.Order_StartDate.Name = "Order_StartDate";
-            this.Order_StartDate.Size = new System.Drawing.Size(265, 25);
-            this.Order_StartDate.TabIndex = 70;
+            this.Canceled_StartDate.CalendarFont = new System.Drawing.Font("Tahoma", 11F);
+            this.Canceled_StartDate.Font = new System.Drawing.Font("Tahoma", 11F);
+            this.Canceled_StartDate.Location = new System.Drawing.Point(120, 13);
+            this.Canceled_StartDate.Name = "Canceled_StartDate";
+            this.Canceled_StartDate.Size = new System.Drawing.Size(265, 25);
+            this.Canceled_StartDate.TabIndex = 70;
             // 
             // label2
             // 
@@ -1113,16 +1070,13 @@
             this.CancelledOrders_Table.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.CancelledOrders_Table.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Ref,
-            this.dataGridViewTextBoxColumn20,
             this.dataGridViewTextBoxColumn21,
             this.Price,
             this.dataGridViewTextBoxColumn22,
-            this.Total,
             this.dataGridViewTextBoxColumn24,
-            this.dataGridViewTextBoxColumn23,
             this.Column9,
-            this.Reason,
-            this.Action});
+            this.Action,
+            this.Reason});
             this.CancelledOrders_Table.EnableHeadersVisualStyles = false;
             this.CancelledOrders_Table.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(160)))), ((int)(((byte)(223)))));
             this.CancelledOrders_Table.Location = new System.Drawing.Point(-5, 64);
@@ -1134,38 +1088,9 @@
             dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.Black;
             this.CancelledOrders_Table.RowsDefaultCellStyle = dataGridViewCellStyle12;
-            this.CancelledOrders_Table.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.CancelledOrders_Table.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.CancelledOrders_Table.Size = new System.Drawing.Size(1100, 596);
             this.CancelledOrders_Table.TabIndex = 68;
-            // 
-            // Load_OrderData
-            // 
-            this.Load_OrderData.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Load_OrderData.BackColor = System.Drawing.Color.White;
-            this.Load_OrderData.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.Load_OrderData.Image = global::Grocery_Shop.Properties.Resources.icons8_cycle_30;
-            this.Load_OrderData.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Load_OrderData.Location = new System.Drawing.Point(801, 7);
-            this.Load_OrderData.Name = "Load_OrderData";
-            this.Load_OrderData.Size = new System.Drawing.Size(127, 37);
-            this.Load_OrderData.TabIndex = 72;
-            this.Load_OrderData.Text = "     LOAD DATA";
-            this.Load_OrderData.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.Load_OrderData.Click += new System.EventHandler(this.Load_OrderData_Click);
-            // 
-            // Preview_CancelledOrders
-            // 
-            this.Preview_CancelledOrders.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Preview_CancelledOrders.BackColor = System.Drawing.Color.White;
-            this.Preview_CancelledOrders.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.Preview_CancelledOrders.Image = global::Grocery_Shop.Properties.Resources.icons8_printer_30__1_;
-            this.Preview_CancelledOrders.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Preview_CancelledOrders.Location = new System.Drawing.Point(933, 6);
-            this.Preview_CancelledOrders.Name = "Preview_CancelledOrders";
-            this.Preview_CancelledOrders.Size = new System.Drawing.Size(164, 38);
-            this.Preview_CancelledOrders.TabIndex = 71;
-            this.Preview_CancelledOrders.Text = "    PRINT PREVIEW";
-            this.Preview_CancelledOrders.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Ref
             // 
@@ -1177,20 +1102,10 @@
             this.Ref.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.Ref.Width = 103;
             // 
-            // dataGridViewTextBoxColumn20
-            // 
-            this.dataGridViewTextBoxColumn20.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.dataGridViewTextBoxColumn20.DataPropertyName = "Product_Id";
-            this.dataGridViewTextBoxColumn20.HeaderText = "PCODE";
-            this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
-            this.dataGridViewTextBoxColumn20.ReadOnly = true;
-            this.dataGridViewTextBoxColumn20.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewTextBoxColumn20.Width = 77;
-            // 
             // dataGridViewTextBoxColumn21
             // 
             this.dataGridViewTextBoxColumn21.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn21.DataPropertyName = "Product_Name";
+            this.dataGridViewTextBoxColumn21.DataPropertyName = "DES";
             this.dataGridViewTextBoxColumn21.HeaderText = "DESCRIPTION";
             this.dataGridViewTextBoxColumn21.Name = "dataGridViewTextBoxColumn21";
             this.dataGridViewTextBoxColumn21.ReadOnly = true;
@@ -1209,21 +1124,12 @@
             // dataGridViewTextBoxColumn22
             // 
             this.dataGridViewTextBoxColumn22.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.dataGridViewTextBoxColumn22.DataPropertyName = "QTY";
-            this.dataGridViewTextBoxColumn22.HeaderText = "QTY";
+            this.dataGridViewTextBoxColumn22.DataPropertyName = "Cancelled_Qty";
+            this.dataGridViewTextBoxColumn22.HeaderText = "CANCELLED_QTY";
             this.dataGridViewTextBoxColumn22.Name = "dataGridViewTextBoxColumn22";
             this.dataGridViewTextBoxColumn22.ReadOnly = true;
             this.dataGridViewTextBoxColumn22.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewTextBoxColumn22.Width = 62;
-            // 
-            // Total
-            // 
-            this.Total.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.Total.DataPropertyName = "Total";
-            this.Total.HeaderText = "TOTAL";
-            this.Total.Name = "Total";
-            this.Total.ReadOnly = true;
-            this.Total.Width = 78;
+            this.dataGridViewTextBoxColumn22.Width = 147;
             // 
             // dataGridViewTextBoxColumn24
             // 
@@ -1236,43 +1142,80 @@
             this.dataGridViewTextBoxColumn24.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewTextBoxColumn24.Width = 68;
             // 
-            // dataGridViewTextBoxColumn23
-            // 
-            this.dataGridViewTextBoxColumn23.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.dataGridViewTextBoxColumn23.DataPropertyName = "Void_By";
-            this.dataGridViewTextBoxColumn23.FillWeight = 140F;
-            this.dataGridViewTextBoxColumn23.HeaderText = "VOID_BY";
-            this.dataGridViewTextBoxColumn23.Name = "dataGridViewTextBoxColumn23";
-            this.dataGridViewTextBoxColumn23.ReadOnly = true;
-            this.dataGridViewTextBoxColumn23.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewTextBoxColumn23.Width = 94;
-            // 
             // Column9
             // 
             this.Column9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.Column9.DataPropertyName = "Cancelled_By";
+            this.Column9.DataPropertyName = "CancelledBy";
             this.Column9.HeaderText = "CANCELLED_BY";
             this.Column9.Name = "Column9";
             this.Column9.ReadOnly = true;
             this.Column9.Width = 135;
             // 
+            // Action
+            // 
+            this.Action.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.Action.DataPropertyName = "Action";
+            this.Action.HeaderText = "ADDED_TO_INVENTORY";
+            this.Action.Name = "Action";
+            this.Action.ReadOnly = true;
+            this.Action.Width = 198;
+            // 
             // Reason
             // 
             this.Reason.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.Reason.DataPropertyName = "Reason";
+            this.Reason.DataPropertyName = "Cancel_Reason";
             this.Reason.HeaderText = "REASON";
             this.Reason.Name = "Reason";
             this.Reason.ReadOnly = true;
             this.Reason.Width = 86;
             // 
-            // Action
+            // Load_CanceledOrders
             // 
-            this.Action.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.Action.DataPropertyName = "Action";
-            this.Action.HeaderText = "ACTION";
-            this.Action.Name = "Action";
-            this.Action.ReadOnly = true;
-            this.Action.Width = 86;
+            this.Load_CanceledOrders.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Load_CanceledOrders.BackColor = System.Drawing.Color.White;
+            this.Load_CanceledOrders.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.Load_CanceledOrders.Image = global::Grocery_Shop.Properties.Resources.icons8_cycle_30;
+            this.Load_CanceledOrders.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Load_CanceledOrders.Location = new System.Drawing.Point(801, 7);
+            this.Load_CanceledOrders.Name = "Load_CanceledOrders";
+            this.Load_CanceledOrders.Size = new System.Drawing.Size(127, 37);
+            this.Load_CanceledOrders.TabIndex = 72;
+            this.Load_CanceledOrders.Text = "     LOAD DATA";
+            this.Load_CanceledOrders.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Load_CanceledOrders.Click += new System.EventHandler(this.Load_CanceledOrders_Click);
+            // 
+            // Preview_CancelledOrders
+            // 
+            this.Preview_CancelledOrders.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Preview_CancelledOrders.BackColor = System.Drawing.Color.White;
+            this.Preview_CancelledOrders.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.Preview_CancelledOrders.Image = global::Grocery_Shop.Properties.Resources.icons8_printer_30__1_;
+            this.Preview_CancelledOrders.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Preview_CancelledOrders.Location = new System.Drawing.Point(933, 6);
+            this.Preview_CancelledOrders.Name = "Preview_CancelledOrders";
+            this.Preview_CancelledOrders.Size = new System.Drawing.Size(164, 38);
+            this.Preview_CancelledOrders.TabIndex = 71;
+            this.Preview_CancelledOrders.Text = "    PRINT PREVIEW";
+            this.Preview_CancelledOrders.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Preview_CancelledOrders.Click += new System.EventHandler(this.Preview_CancelledOrders_Click);
+            // 
+            // dataGridViewImageColumn1
+            // 
+            this.dataGridViewImageColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.dataGridViewImageColumn1.DataPropertyName = "Delete";
+            this.dataGridViewImageColumn1.HeaderText = "DELETE";
+            this.dataGridViewImageColumn1.Image = ((System.Drawing.Image)(resources.GetObject("dataGridViewImageColumn1.Image")));
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            // 
+            // dataGridViewImageColumn2
+            // 
+            this.dataGridViewImageColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.dataGridViewImageColumn2.DataPropertyName = "Delete";
+            this.dataGridViewImageColumn2.HeaderText = "EDIT";
+            this.dataGridViewImageColumn2.Image = ((System.Drawing.Image)(resources.GetObject("dataGridViewImageColumn2.Image")));
+            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
+            this.dataGridViewImageColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewImageColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // Records_Form
             // 
@@ -1284,6 +1227,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "Records_Form";
             this.Size = new System.Drawing.Size(1109, 769);
+            this.Load += new System.EventHandler(this.Records_Form_Load);
             this.panel1.ResumeLayout(false);
             this.Records_Page.ResumeLayout(false);
             this.TopSales_Page.ResumeLayout(false);
@@ -1330,7 +1274,6 @@
         private System.Windows.Forms.DateTimePicker Start_Date;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.DataGridView StockHistory_Table;
-        private System.Windows.Forms.Label Load_InvetoryList;
         private System.Windows.Forms.DateTimePicker End_Date;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
@@ -1352,15 +1295,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Date_time;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Stock_Id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
         private MetroFramework.Controls.MetroTabPage metroTabPage1;
         private System.Windows.Forms.DataGridView CriticalItems_Table;
-        private System.Windows.Forms.Label Load_Criticalitems;
         private System.Windows.Forms.Label Preview_CriticalItems;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
@@ -1370,22 +1306,26 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
         private MetroFramework.Controls.MetroTabPage Cancelled_Order;
-        private System.Windows.Forms.DateTimePicker Order_EndDate;
-        private System.Windows.Forms.DateTimePicker Order_StartDate;
+        private System.Windows.Forms.DateTimePicker Canceled_EndDate;
+        private System.Windows.Forms.DateTimePicker Canceled_StartDate;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView CancelledOrders_Table;
-        private System.Windows.Forms.Label Load_OrderData;
+        private System.Windows.Forms.Label Load_CanceledOrders;
         private System.Windows.Forms.Label Preview_CancelledOrders;
         private System.Windows.Forms.DataGridViewTextBoxColumn Ref;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn20;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn21;
         private System.Windows.Forms.DataGridViewTextBoxColumn Price;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn22;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Total;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn24;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn23;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Reason;
         private System.Windows.Forms.DataGridViewTextBoxColumn Action;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Reason;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Vendor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Stock_Id;
     }
 }

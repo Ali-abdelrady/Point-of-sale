@@ -58,7 +58,6 @@
             this.user_account_icon.Name = "user_account_icon";
             this.user_account_icon.Size = new System.Drawing.Size(377, 216);
             this.user_account_icon.TabIndex = 0;
-            this.user_account_icon.Click += new System.EventHandler(this.user_account_icon_Click);
             // 
             // panel2
             // 
@@ -73,7 +72,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(377, 318);
             this.panel2.TabIndex = 1;
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // label2
             // 

@@ -92,7 +92,7 @@
             this.Search_Txtbox.Name = "Search_Txtbox";
             this.Search_Txtbox.Size = new System.Drawing.Size(353, 25);
             this.Search_Txtbox.TabIndex = 27;
-            this.Search_Txtbox.Text = "   Search here";
+            this.Search_Txtbox.Text = " Search here";
             this.Search_Txtbox.TextChanged += new System.EventHandler(this.Search_Txtbox_TextChanged);
             this.Search_Txtbox.Enter += new System.EventHandler(this.Search_Txtbox_Enter);
             this.Search_Txtbox.Leave += new System.EventHandler(this.Search_Txtbox_Leave);
@@ -197,7 +197,7 @@
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.MenuHighlight;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
             this.Products_Table.RowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.Products_Table.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.Products_Table.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.Products_Table.Size = new System.Drawing.Size(1193, 579);
             this.Products_Table.TabIndex = 26;
             this.Products_Table.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Products_Table_CellContentClick);
@@ -208,13 +208,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1197, 661);
+            this.ControlBox = false;
             this.Controls.Add(this.Search_Txtbox);
             this.Controls.Add(this.Products_Table);
             this.Controls.Add(this.panel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Product_List";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "p";
             this.Load += new System.EventHandler(this.Product_List_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Products_Table)).EndInit();

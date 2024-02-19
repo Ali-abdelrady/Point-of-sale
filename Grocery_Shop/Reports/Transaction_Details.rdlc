@@ -60,22 +60,22 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>0.80188in</Width>
+                  <Width>0.8748in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.15604in</Width>
+                  <Width>1.22896in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.80188in</Width>
+                  <Width>0.8748in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.80188in</Width>
+                  <Width>0.8748in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.80188in</Width>
+                  <Width>0.8748in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.80188in</Width>
+                  <Width>0.8748in</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -510,7 +510,7 @@
             <DataSetName>SoldItems</DataSetName>
             <Top>0.05556in</Top>
             <Height>0.50348in</Height>
-            <Width>5.16544in</Width>
+            <Width>5.60294in</Width>
             <Style>
               <Border>
                 <Style>Solid</Style>
@@ -542,7 +542,7 @@
         <Height>3.375in</Height>
         <Style />
       </Body>
-      <Width>5.32167in</Width>
+      <Width>5.70709in</Width>
       <Page>
         <PageHeader>
           <Height>1.57167in</Height>
@@ -568,10 +568,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Store</rd:DefaultName>
-              <Top>0.08555in</Top>
-              <Left>1.08333in</Left>
-              <Height>0.25in</Height>
-              <Width>2.73834in</Width>
+              <Height>0.33555in</Height>
+              <Width>5.70709in</Width>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -602,10 +600,9 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Address</rd:DefaultName>
-              <Top>0.37722in</Top>
-              <Left>1.08333in</Left>
+              <Top>0.39111in</Top>
               <Height>0.25in</Height>
-              <Width>2.73834in</Width>
+              <Width>5.70709in</Width>
               <ZIndex>1</ZIndex>
               <Style>
                 <Border>
@@ -729,7 +726,7 @@
               <rd:DefaultName>Textbox20</rd:DefaultName>
               <Top>1.27653in</Top>
               <Height>0.25in</Height>
-              <Width>5.16542in</Width>
+              <Width>5.70709in</Width>
               <ZIndex>5</ZIndex>
               <Style>
                 <Border>
@@ -749,7 +746,7 @@
           </Style>
         </PageHeader>
         <PageFooter>
-          <Height>1in</Height>
+          <Height>1.5in</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
@@ -760,20 +757,21 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>Thank You</Value>
+                      <Value>THANK YOU</Value>
                       <Style>
                         <FontSize>14pt</FontSize>
                       </Style>
                     </TextRun>
                   </TextRuns>
-                  <Style />
+                  <Style>
+                    <TextAlign>Center</TextAlign>
+                  </Style>
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox16</rd:DefaultName>
               <Top>0.26042in</Top>
-              <Left>1.95792in</Left>
               <Height>0.25in</Height>
-              <Width>1.23958in</Width>
+              <Width>5.70709in</Width>
               <Style>
                 <Border>
                   <Style>None</Style>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Grocery_Shop.Classes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,19 +9,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace Grocery_Shop
 {  
     public partial class Product_List : Form
     {
-        //Database Connection
-        static string sql = "Data Source =ALIABDERADY\\SQLEXPRESS01; Initial Catalog=Shop; Integrated Security=True; User ID=''; Password = ''";
-        SqlConnection con = new SqlConnection(sql);
-
+        ///Database Connection
+        private SqlConnection con;
+        TextboxStyles textboxStyle = new TextboxStyles();
         StockEntry_Form entryForm;
         public Product_List(StockEntry_Form entryForm)
         {
             InitializeComponent();
+            con = DatabaseManger.CreateConnection();
             this.entryForm = entryForm;
         }
 
@@ -63,9 +65,11 @@ namespace Grocery_Shop
             {
                 DataTable dt = new DataTable();
                 string product_name = Search_Txtbox.Text;
-                string query = "SELECT Product_Id,Name,Cur_Amount FROM Products WHERE Name LIKE '%" + product_name + "%'";
+                string query1 = "SELECT Product_Id,Name,Cur_Amount FROM Products WHERE Name LIKE '%" + product_name + "%'";
+                string query2 = "SELECT Product_Id,Name,Cur_Amount FROM Products";
+                string res_query = (product_name == " Search here") ? query2 : query1;
                 con.Open();
-                SqlCommand cmd = new SqlCommand(query, con);
+                SqlCommand cmd = new SqlCommand(res_query, con);
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                 adapter.Fill(dt);
                 Products_Table.DataSource = dt;
@@ -94,20 +98,12 @@ namespace Grocery_Shop
         }
         private void Search_Txtbox_Enter(object sender, EventArgs e)
         {
-            if (Search_Txtbox.Text == " Search here")
-            {
-                Search_Txtbox.Clear();
-                Search_Txtbox.ForeColor = Color.Black;
-            }
+            textboxStyle.Textbox_Enter(Search_Txtbox, " Search here");
         }
 
         private void Search_Txtbox_Leave(object sender, EventArgs e)
         {
-            if (Search_Txtbox.Text == "")
-            {
-                Search_Txtbox.Text = " Search here";
-                Search_Txtbox.ForeColor = Color.Gray;
-            }
+            textboxStyle.Textbox_Leave(Search_Txtbox, " Search here");
         }
 
     }

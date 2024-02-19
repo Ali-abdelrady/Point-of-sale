@@ -52,8 +52,6 @@
             this.label11 = new System.Windows.Forms.Label();
             this.CancelBy_Textbox = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.VoidBy_Textbox = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
             this.Cancel_Btn = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
             this.Action_cmbobox = new System.Windows.Forms.ComboBox();
@@ -252,6 +250,8 @@
             // 
             // Reason_Textbox
             // 
+            this.Reason_Textbox.AcceptsTab = true;
+            this.Reason_Textbox.AllowDrop = true;
             this.Reason_Textbox.Font = new System.Drawing.Font("Tahoma", 11F);
             this.Reason_Textbox.Location = new System.Drawing.Point(670, 364);
             this.Reason_Textbox.Multiline = true;
@@ -291,7 +291,7 @@
             // 
             this.CancelBy_Textbox.Font = new System.Drawing.Font("Tahoma", 12F);
             this.CancelBy_Textbox.ForeColor = System.Drawing.SystemColors.ScrollBar;
-            this.CancelBy_Textbox.Location = new System.Drawing.Point(161, 366);
+            this.CancelBy_Textbox.Location = new System.Drawing.Point(160, 325);
             this.CancelBy_Textbox.Name = "CancelBy_Textbox";
             this.CancelBy_Textbox.ReadOnly = true;
             this.CancelBy_Textbox.Size = new System.Drawing.Size(270, 27);
@@ -300,32 +300,12 @@
             // label12
             // 
             this.label12.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.label12.Location = new System.Drawing.Point(24, 366);
+            this.label12.Location = new System.Drawing.Point(23, 325);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(129, 30);
             this.label12.TabIndex = 75;
             this.label12.Text = "CANCEL BY";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // VoidBy_Textbox
-            // 
-            this.VoidBy_Textbox.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.VoidBy_Textbox.ForeColor = System.Drawing.SystemColors.ScrollBar;
-            this.VoidBy_Textbox.Location = new System.Drawing.Point(161, 325);
-            this.VoidBy_Textbox.Name = "VoidBy_Textbox";
-            this.VoidBy_Textbox.ReadOnly = true;
-            this.VoidBy_Textbox.Size = new System.Drawing.Size(270, 27);
-            this.VoidBy_Textbox.TabIndex = 74;
-            // 
-            // label13
-            // 
-            this.label13.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.label13.Location = new System.Drawing.Point(25, 324);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(129, 30);
-            this.label13.TabIndex = 73;
-            this.label13.Text = "VOID BY";
-            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // Cancel_Btn
             // 
@@ -344,7 +324,7 @@
             // label14
             // 
             this.label14.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.label14.Location = new System.Drawing.Point(24, 404);
+            this.label14.Location = new System.Drawing.Point(23, 363);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(140, 30);
             this.label14.TabIndex = 82;
@@ -358,10 +338,11 @@
             this.Action_cmbobox.Items.AddRange(new object[] {
             "Yes",
             "No"});
-            this.Action_cmbobox.Location = new System.Drawing.Point(161, 407);
+            this.Action_cmbobox.Location = new System.Drawing.Point(160, 366);
             this.Action_cmbobox.Name = "Action_cmbobox";
             this.Action_cmbobox.Size = new System.Drawing.Size(270, 27);
             this.Action_cmbobox.TabIndex = 83;
+            this.Action_cmbobox.Text = "Yes";
             // 
             // Discount_TextBox
             // 
@@ -402,8 +383,6 @@
             this.Controls.Add(this.label11);
             this.Controls.Add(this.CancelBy_Textbox);
             this.Controls.Add(this.label12);
-            this.Controls.Add(this.VoidBy_Textbox);
-            this.Controls.Add(this.label13);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.Total_Textbox);
             this.Controls.Add(this.label8);
@@ -419,14 +398,13 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.panel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Cancel_Order";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Cancel_Order";
             this.TopMost = true;
             this.Load += new System.EventHandler(this.Cancel_Order_Load);
             this.panel1.ResumeLayout(false);
@@ -461,8 +439,6 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox CancelBy_Textbox;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox VoidBy_Textbox;
-        private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Button Cancel_Btn;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.ComboBox Action_cmbobox;

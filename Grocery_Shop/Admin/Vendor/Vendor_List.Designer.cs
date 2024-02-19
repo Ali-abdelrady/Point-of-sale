@@ -97,7 +97,7 @@
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             this.Vendors_Table.RowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.Vendors_Table.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.Vendors_Table.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.Vendors_Table.Size = new System.Drawing.Size(1103, 609);
             this.Vendors_Table.TabIndex = 24;
             this.Vendors_Table.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Vendors_Table_CellClick);
@@ -110,7 +110,7 @@
             this.Column4.HeaderText = "ID";
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
-            this.Column4.Width = 54;
+            this.Column4.Width = 53;
             // 
             // Category_Col
             // 
@@ -119,7 +119,7 @@
             this.Category_Col.HeaderText = "VENDOR";
             this.Category_Col.Name = "Category_Col";
             this.Category_Col.ReadOnly = true;
-            this.Category_Col.Width = 107;
+            this.Category_Col.Width = 106;
             // 
             // Column1
             // 
@@ -155,7 +155,7 @@
             this.edit_col.ReadOnly = true;
             this.edit_col.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.edit_col.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.edit_col.Width = 76;
+            this.edit_col.Width = 75;
             // 
             // Delete_Cell
             // 
@@ -165,7 +165,7 @@
             this.Delete_Cell.Image = global::Grocery_Shop.Properties.Resources.icons8_trash_20;
             this.Delete_Cell.Name = "Delete_Cell";
             this.Delete_Cell.ReadOnly = true;
-            this.Delete_Cell.Width = 81;
+            this.Delete_Cell.Width = 80;
             // 
             // panel1
             // 
@@ -191,7 +191,7 @@
             this.Search_Txtbox.Name = "Search_Txtbox";
             this.Search_Txtbox.Size = new System.Drawing.Size(353, 25);
             this.Search_Txtbox.TabIndex = 5;
-            this.Search_Txtbox.Text = "   Search here";
+            this.Search_Txtbox.Text = "  Search here";
             this.Search_Txtbox.Click += new System.EventHandler(this.Search_Txtbox_Click);
             this.Search_Txtbox.TextChanged += new System.EventHandler(this.Search_Txtbox_TextChanged);
             this.Search_Txtbox.Enter += new System.EventHandler(this.Search_Txtbox_Enter);

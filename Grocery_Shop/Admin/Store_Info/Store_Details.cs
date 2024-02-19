@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Grocery_Shop.Classes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,11 +15,11 @@ namespace Grocery_Shop
     public partial class Store_Details : Form
     {
         //Database Connection
-        static string sql = "Data Source =ALIABDERADY\\SQLEXPRESS01; Initial Catalog=Shop; Integrated Security=True; User ID=''; Password = ''";
-        SqlConnection con = new SqlConnection(sql);
+        private SqlConnection con;
         public Store_Details()
         {
             InitializeComponent();
+            con = DatabaseManger.CreateConnection();
         }
 
         private void label2_Click(object sender, EventArgs e)

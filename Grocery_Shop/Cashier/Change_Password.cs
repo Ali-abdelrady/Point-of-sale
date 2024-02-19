@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Grocery_Shop.Classes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,11 +14,13 @@ namespace Grocery_Shop.Cashier
 {
     public partial class Change_Password : Form
     {
-        static string sql = "Data Source =ALIABDERADY\\SQLEXPRESS01; Initial Catalog=Shop; Integrated Security=True; User ID=''; Password = ''";
-        SqlConnection con = new SqlConnection(sql);
+        //Database Connection
+        private SqlConnection con;
+        TextboxStyles textboxStyles = new TextboxStyles();
         public Change_Password()
         {
             InitializeComponent();
+            con = DatabaseManger.CreateConnection();
         }
 
         private void Save_Btn_Click(object sender, EventArgs e)
@@ -32,7 +35,7 @@ namespace Grocery_Shop.Cashier
                     con.Open();
                     SqlCommand cmd = new SqlCommand(query, con);
                     cmd.Parameters.AddWithValue("@password", password);
-                    cmd.Parameters.AddWithValue("@user_id", Global.User_Id);
+                    cmd.Parameters.AddWithValue("@user_id", Global.Emp_Id);
                 }
                 catch
                 {
@@ -62,38 +65,24 @@ namespace Grocery_Shop.Cashier
 
         private void Password_Txtbox_Enter(object sender, EventArgs e)
         {
-            if (Password_Txtbox.Text == " New Password")
-            {
-                Password_Txtbox.Clear();
-                Password_Txtbox.ForeColor = Color.Black;
-            }
+            textboxStyles.Textbox_Enter(Password_Txtbox," New Password");
+
         }
 
         private void Password_Txtbox_Leave(object sender, EventArgs e)
         {
-            if (Password_Txtbox.Text == "")
-            {
-                Password_Txtbox.Text = " New Password";
-                Password_Txtbox.ForeColor = Color.Gray;
-            }
+
+            textboxStyles.Textbox_Leave(Password_Txtbox," New Password");
         }
 
         private void Confirmation_Txtbox_Enter(object sender, EventArgs e)
         {
-            if (Confirmation_Txtbox.Text == " Confirm New Password")
-            {
-                Confirmation_Txtbox.Clear();
-                Confirmation_Txtbox.ForeColor = Color.Black;
-            }
+            textboxStyles.Textbox_Enter(Confirmation_Txtbox, " Confirm New Password");
         }
 
         private void Confirmation_Txtbox_Leave(object sender, EventArgs e)
         {
-            if (Confirmation_Txtbox.Text == "")
-            {
-                Confirmation_Txtbox.Text = " Confirm New Password";
-                Confirmation_Txtbox.ForeColor = Color.Gray;
-            }
+            textboxStyles.Textbox_Leave(Confirmation_Txtbox, " Confirm New Password");
         }
 
         private void Change_Password_Load(object sender, EventArgs e)

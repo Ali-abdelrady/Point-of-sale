@@ -329,14 +329,13 @@
     <Compile Include="Cashier\Discount_Form.Designer.cs">
       <DependentUpon>Discount_Form.cs</DependentUpon>
     </Compile>
-    <Compile Include="Cashier\Order_Void.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Cashier\Order_Void.Designer.cs">
-      <DependentUpon>Order_Void.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Classes\DatabaseManger.cs" />
     <Compile Include="Classes\Global.cs" />
+    <Compile Include="Classes\ReportServices.cs" />
     <Compile Include="Classes\SoldItem_Details.cs" />
+    <Compile Include="Classes\TextboxStyles.cs" />
+    <Compile Include="Classes\Validations.cs" />
+    <Compile Include="Login\Authenticator.cs" />
     <Compile Include="Login\login form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -381,6 +380,13 @@
     </Compile>
     <Compile Include="Cashier\Settle+Payment.Designer.cs">
       <DependentUpon>Settle+Payment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs" />
+    <Compile Include="Reports\Cancelled_Items_Report.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\Cancelled_Items_Report.Designer.cs">
+      <DependentUpon>Cancelled_Items_Report.cs</DependentUpon>
     </Compile>
     <Compile Include="Reports\Critical_Items_Report.cs">
       <SubType>Form</SubType>
@@ -491,9 +497,6 @@
     <EmbeddedResource Include="Cashier\Discount_Form.resx">
       <DependentUpon>Discount_Form.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Cashier\Order_Void.resx">
-      <DependentUpon>Order_Void.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Login\login form.resx">
       <DependentUpon>login form.cs</DependentUpon>
     </EmbeddedResource>
@@ -508,14 +511,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources1.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="Cashier\Quantity_form.resx">
       <DependentUpon>Quantity_form.cs</DependentUpon>
     </EmbeddedResource>
@@ -539,6 +537,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\Vendor\Vendor_List.resx">
       <DependentUpon>Vendor_List.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Cancelled_Items.rdlc" />
+    <EmbeddedResource Include="Reports\Cancelled_Items_Report.resx">
+      <DependentUpon>Cancelled_Items_Report.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\Critical_Items_Report.resx">
       <DependentUpon>Critical_Items_Report.cs</DependentUpon>
@@ -846,6 +848,8 @@
     <None Include="Resources\icons8-home-30 %281%29.png" />
     <None Include="Resources\icons8-cancel-order-20.png" />
     <None Include="Resources\icons8-cancel-order-201.png" />
+    <None Include="Resources\icons8-arrow-20.png" />
+    <None Include="Resources\icons8-arrow-201.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

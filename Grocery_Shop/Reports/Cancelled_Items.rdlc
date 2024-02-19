@@ -6,22 +6,25 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>2.03646in</Width>
+              <Width>1.74554in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.03646in</Width>
+              <Width>1.74554in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.03646in</Width>
+              <Width>1.74554in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.03646in</Width>
+              <Width>1.74554in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.03646in</Width>
+              <Width>1.74554in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.03646in</Width>
+              <Width>1.74554in</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>1.74554in</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>1in</Width>
@@ -40,7 +43,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>PCODE</Value>
+                              <Value>TRANS.NO</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -101,7 +104,7 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox25">
+                    <Textbox Name="Textbox23">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
@@ -109,6 +112,40 @@
                           <TextRuns>
                             <TextRun>
                               <Value>PRICE</Value>
+                              <Style />
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox23</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>DimGray</BackgroundColor>
+                        <VerticalAlign>Middle</VerticalAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox25">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>CANCELLED_QTY</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -142,7 +179,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>DISCOUNT</Value>
+                              <Value>DATE</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -176,7 +213,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>QTY</Value>
+                              <Value>CANCELLED_BY</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -210,7 +247,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>TOTAL SALES</Value>
+                              <Value>ADDED_TO_INVENTORY</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -237,14 +274,14 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox3">
+                    <Textbox Name="Textbox53">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>SOLDBY</Value>
+                              <Value>REASON</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -253,7 +290,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox3</rd:DefaultName>
+                      <rd:DefaultName>Textbox53</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -276,14 +313,14 @@
               <TablixCells>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="PCODE">
+                    <Textbox Name="Transaction_Id">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!PCODE.Value</Value>
+                              <Value>=Fields!Transaction_Id.Value</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -292,7 +329,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>PCODE</rd:DefaultName>
+                      <rd:DefaultName>Transaction_Id</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -309,14 +346,14 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="DESCRIPTION">
+                    <Textbox Name="Name">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!DESCRIPTION.Value</Value>
+                              <Value>=Fields!Name.Value</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -325,7 +362,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>DESCRIPTION</rd:DefaultName>
+                      <rd:DefaultName>Name</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -342,14 +379,14 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="PRICE">
+                    <Textbox Name="Price1">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!PRICE.Value</Value>
+                              <Value>=Fields!Price.Value</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -358,7 +395,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>PRICE</rd:DefaultName>
+                      <rd:DefaultName>Price1</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -375,14 +412,14 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="DISCOUNT">
+                    <Textbox Name="Cancelled_Qty">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!DISCOUNT.Value</Value>
+                              <Value>=Fields!Cancelled_Qty.Value</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -391,7 +428,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>DISCOUNT</rd:DefaultName>
+                      <rd:DefaultName>Cancelled_Qty</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -408,14 +445,14 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="QTY">
+                    <Textbox Name="Cancelled_Date">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!QTY.Value</Value>
+                              <Value>=Fields!Cancelled_Date.Value</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -424,7 +461,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>QTY</rd:DefaultName>
+                      <rd:DefaultName>Cancelled_Date</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -441,14 +478,14 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="TOTAL_SALES">
+                    <Textbox Name="CancelledBy">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!TOTAL_SALES.Value</Value>
+                              <Value>=Fields!CancelledBy.Value</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -457,7 +494,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>TOTAL_SALES</rd:DefaultName>
+                      <rd:DefaultName>CancelledBy</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -474,14 +511,14 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="SoldBy">
+                    <Textbox Name="Action">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!SoldBy.Value</Value>
+                              <Value>=Fields!Action.Value</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -490,7 +527,40 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>SoldBy</rd:DefaultName>
+                      <rd:DefaultName>Action</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <VerticalAlign>Middle</VerticalAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Cancel_Reason">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!Cancel_Reason.Value</Value>
+                              <Style />
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Cancel_Reason</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -518,6 +588,7 @@
             <TablixMember />
             <TablixMember />
             <TablixMember />
+            <TablixMember />
           </TablixMembers>
         </TablixColumnHierarchy>
         <TablixRowHierarchy>
@@ -530,10 +601,10 @@
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
-        <DataSetName>SoldItems</DataSetName>
-        <Top>0.01389in</Top>
+        <DataSetName>Cancelled_Items</DataSetName>
+        <Top>0.74826in</Top>
         <Height>0.50348in</Height>
-        <Width>13.21876in</Width>
+        <Width>13.21878in</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -541,10 +612,10 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>5.69792in</Height>
+    <Height>2in</Height>
     <Style />
   </Body>
-  <Width>13.21876in</Width>
+  <Width>13.21878in</Width>
   <Page>
     <PageHeader>
       <Height>1.01042in</Height>
@@ -558,7 +629,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>SOLD ITEMS</Value>
+                  <Value>CANCELLED ITEMS LIST</Value>
                   <Style>
                     <FontFamily>Cascadia Code SemiLight</FontFamily>
                     <FontSize>15pt</FontSize>
@@ -571,10 +642,10 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox7</rd:DefaultName>
-          <Top>0.25521in</Top>
-          <Left>3.43752in</Left>
-          <Height>0.48958in</Height>
-          <Width>5.34375in</Width>
+          <Top>0.1875in</Top>
+          <Left>3.37836in</Left>
+          <Height>0.625in</Height>
+          <Width>5.46207in</Width>
           <Style>
             <Border>
               <Style>None</Style>
@@ -605,55 +676,59 @@
         <DataProvider>System.Data.DataSet</DataProvider>
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
-      <rd:DataSourceID>eea3c4ca-cdca-45ee-92c0-53ac5014dc13</rd:DataSourceID>
+      <rd:DataSourceID>7d9e45a7-997b-438b-ba71-96f452f15456</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
-    <DataSet Name="SoldItems">
+    <DataSet Name="Cancelled_Items">
       <Query>
         <DataSourceName>ShopDataSet</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
-        <Field Name="PCODE">
-          <DataField>PCODE</DataField>
+        <Field Name="Transaction_Id">
+          <DataField>Transaction_Id</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
-        <Field Name="DESCRIPTION">
-          <DataField>DESCRIPTION</DataField>
+        <Field Name="Name">
+          <DataField>Name</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="PRICE">
-          <DataField>PRICE</DataField>
+        <Field Name="Price">
+          <DataField>Price</DataField>
           <rd:TypeName>System.Double</rd:TypeName>
         </Field>
-        <Field Name="DISCOUNT">
-          <DataField>DISCOUNT</DataField>
-          <rd:TypeName>System.Double</rd:TypeName>
-        </Field>
-        <Field Name="QTY">
-          <DataField>QTY</DataField>
+        <Field Name="Cancelled_Qty">
+          <DataField>Cancelled_Qty</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
-        <Field Name="TOTAL_SALES">
-          <DataField>TOTAL_SALES</DataField>
-          <rd:TypeName>System.Double</rd:TypeName>
+        <Field Name="Cancelled_Date">
+          <DataField>Cancelled_Date</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
         </Field>
-        <Field Name="SoldBy">
-          <DataField>SoldBy</DataField>
+        <Field Name="CancelledBy">
+          <DataField>CancelledBy</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Action">
+          <DataField>Action</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Cancel_Reason">
+          <DataField>Cancel_Reason</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>ShopDataSet</rd:DataSetName>
         <rd:SchemaPath>C:\Users\hp\source\repos\Grocery_Shop\Grocery_Shop\ShopDataSet.xsd</rd:SchemaPath>
-        <rd:TableName>SoldItems</rd:TableName>
+        <rd:TableName>Cancelled_Items</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
-        <rd:TableAdapterName>SoldItemsTableAdapter</rd:TableAdapterName>
+        <rd:TableAdapterName>Cancelled_ItemsTableAdapter</rd:TableAdapterName>
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
-  <rd:ReportID>0c3462d7-f1c5-4adf-9e42-87f543d841af</rd:ReportID>
+  <rd:ReportID>b35a6eba-4fd0-4bff-8ac1-2f6974e1b8b0</rd:ReportID>
 </Report>

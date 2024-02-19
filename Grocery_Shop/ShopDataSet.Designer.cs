@@ -56,6 +56,8 @@ namespace Grocery_Shop {
         
         private Transaction_DetailsDataTable tableTransaction_Details;
         
+        private Cancelled_ItemsDataTable tableCancelled_Items;
+        
         private global::System.Data.DataRelation relationFK_Employees_UserAccount;
         
         private global::System.Data.DataRelation relationFK_Products_Brands;
@@ -81,6 +83,8 @@ namespace Grocery_Shop {
         private global::System.Data.DataRelation relationFK_StockEntries_Items_Product_Id1;
         
         private global::System.Data.DataRelation relationFK_Transaction_Item_Products1;
+        
+        private global::System.Data.DataRelation relationFK_Cancelled_Orders_Transaction;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -157,6 +161,9 @@ namespace Grocery_Shop {
                 }
                 if ((ds.Tables["Transaction_Details"] != null)) {
                     base.Tables.Add(new Transaction_DetailsDataTable(ds.Tables["Transaction_Details"]));
+                }
+                if ((ds.Tables["Cancelled_Items"] != null)) {
+                    base.Tables.Add(new Cancelled_ItemsDataTable(ds.Tables["Cancelled_Items"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -338,6 +345,16 @@ namespace Grocery_Shop {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public Cancelled_ItemsDataTable Cancelled_Items {
+            get {
+                return this.tableCancelled_Items;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.BrowsableAttribute(true)]
         [global::System.ComponentModel.DesignerSerializationVisibilityAttribute(global::System.ComponentModel.DesignerSerializationVisibility.Visible)]
         public override global::System.Data.SchemaSerializationMode SchemaSerializationMode {
@@ -450,6 +467,9 @@ namespace Grocery_Shop {
                 }
                 if ((ds.Tables["Transaction_Details"] != null)) {
                     base.Tables.Add(new Transaction_DetailsDataTable(ds.Tables["Transaction_Details"]));
+                }
+                if ((ds.Tables["Cancelled_Items"] != null)) {
+                    base.Tables.Add(new Cancelled_ItemsDataTable(ds.Tables["Cancelled_Items"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -580,6 +600,12 @@ namespace Grocery_Shop {
                     this.tableTransaction_Details.InitVars();
                 }
             }
+            this.tableCancelled_Items = ((Cancelled_ItemsDataTable)(base.Tables["Cancelled_Items"]));
+            if ((initTable == true)) {
+                if ((this.tableCancelled_Items != null)) {
+                    this.tableCancelled_Items.InitVars();
+                }
+            }
             this.relationFK_Employees_UserAccount = this.Relations["FK_Employees_UserAccount"];
             this.relationFK_Products_Brands = this.Relations["FK_Products_Brands"];
             this.relationFK_Products_Categories = this.Relations["FK_Products_Categories"];
@@ -593,6 +619,7 @@ namespace Grocery_Shop {
             this.relationFK_Transactions_UserAccounts = this.Relations["FK_Transactions_UserAccounts"];
             this.relationFK_StockEntries_Items_Product_Id1 = this.Relations["FK_StockEntries_Items_Product_Id1"];
             this.relationFK_Transaction_Item_Products1 = this.Relations["FK_Transaction_Item_Products1"];
+            this.relationFK_Cancelled_Orders_Transaction = this.Relations["FK_Cancelled_Orders_Transaction"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -635,6 +662,8 @@ namespace Grocery_Shop {
             base.Tables.Add(this.tableTopSelling_Items);
             this.tableTransaction_Details = new Transaction_DetailsDataTable();
             base.Tables.Add(this.tableTransaction_Details);
+            this.tableCancelled_Items = new Cancelled_ItemsDataTable();
+            base.Tables.Add(this.tableCancelled_Items);
             this.relationFK_Employees_UserAccount = new global::System.Data.DataRelation("FK_Employees_UserAccount", new global::System.Data.DataColumn[] {
                         this.tableUserAccounts.User_IdColumn}, new global::System.Data.DataColumn[] {
                         this.tableEmployees.User_IdColumn}, false);
@@ -687,6 +716,10 @@ namespace Grocery_Shop {
                         this.tableTransaction_Details.Product_IdColumn}, new global::System.Data.DataColumn[] {
                         this.tableTransaction_Item.Product_IdColumn}, false);
             this.Relations.Add(this.relationFK_Transaction_Item_Products1);
+            this.relationFK_Cancelled_Orders_Transaction = new global::System.Data.DataRelation("FK_Cancelled_Orders_Transaction", new global::System.Data.DataColumn[] {
+                        this.tableTransactions.Transaction_IdColumn}, new global::System.Data.DataColumn[] {
+                        this.tableCancelled_Items.Transaction_IdColumn}, false);
+            this.Relations.Add(this.relationFK_Cancelled_Orders_Transaction);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -782,6 +815,12 @@ namespace Grocery_Shop {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private bool ShouldSerializeTransaction_Details() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private bool ShouldSerializeCancelled_Items() {
             return false;
         }
         
@@ -887,6 +926,9 @@ namespace Grocery_Shop {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public delegate void Transaction_DetailsRowChangeEventHandler(object sender, Transaction_DetailsRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public delegate void Cancelled_ItemsRowChangeEventHandler(object sender, Cancelled_ItemsRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -4796,6 +4838,8 @@ namespace Grocery_Shop {
             
             private global::System.Data.DataColumn columnTOTAL_SALES;
             
+            private global::System.Data.DataColumn columnSoldBy;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public SoldItemsDataTable() {
@@ -4879,6 +4923,14 @@ namespace Grocery_Shop {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn SoldByColumn {
+                get {
+                    return this.columnSoldBy;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -4914,7 +4966,7 @@ namespace Grocery_Shop {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public SoldItemsRow AddSoldItemsRow(string DESCRIPTION, double PRICE, double DISCOUNT, int QTY, double TOTAL_SALES) {
+            public SoldItemsRow AddSoldItemsRow(string DESCRIPTION, double PRICE, double DISCOUNT, int QTY, double TOTAL_SALES, string SoldBy) {
                 SoldItemsRow rowSoldItemsRow = ((SoldItemsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -4922,7 +4974,8 @@ namespace Grocery_Shop {
                         PRICE,
                         DISCOUNT,
                         QTY,
-                        TOTAL_SALES};
+                        TOTAL_SALES,
+                        SoldBy};
                 rowSoldItemsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowSoldItemsRow);
                 return rowSoldItemsRow;
@@ -4958,6 +5011,7 @@ namespace Grocery_Shop {
                 this.columnDISCOUNT = base.Columns["DISCOUNT"];
                 this.columnQTY = base.Columns["QTY"];
                 this.columnTOTAL_SALES = base.Columns["TOTAL_SALES"];
+                this.columnSoldBy = base.Columns["SoldBy"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4975,6 +5029,8 @@ namespace Grocery_Shop {
                 base.Columns.Add(this.columnQTY);
                 this.columnTOTAL_SALES = new global::System.Data.DataColumn("TOTAL_SALES", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTOTAL_SALES);
+                this.columnSoldBy = new global::System.Data.DataColumn("SoldBy", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSoldBy);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnPCODE}, true));
                 this.columnPCODE.AutoIncrement = true;
@@ -6118,6 +6174,366 @@ namespace Grocery_Shop {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class Cancelled_ItemsDataTable : global::System.Data.TypedTableBase<Cancelled_ItemsRow> {
+            
+            private global::System.Data.DataColumn columnTransaction_Id;
+            
+            private global::System.Data.DataColumn columnName;
+            
+            private global::System.Data.DataColumn columnPrice;
+            
+            private global::System.Data.DataColumn columnCancelled_Qty;
+            
+            private global::System.Data.DataColumn columnCancelled_Date;
+            
+            private global::System.Data.DataColumn columnCancelledBy;
+            
+            private global::System.Data.DataColumn columnAction;
+            
+            private global::System.Data.DataColumn columnCancel_Reason;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public Cancelled_ItemsDataTable() {
+                this.TableName = "Cancelled_Items";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal Cancelled_ItemsDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected Cancelled_ItemsDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Transaction_IdColumn {
+                get {
+                    return this.columnTransaction_Id;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn NameColumn {
+                get {
+                    return this.columnName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn PriceColumn {
+                get {
+                    return this.columnPrice;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Cancelled_QtyColumn {
+                get {
+                    return this.columnCancelled_Qty;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Cancelled_DateColumn {
+                get {
+                    return this.columnCancelled_Date;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn CancelledByColumn {
+                get {
+                    return this.columnCancelledBy;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn ActionColumn {
+                get {
+                    return this.columnAction;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Cancel_ReasonColumn {
+                get {
+                    return this.columnCancel_Reason;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public Cancelled_ItemsRow this[int index] {
+                get {
+                    return ((Cancelled_ItemsRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event Cancelled_ItemsRowChangeEventHandler Cancelled_ItemsRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event Cancelled_ItemsRowChangeEventHandler Cancelled_ItemsRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event Cancelled_ItemsRowChangeEventHandler Cancelled_ItemsRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event Cancelled_ItemsRowChangeEventHandler Cancelled_ItemsRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void AddCancelled_ItemsRow(Cancelled_ItemsRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public Cancelled_ItemsRow AddCancelled_ItemsRow(TransactionsRow parentTransactionsRowByFK_Cancelled_Orders_Transaction, string Name, double Price, int Cancelled_Qty, System.DateTime Cancelled_Date, string CancelledBy, string Action, string Cancel_Reason) {
+                Cancelled_ItemsRow rowCancelled_ItemsRow = ((Cancelled_ItemsRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        null,
+                        Name,
+                        Price,
+                        Cancelled_Qty,
+                        Cancelled_Date,
+                        CancelledBy,
+                        Action,
+                        Cancel_Reason};
+                if ((parentTransactionsRowByFK_Cancelled_Orders_Transaction != null)) {
+                    columnValuesArray[0] = parentTransactionsRowByFK_Cancelled_Orders_Transaction[0];
+                }
+                rowCancelled_ItemsRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowCancelled_ItemsRow);
+                return rowCancelled_ItemsRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                Cancelled_ItemsDataTable cln = ((Cancelled_ItemsDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new Cancelled_ItemsDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal void InitVars() {
+                this.columnTransaction_Id = base.Columns["Transaction_Id"];
+                this.columnName = base.Columns["Name"];
+                this.columnPrice = base.Columns["Price"];
+                this.columnCancelled_Qty = base.Columns["Cancelled_Qty"];
+                this.columnCancelled_Date = base.Columns["Cancelled_Date"];
+                this.columnCancelledBy = base.Columns["CancelledBy"];
+                this.columnAction = base.Columns["Action"];
+                this.columnCancel_Reason = base.Columns["Cancel_Reason"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            private void InitClass() {
+                this.columnTransaction_Id = new global::System.Data.DataColumn("Transaction_Id", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTransaction_Id);
+                this.columnName = new global::System.Data.DataColumn("Name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnName);
+                this.columnPrice = new global::System.Data.DataColumn("Price", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPrice);
+                this.columnCancelled_Qty = new global::System.Data.DataColumn("Cancelled_Qty", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCancelled_Qty);
+                this.columnCancelled_Date = new global::System.Data.DataColumn("Cancelled_Date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCancelled_Date);
+                this.columnCancelledBy = new global::System.Data.DataColumn("CancelledBy", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCancelledBy);
+                this.columnAction = new global::System.Data.DataColumn("Action", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAction);
+                this.columnCancel_Reason = new global::System.Data.DataColumn("Cancel_Reason", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCancel_Reason);
+                this.columnTransaction_Id.AllowDBNull = false;
+                this.columnName.AllowDBNull = false;
+                this.columnName.MaxLength = 50;
+                this.columnPrice.AllowDBNull = false;
+                this.columnCancelled_Qty.AllowDBNull = false;
+                this.columnCancelled_Date.AllowDBNull = false;
+                this.columnCancelledBy.AllowDBNull = false;
+                this.columnCancelledBy.MaxLength = 30;
+                this.columnAction.AllowDBNull = false;
+                this.columnAction.MaxLength = 3;
+                this.columnCancel_Reason.AllowDBNull = false;
+                this.columnCancel_Reason.MaxLength = 70;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public Cancelled_ItemsRow NewCancelled_ItemsRow() {
+                return ((Cancelled_ItemsRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new Cancelled_ItemsRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(Cancelled_ItemsRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.Cancelled_ItemsRowChanged != null)) {
+                    this.Cancelled_ItemsRowChanged(this, new Cancelled_ItemsRowChangeEvent(((Cancelled_ItemsRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.Cancelled_ItemsRowChanging != null)) {
+                    this.Cancelled_ItemsRowChanging(this, new Cancelled_ItemsRowChangeEvent(((Cancelled_ItemsRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.Cancelled_ItemsRowDeleted != null)) {
+                    this.Cancelled_ItemsRowDeleted(this, new Cancelled_ItemsRowChangeEvent(((Cancelled_ItemsRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.Cancelled_ItemsRowDeleting != null)) {
+                    this.Cancelled_ItemsRowDeleting(this, new Cancelled_ItemsRowChangeEvent(((Cancelled_ItemsRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void RemoveCancelled_ItemsRow(Cancelled_ItemsRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                ShopDataSet ds = new ShopDataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "Cancelled_ItemsDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         public partial class BrandsRow : global::System.Data.DataRow {
@@ -6949,6 +7365,17 @@ namespace Grocery_Shop {
                     return ((Transaction_ItemRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Transaction_Item_Tranaction"])));
                 }
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public Cancelled_ItemsRow[] GetCancelled_ItemsRows() {
+                if ((this.Table.ChildRelations["FK_Cancelled_Orders_Transaction"] == null)) {
+                    return new Cancelled_ItemsRow[0];
+                }
+                else {
+                    return ((Cancelled_ItemsRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Cancelled_Orders_Transaction"])));
+                }
+            }
         }
         
         /// <summary>
@@ -7330,6 +7757,22 @@ namespace Grocery_Shop {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string SoldBy {
+                get {
+                    try {
+                        return ((string)(this[this.tableSoldItems.SoldByColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'SoldBy\' in table \'SoldItems\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSoldItems.SoldByColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsDISCOUNTNull() {
                 return this.IsNull(this.tableSoldItems.DISCOUNTColumn);
             }
@@ -7362,6 +7805,18 @@ namespace Grocery_Shop {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetTOTAL_SALESNull() {
                 this[this.tableSoldItems.TOTAL_SALESColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsSoldByNull() {
+                return this.IsNull(this.tableSoldItems.SoldByColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetSoldByNull() {
+                this[this.tableSoldItems.SoldByColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -7660,6 +8115,120 @@ namespace Grocery_Shop {
                 }
                 else {
                     return ((Transaction_ItemRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Transaction_Item_Products1"])));
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class Cancelled_ItemsRow : global::System.Data.DataRow {
+            
+            private Cancelled_ItemsDataTable tableCancelled_Items;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal Cancelled_ItemsRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableCancelled_Items = ((Cancelled_ItemsDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int Transaction_Id {
+                get {
+                    return ((int)(this[this.tableCancelled_Items.Transaction_IdColumn]));
+                }
+                set {
+                    this[this.tableCancelled_Items.Transaction_IdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Name {
+                get {
+                    return ((string)(this[this.tableCancelled_Items.NameColumn]));
+                }
+                set {
+                    this[this.tableCancelled_Items.NameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public double Price {
+                get {
+                    return ((double)(this[this.tableCancelled_Items.PriceColumn]));
+                }
+                set {
+                    this[this.tableCancelled_Items.PriceColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int Cancelled_Qty {
+                get {
+                    return ((int)(this[this.tableCancelled_Items.Cancelled_QtyColumn]));
+                }
+                set {
+                    this[this.tableCancelled_Items.Cancelled_QtyColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public System.DateTime Cancelled_Date {
+                get {
+                    return ((global::System.DateTime)(this[this.tableCancelled_Items.Cancelled_DateColumn]));
+                }
+                set {
+                    this[this.tableCancelled_Items.Cancelled_DateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string CancelledBy {
+                get {
+                    return ((string)(this[this.tableCancelled_Items.CancelledByColumn]));
+                }
+                set {
+                    this[this.tableCancelled_Items.CancelledByColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Action {
+                get {
+                    return ((string)(this[this.tableCancelled_Items.ActionColumn]));
+                }
+                set {
+                    this[this.tableCancelled_Items.ActionColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Cancel_Reason {
+                get {
+                    return ((string)(this[this.tableCancelled_Items.Cancel_ReasonColumn]));
+                }
+                set {
+                    this[this.tableCancelled_Items.Cancel_ReasonColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public TransactionsRow TransactionsRow {
+                get {
+                    return ((TransactionsRow)(this.GetParentRow(this.Table.ParentRelations["FK_Cancelled_Orders_Transaction"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_Cancelled_Orders_Transaction"]);
                 }
             }
         }
@@ -8194,6 +8763,40 @@ namespace Grocery_Shop {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public Transaction_DetailsRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public class Cancelled_ItemsRowChangeEvent : global::System.EventArgs {
+            
+            private Cancelled_ItemsRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public Cancelled_ItemsRowChangeEvent(Cancelled_ItemsRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public Cancelled_ItemsRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -13105,6 +13708,183 @@ FROM            Products INNER JOIN
     }
     
     /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class Cancelled_ItemsTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public Cancelled_ItemsTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "Cancelled_Items";
+            tableMapping.ColumnMappings.Add("Transaction_Id", "Transaction_Id");
+            tableMapping.ColumnMappings.Add("Name", "Name");
+            tableMapping.ColumnMappings.Add("Price", "Price");
+            tableMapping.ColumnMappings.Add("Cancelled_Qty", "Cancelled_Qty");
+            tableMapping.ColumnMappings.Add("Cancelled_Date", "Cancelled_Date");
+            tableMapping.ColumnMappings.Add("CancelledBy", "CancelledBy");
+            tableMapping.ColumnMappings.Add("Action", "Action");
+            tableMapping.ColumnMappings.Add("Cancel_Reason", "Cancel_Reason");
+            this._adapter.TableMappings.Add(tableMapping);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::Grocery_Shop.Properties.Settings.Default.ShopConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = @"SELECT        Cancelled_Orders.Transaction_Id, Products.Name, Products.Price, Cancelled_Orders.Cancelled_Qty, Cancelled_Orders.Cancelled_Date, Cancelled_Orders.CancelledBy, Cancelled_Orders.Action, 
+                         Cancelled_Orders.Cancel_Reason
+FROM            Cancelled_Orders INNER JOIN
+                         Products ON Cancelled_Orders.Product_Id = Products.Product_Id";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(ShopDataSet.Cancelled_ItemsDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual ShopDataSet.Cancelled_ItemsDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            ShopDataSet.Cancelled_ItemsDataTable dataTable = new ShopDataSet.Cancelled_ItemsDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+    }
+    
+    /// <summary>
     ///TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
     ///</summary>
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -13445,15 +14225,6 @@ FROM            Products INNER JOIN
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._store_DetailsTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Store_Details.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._store_DetailsTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._userAccountsTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.UserAccounts.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
@@ -13463,21 +14234,21 @@ FROM            Products INNER JOIN
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._productsTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Products.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._store_DetailsTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Store_Details.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._productsTableAdapter.Update(updatedRows));
+                    result = (result + this._store_DetailsTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._stock_EntriesTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Stock_Entries.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._vendorsTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Vendors.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._stock_EntriesTableAdapter.Update(updatedRows));
+                    result = (result + this._vendorsTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -13490,12 +14261,30 @@ FROM            Products INNER JOIN
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._vendorsTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Vendors.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._stock_EntriesTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Stock_Entries.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._vendorsTableAdapter.Update(updatedRows));
+                    result = (result + this._stock_EntriesTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._productsTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Products.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._productsTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._transaction_ItemTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Transaction_Item.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._transaction_ItemTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -13514,15 +14303,6 @@ FROM            Products INNER JOIN
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._stockEntries_ItemsTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._transaction_ItemTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Transaction_Item.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._transaction_ItemTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -13552,14 +14332,6 @@ FROM            Products INNER JOIN
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._store_DetailsTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Store_Details.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._store_DetailsTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._userAccountsTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.UserAccounts.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -13568,19 +14340,19 @@ FROM            Products INNER JOIN
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._productsTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Products.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._store_DetailsTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Store_Details.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._productsTableAdapter.Update(addedRows));
+                    result = (result + this._store_DetailsTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._stock_EntriesTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Stock_Entries.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._vendorsTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Vendors.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._stock_EntriesTableAdapter.Update(addedRows));
+                    result = (result + this._vendorsTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -13592,11 +14364,27 @@ FROM            Products INNER JOIN
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._vendorsTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Vendors.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._stock_EntriesTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Stock_Entries.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._vendorsTableAdapter.Update(addedRows));
+                    result = (result + this._stock_EntriesTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._productsTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Products.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._productsTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._transaction_ItemTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Transaction_Item.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._transaction_ItemTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -13616,14 +14404,6 @@ FROM            Products INNER JOIN
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._transaction_ItemTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Transaction_Item.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._transaction_ItemTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             return result;
         }
         
@@ -13634,14 +14414,6 @@ FROM            Products INNER JOIN
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private int UpdateDeletedRows(ShopDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._transaction_ItemTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Transaction_Item.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._transaction_ItemTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             if ((this._stockEntries_ItemsTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.StockEntries_Items.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -13658,27 +14430,11 @@ FROM            Products INNER JOIN
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._vendorsTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Vendors.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._transaction_ItemTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Transaction_Item.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._vendorsTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._transactionsTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Transactions.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._transactionsTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._stock_EntriesTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Stock_Entries.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._stock_EntriesTableAdapter.Update(deletedRows));
+                    result = (result + this._transaction_ItemTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -13690,11 +14446,27 @@ FROM            Products INNER JOIN
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._userAccountsTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.UserAccounts.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._stock_EntriesTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Stock_Entries.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._userAccountsTableAdapter.Update(deletedRows));
+                    result = (result + this._stock_EntriesTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._transactionsTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Transactions.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._transactionsTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._vendorsTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Vendors.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._vendorsTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -13703,6 +14475,14 @@ FROM            Products INNER JOIN
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._store_DetailsTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._userAccountsTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.UserAccounts.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._userAccountsTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }

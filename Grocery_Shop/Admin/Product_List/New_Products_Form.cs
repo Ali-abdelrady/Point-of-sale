@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Grocery_Shop.Classes;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,13 +15,14 @@ using System.Windows.Forms;
 namespace Grocery_Shop
 {
     public partial class New_Products_Form : Form
-    {   //Connection Of The Database 
-        static string sql = "Data Source =ALIABDERADY\\SQLEXPRESS01; Initial Catalog=Shop; Integrated Security=True; User ID=''; Password = ''";
-        SqlConnection con = new SqlConnection(sql);
+    {   
+        //Database Connection
+        private SqlConnection con;
 
         //Initalize My Classes
         ProductList_Form ProductList;
         Product product;
+        Validations validations = new Validations();
 
         //Brands_Categoires Ids List
         List<int> Brand_Id = new List<int>();
@@ -28,10 +30,65 @@ namespace Grocery_Shop
         public New_Products_Form(ProductList_Form form,Product p)
         {
             InitializeComponent();
-            Fill_Brand_Combobox();
-            Fill_Category_Combobox();
+            con = DatabaseManger.CreateConnection();
             ProductList = form;
             product = p;
+        }
+        private void close_btn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void New_Products_Form_Load(object sender, EventArgs e)
+        {
+            Fill_Brand_Combobox();
+            Fill_Category_Combobox();
+            if(SaveUpdate_Btn.Text == "UPDATE")
+            {
+                Load_DataFor_Edit();
+            }
+        }
+
+        private void Cancel_Btn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void SaveUpdate_Btn_Click(object sender, EventArgs e)
+        {
+            //Get Product Details
+            int product_id = product.Product_Id;
+            string product_name = ProductName_txtbox.Text.ToString();
+            string barcode = Barcode_Txtbox.Text.ToString();
+            int brand_id = Brand_Id[Brand_Combox.SelectedIndex];
+            int category_id = Category_Id[Category_Combox.SelectedIndex];
+            string price = Price_Txtbox.Text.ToString();
+            if(Is_Empty(product_name,barcode, Price_Txtbox.Text.ToString()))
+            {
+                MessageBox.Show("Fill All Empty Boxes");
+            }
+            else if(Price_Txtbox.Text.Any(char.IsLetter))
+            {
+                MessageBox.Show("Enter a numric value");
+                Price_Txtbox.Clear();
+            }
+            else
+            {
+                //Check If the btn iS Save Or Update
+                if (SaveUpdate_Btn.Text == "SAVE")
+                {
+                    SaveProduct(product_name, barcode, brand_id, category_id, float.Parse(price));
+                }
+                else
+                {
+                    UpdateProduct(product_id,product_name, barcode, brand_id, category_id, float.Parse(price));
+                }
+            }
+        }
+        //-----------------------------ADDTIONAL FUNCTIONS--------------------------
+        public void Set_Btn_Txt(string name)
+        {
+            SaveUpdate_Btn.Text = name;
         }
         void Fill_Brand_Combobox()
         {
@@ -47,7 +104,8 @@ namespace Grocery_Shop
                     Brand_Id.Add(int.Parse(rd["Brand_Id"].ToString().TrimEnd()));
                     Brand_Combox.Items.Add(rd["Brand_Name"].ToString().TrimEnd());
                 }
-                MessageBox.Show("sucees on Filling Combobox");
+                Brand_Combox.SelectedIndex = 0;
+                //MessageBox.Show("sucees on Filling Combobox");
             }
             catch 
             {
@@ -72,7 +130,7 @@ namespace Grocery_Shop
                     Category_Id.Add(int.Parse(rd["Category_Id"].ToString().TrimEnd()));
                     Category_Combox.Items.Add(rd["Category_Name"].ToString().TrimEnd());
                 }
-                con.Close();
+                Category_Combox.SelectedIndex = 0;
             }
             catch
             {
@@ -83,90 +141,7 @@ namespace Grocery_Shop
                 con.Close();
             }
         }
-        private void close_btn_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void New_Products_Form_Load(object sender, EventArgs e)
-        {
-            if(SaveUpdate_Btn.Text == "UPDATE")
-            {
-                Set_Edited_Data();
-            }
-        }
-
-        private void Cancel_Btn_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void SaveUpdate_Btn_Click(object sender, EventArgs e)
-        {
-            string product_name = ProductName_txtbox.Text;
-            string barcode = Barcode_Txtbox.Text;
-            int brand_id = Brand_Id[Brand_Combox.SelectedIndex];
-            int category_id = Category_Id[Category_Combox.SelectedIndex];
-            float price = float.Parse(Price_Txtbox.Text);
-            //Add Values To DB Table 
-            if (SaveUpdate_Btn.Text == "SAVE")
-            {
-                string query = "INSERT INTO Products (Name,Barcode,Brand_Id,Category_Id,Price) VALUES (@product_name,@barcode,@brand_id,@category_id,@price)";
-                try
-                {
-                    con.Open();
-                    SqlCommand cmd = new SqlCommand(query, con);
-                    cmd.Parameters.AddWithValue("@product_name", product_name);
-                    cmd.Parameters.AddWithValue("@barcode", barcode);
-                    cmd.Parameters.AddWithValue("@brand_id", brand_id);
-                    cmd.Parameters.AddWithValue("@category_id", category_id);
-                    cmd.Parameters.AddWithValue("@price", price);
-                    cmd.ExecuteNonQuery();
-                    Reset_TextBoxes();
-                    ProductList.LoadUserTable();
-                    MessageBox.Show("succesful opereation ");
-                }
-                catch
-                {
-                    MessageBox.Show("Error");
-                }
-                finally
-                {
-                    con.Close();
-                }
-            }
-            else
-            {
-                int product_id = product.Product_Id;
-                string query = "UPDATE Products SET Name=@product_name ,Price=@price , Barcode=@barcode ,Category_Id=@category_id ,Brand_Id=@brand_id  WHERE Product_Id=@product_id";
-                try
-                {
-                    con.Open();
-                    SqlCommand cmd = new SqlCommand(query, con);
-                    cmd.Parameters.AddWithValue("@product_name", product_name);
-                    cmd.Parameters.AddWithValue("@barcode", barcode);
-                    cmd.Parameters.AddWithValue("@brand_id", brand_id);
-                    cmd.Parameters.AddWithValue("@category_id", category_id);
-                    cmd.Parameters.AddWithValue("@price", price);
-                    cmd.Parameters.AddWithValue("@product_id", product_id);
-                    cmd.ExecuteNonQuery();
-                    MessageBox.Show("succssful updating");
-                    //Reset_TextBoxes();
-                    ProductList.LoadUserTable();
-                }
-                catch
-                {
-                    MessageBox.Show("Error in Updating DB");
-                }
-                finally { con.Close(); }
-            }
-        }
-        //-----------------------------ADDTIONAL FUNCTIONS--------------------------
-        public void Set_Btn_Txt(string name)
-        {
-            SaveUpdate_Btn.Text = name;
-        }
-        void Set_Edited_Data()
+        void Load_DataFor_Edit()
         {
             ProductName_txtbox.Text = product.Product_Name;
             Barcode_Txtbox.Text = product.Barcode;
@@ -182,5 +157,60 @@ namespace Grocery_Shop
             Brand_Combox.Text = "";
             Category_Combox.Text = "";
         }
+        void SaveProduct(string product_name, string barcode, int brand_id, int category_id, float price)
+        {
+            string query = "INSERT INTO Products (Name,Barcode,Brand_Id,Category_Id,Price) VALUES (@product_name,@barcode,@brand_id,@category_id,@price)";
+            try
+            {
+                con.Open();
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@product_name", product_name);
+                cmd.Parameters.AddWithValue("@barcode", barcode);
+                cmd.Parameters.AddWithValue("@brand_id", brand_id);
+                cmd.Parameters.AddWithValue("@category_id", category_id);
+                cmd.Parameters.AddWithValue("@price", price);
+                cmd.ExecuteNonQuery();
+                Reset_TextBoxes();
+                ProductList.LoadProductsTable();
+                MessageBox.Show("succesful opereation ");
+            }
+            catch
+            {
+                MessageBox.Show("Error");
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+        void UpdateProduct(int product_id, string product_name, string barcode, int brand_id, int category_id, float price)
+        {
+            string query = "UPDATE Products SET Name=@product_name ,Price=@price , Barcode=@barcode ,Category_Id=@category_id ,Brand_Id=@brand_id  WHERE Product_Id=@product_id";
+            try
+            {
+                con.Open();
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@product_name", product_name);
+                cmd.Parameters.AddWithValue("@barcode", barcode);
+                cmd.Parameters.AddWithValue("@brand_id", brand_id);
+                cmd.Parameters.AddWithValue("@category_id", category_id);
+                cmd.Parameters.AddWithValue("@price", price);
+                cmd.Parameters.AddWithValue("@product_id", product_id);
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("succssful updating");
+                //Reset_TextBoxes();
+                ProductList.LoadProductsTable();
+            }
+            catch
+            {
+                MessageBox.Show("Error in Updating DB");
+            }
+            finally { con.Close(); }
+        }
+        bool Is_Empty(string product_name , string barcode , string price)
+        {
+            return (product_name.Length == 0 || barcode.Length == 0 || price.Length == 0);
+        }
     }
+    
 }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Grocery_Shop.Classes;
+using MySql.Simple;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,12 +15,13 @@ namespace Grocery_Shop
 {
     public partial class Brand_Details : Form
     {
-        static string sql = "Data Source =ALIABDERADY\\SQLEXPRESS01; Initial Catalog=Shop; Integrated Security=True; User ID=''; Password = ''";
-        SqlConnection con = new SqlConnection(sql);
+        //Database Connection
+        private SqlConnection con;
         Brand_List brand_list;
         public Brand_Details(Brand_List list)
         {
             InitializeComponent();
+            con = DatabaseManger.CreateConnection();
             this.brand_list = list;
         }
 
@@ -32,54 +35,26 @@ namespace Grocery_Shop
             this.Close();
         }
 
-        private void Update_Btn_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void SaveUpdate_Btn_Click(object sender, EventArgs e)
         {
-            if (SaveUpdate_Btn.Text == "SAVE")
+            string brand_name = Brand_Txtbox.Text;
+            int brand_id = brand_list.Brand_Id;
+            if (brand_name.Length == 0)
             {
-                string brand_name = Brand_Txtbox.Text;
-                string query = "INSERT INTO Brands (Brand_Name) VALUES(@name)";
-                try
-                {
-                    con.Open();
-                    SqlCommand cmd = new SqlCommand(query, con);
-                    cmd.Parameters.AddWithValue("@name", brand_name);
-                    cmd.ExecuteNonQuery();
-                    MessageBox.Show("succeful addding");
-                    Brand_Txtbox.Clear();
-                    brand_list.RefreshTable();
-                }
-                catch
-                {
-                    MessageBox.Show("Error in Savnig to DB");
-                }
-                finally { con.Close(); }
+                MessageBox.Show("Fill The Empty Box");
             }
             else
             {
-                string brand_name = Brand_Txtbox.Text;
-                int brand_id = brand_list.Brand_Id;
-                string query = "UPDATE Brands SET Brand_Name=@brand_name WHERE Brand_Id=@Id";
-                try
+                if (SaveUpdate_Btn.Text == "SAVE")
                 {
-                    con.Open();
-                    SqlCommand cmd = new SqlCommand(query, con);
-                    cmd.Parameters.AddWithValue("@brand_name", brand_name);
-                    cmd.Parameters.AddWithValue("@Id", brand_id);
-                    cmd.ExecuteNonQuery();
-                    MessageBox.Show("succeful updating");
-                    Brand_Txtbox.Clear();
-                    brand_list.RefreshTable();
+                    SaveBrands(brand_name);
                 }
-                catch
+                else
                 {
-                    MessageBox.Show("Error in Savnig to DB");
+
+                    UpdateBrands(brand_id, brand_name);
                 }
-                finally { con.Close(); }
             }
         }
         public void Set_Btn_Txt(string name)
@@ -101,6 +76,45 @@ namespace Grocery_Shop
             {
                 SaveUpdate_Btn_Click(sender, e);
             }
+        }
+        void SaveBrands(string brand_name)
+        {
+            string query = "INSERT INTO Brands (Brand_Name) VALUES(@name)";
+            try
+            {
+                con.Open();
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@name", brand_name);
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("succeful addding");
+                Brand_Txtbox.Clear();
+                brand_list.LoadBrandsTable();
+            }
+            catch
+            {
+                MessageBox.Show("Error in Savnig to DB");
+            }
+            finally { con.Close(); }
+        }
+        void UpdateBrands(int brand_id,string brand_name )
+        {
+            string query = "UPDATE Brands SET Brand_Name=@brand_name WHERE Brand_Id=@Id";
+            try
+            {
+                con.Open();
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@brand_name", brand_name);
+                cmd.Parameters.AddWithValue("@Id", brand_id);
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("succeful updating");
+                Brand_Txtbox.Clear();
+                brand_list.LoadBrandsTable();
+            }
+            catch
+            {
+                MessageBox.Show("Error in Savnig to DB");
+            }
+            finally { con.Close(); }
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Grocery_Shop.Classes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace Grocery_Shop
 {
@@ -15,12 +17,13 @@ namespace Grocery_Shop
     {
         //Setter And Getter
         Vendor vendor=new Vendor();
+        TextboxStyles textboxStyle = new TextboxStyles();
         //Database Connection
-        static string sql = "Data Source =ALIABDERADY\\SQLEXPRESS01; Initial Catalog=Shop; Integrated Security=True; User ID=''; Password = ''";
-        SqlConnection con = new SqlConnection(sql);
+        private SqlConnection con;
         public Vendor_List()
         {
             InitializeComponent();
+            con = DatabaseManger.CreateConnection();
             LoadVendorTable();
         }
 
@@ -41,8 +44,11 @@ namespace Grocery_Shop
             {
                 con.Open();
                 DataTable dt=new DataTable();
-                string query = "SELECT * FROM Vendors";
-                SqlCommand cmd=new SqlCommand(query, con);
+                string vendor_name = Search_Txtbox.Text;
+                string query1 = "SELECT * FROM Vendors WHERE Name  LIKE '%" + vendor_name + "%'";
+                string query2 = "SELECT * FROM Vendors ";
+                string res_query = (vendor_name == " Search here") ? query2 : query1;
+                SqlCommand cmd =new SqlCommand(res_query, con);
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                 adapter.Fill(dt);
                 Vendors_Table.DataSource = dt;  
@@ -112,20 +118,13 @@ namespace Grocery_Shop
         }
         private void Search_Txtbox_Enter(object sender, EventArgs e)
         {
-            if (Search_Txtbox.Text == " Search here")
-            {
-                Search_Txtbox.Clear();
-                Search_Txtbox.ForeColor = Color.Black;
-            }
+            textboxStyle.Textbox_Enter(Search_Txtbox, " Search here");
         }
 
         private void Search_Txtbox_Leave(object sender, EventArgs e)
         {
-            if (Search_Txtbox.Text == "")
-            {
-                Search_Txtbox.Text = " Search here";
-                Search_Txtbox.ForeColor = Color.Gray;
-            }
+
+            textboxStyle.Textbox_Leave(Search_Txtbox, " Search here");
         }
         String Get_Cell_Value(int index, DataGridViewCellEventArgs e)
         {
@@ -134,7 +133,7 @@ namespace Grocery_Shop
 
         private void Search_Txtbox_TextChanged(object sender, EventArgs e)
         {
-
+            LoadVendorTable();
         }
 
         private void Vendor_List_Load(object sender, EventArgs e)

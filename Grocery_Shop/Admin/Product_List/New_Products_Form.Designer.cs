@@ -211,7 +211,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Control;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(735, 343);
             this.ControlBox = false;
             this.Controls.Add(this.Cancel_Btn);
@@ -227,7 +227,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.ProductName_txtbox);
             this.Controls.Add(this.cur_lbl);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "New_Products_Form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.New_Products_Form_Load);

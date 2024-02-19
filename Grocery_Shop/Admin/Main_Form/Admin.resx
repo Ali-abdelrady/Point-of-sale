@@ -118,6 +118,22 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="SalesHistory_Btn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        DAAACwwBP0AiyAAAAkpJREFUSEvtl71rU2EYxaOik4OgOLTaSaWbbrZ27aJza4ugIIq7VrRC3S117KIt
+        denfUOxSCp0qWdQI1uTmO4QshTpZS7n+Dpz0JpjYNEmdcuDwPO/zcd439z7vhcQOQyaTGczlck+wi9ls
+        dh3m8bfhnrlNLKecalw76PajoVKpnKV5Cn5DMITf4RKiL7Fj2NF0On1TlO+YckuuDelNSENalv03ELhL
+        Y5mmAPuiUChccqplqEcHsUYZf9ypxqDwKYW/ZOPx+GmH20YikTijX13VdLgeJG5QsIu97VDXIE1p82qu
+        OxSB5CzJj152HdJmjzdeRiD47pg3XtUeXkZQEO7D43jUd6zdeGNOVYZ6z1MaDKfahjTQey5NaTfdWNTo
+        uyjQlUgmk5dd0jKCIBigf1oa0oJjVX2XRKhN1HxAvtKkD8gW/MB6msmc4ECj+EOi/Un4yjU/1IP9Ap9V
+        PyD4h29cC05/DaHH5Bawa9g01GfytyhfMefeYx+lUqmrbj8AueYb09Sb6o7Qm2pRfh2aJXpT3Q7Q7E11
+        hNrE/57qebjs5QG6ONXLcN7LCJz8AU2VUql0waGuQZrShvcdihCG4SlOtEFyk0P0Odwx8vl8P7qfpM0e
+        Jx2uB8lzbLwKd+AMj+yiU0eGetF4DX9KU9pONQanOkHRPYo1UHqPK6w1aMPFYvG8y/6CcqqhXtdnxb1b
+        0pKmy1oDjSPwLc16VHv4mvAdfF2Tz6J9PSFNsmo2sXPYW5bpDPpnwfu6ousDxxF/KMpXTLnW/33EYn8A
+        7rZsrcCtV+EAAAAASUVORK5CYII=
+</value>
+  </data>
   <data name="StockEntry_Btn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL

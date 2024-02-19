@@ -64,7 +64,7 @@
             this.Close_Btn.Dock = System.Windows.Forms.DockStyle.Right;
             this.Close_Btn.Font = new System.Drawing.Font("Tahoma", 15F);
             this.Close_Btn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.Close_Btn.Image = global::Grocery_Shop.Properties.Resources.icons8_close_window_50__1_;
+            //this.Close_Btn.Image = global::Grocery_Shop.Properties.Resources.icons8_close_window_50__1_;
             this.Close_Btn.Location = new System.Drawing.Point(548, 0);
             this.Close_Btn.Name = "Close_Btn";
             this.Close_Btn.Size = new System.Drawing.Size(41, 46);
@@ -143,7 +143,7 @@
             this.Controls.Add(this.SaveUpdate_Btn);
             this.Controls.Add(this.Category_Txtbox);
             this.Controls.Add(this.panel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Category_Details";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.Category_Details_Load);

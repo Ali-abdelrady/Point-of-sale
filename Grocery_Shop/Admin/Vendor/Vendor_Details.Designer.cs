@@ -194,8 +194,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Control;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(776, 347);
+            this.ControlBox = false;
             this.Controls.Add(this.label5);
             this.Controls.Add(this.Address_Textbox);
             this.Controls.Add(this.label6);
@@ -207,10 +208,9 @@
             this.Controls.Add(this.Save_Update_Btn);
             this.Controls.Add(this.Name_Txtbox);
             this.Controls.Add(this.panel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Vendor_Details";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Vendor_Details";
             this.Load += new System.EventHandler(this.Vendor_Details_Load);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);

@@ -8,7 +8,7 @@ namespace Grocery_Shop
 {
     class Global
     {
-        public static int User_Id;
+        public static int Emp_Id;
         public static string Role;
     }
 }

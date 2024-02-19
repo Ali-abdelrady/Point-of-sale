@@ -1,6 +1,6 @@
 ﻿namespace Grocery_Shop.Reports
 {
-    partial class Critical_Items_Report
+    partial class Cancelled_Items_Report
     {
         /// <summary>
         /// Required designer variable.
@@ -28,14 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Critical_Items_Report));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Cancelled_Items_Report));
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.Close_Btn = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // reportViewer1
+            // 
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "Grocery_Shop.Reports.Cancelled_Items.rdlc";
+            this.reportViewer1.Location = new System.Drawing.Point(0, 49);
+            this.reportViewer1.Name = "reportViewer1";
+            this.reportViewer1.ServerReport.BearerToken = null;
+            this.reportViewer1.Size = new System.Drawing.Size(1193, 621);
+            this.reportViewer1.TabIndex = 52;
             // 
             // panel1
             // 
@@ -47,8 +56,8 @@
             this.panel1.Font = new System.Drawing.Font("Tahoma", 10F);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1190, 46);
-            this.panel1.TabIndex = 49;
+            this.panel1.Size = new System.Drawing.Size(1193, 46);
+            this.panel1.TabIndex = 51;
             // 
             // panel2
             // 
@@ -81,26 +90,18 @@
             this.label1.Text = "Print Preview";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // reportViewer1
-            // 
-            this.reportViewer1.Location = new System.Drawing.Point(0, 50);
-            this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(1190, 654);
-            this.reportViewer1.TabIndex = 50;
-            // 
-            // Critical_Items_Report
+            // Cancelled_Items_Report
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1190, 707);
+            this.ClientSize = new System.Drawing.Size(1193, 668);
             this.Controls.Add(this.reportViewer1);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Critical_Items_Report";
+            this.Name = "Cancelled_Items_Report";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Critical_Items_Report";
-            this.Load += new System.EventHandler(this.Critical_Items_Report_Load);
+            this.Text = "Cancelled_Items_Report";
+            this.Load += new System.EventHandler(this.Cancelled_Items_Report_Load);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -108,10 +109,10 @@
 
         #endregion
 
+        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label Close_Btn;
         private System.Windows.Forms.Label label1;
-        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
     }
 }

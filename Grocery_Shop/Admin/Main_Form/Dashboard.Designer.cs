@@ -249,7 +249,6 @@
             title1.Name = "Title1";
             title1.Text = "YEARLY PROFITS";
             this.Profits_Chart.Titles.Add(title1);
-            this.Profits_Chart.Click += new System.EventHandler(this.chart1_Click);
             // 
             // label9
             // 
@@ -284,7 +283,7 @@
             this.Vendor_lbl.BackColor = System.Drawing.Color.DodgerBlue;
             this.Vendor_lbl.Font = new System.Drawing.Font("Tahoma", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Vendor_lbl.ForeColor = System.Drawing.Color.White;
-            this.Vendor_lbl.Location = new System.Drawing.Point(304, 156);
+            this.Vendor_lbl.Location = new System.Drawing.Point(308, 156);
             this.Vendor_lbl.Name = "Vendor_lbl";
             this.Vendor_lbl.Size = new System.Drawing.Size(30, 33);
             this.Vendor_lbl.TabIndex = 29;

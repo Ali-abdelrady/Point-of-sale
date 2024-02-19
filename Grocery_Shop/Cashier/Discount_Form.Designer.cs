@@ -57,7 +57,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(603, 213);
             this.panel1.TabIndex = 0;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // DiscAmount_lbl
             // 
@@ -80,7 +79,6 @@
             this.TotalPrice_lbl.Size = new System.Drawing.Size(293, 35);
             this.TotalPrice_lbl.TabIndex = 7;
             this.TotalPrice_lbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.TotalPrice_lbl.Click += new System.EventHandler(this.label1_Click);
             // 
             // Confirm_btn
             // 
@@ -135,7 +133,6 @@
             this.Discount_txtbox.Size = new System.Drawing.Size(293, 35);
             this.Discount_txtbox.TabIndex = 1;
             this.Discount_txtbox.TextChanged += new System.EventHandler(this.Discount_txtbox_TextChanged);
-            this.Discount_txtbox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Discount_txtbox_KeyUp);
             // 
             // panel2
             // 
@@ -179,11 +176,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(603, 262);
+            this.ControlBox = false;
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Discount_Form";
-            this.Text = "Discount";
             this.Load += new System.EventHandler(this.Discount_Form_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

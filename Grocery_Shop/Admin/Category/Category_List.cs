@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Grocery_Shop.Classes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,18 +9,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace Grocery_Shop
 {
     public partial class Category_List : UserControl
     {
-        static string sql = "Data Source =ALIABDERADY\\SQLEXPRESS01; Initial Catalog=Shop; Integrated Security=True; User ID=''; Password = ''";
-        SqlConnection con = new SqlConnection(sql);
+        //Database Connection
+        private SqlConnection con;
+        TextboxStyles textboxStyle = new TextboxStyles();
         public int Category_Id { get; set; }
         public string Category_Name { get; set; }
         public Category_List()
         {
             InitializeComponent();
+            con = DatabaseManger.CreateConnection();
         }
 
         private void Add_Btn_Click(object sender, EventArgs e)
@@ -27,36 +31,35 @@ namespace Grocery_Shop
             Category_Details category = new Category_Details(this);
             category.ShowDialog();
         }
-        DataTable LoadUserTable()
+        public void LoadCategoriesTable()
         {
             try
             {
                 DataTable dt = new DataTable();
-                string query = "SELECT * FROM Categories";
+                string category_name = Search_Txtbox.Text;
+                string query1 = "SELECT * FROM Categories WHERE Category_Name LIKE '%" + category_name + "%'";
+                string query2 = "SELECT * FROM Categories";
+                string res_query = (category_name == " Search here") ? query2 : query1;
                 con.Open();
-                SqlCommand cmd = new SqlCommand(query, con);
+                SqlCommand cmd = new SqlCommand(res_query, con);
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                 adapter.Fill(dt);
-                con.Close();
-                return dt;
+                Category_Table.DataSource = dt;
             }
-            catch (Exception)
+            catch
             {
-                Console.WriteLine("Something went wrong.");
-                throw;
+                MessageBox.Show("Error in querey");
+            }
+            finally
+            {
+                con.Close();
             }
         }
-        public void RefreshTable()
-        {
-            Category_Table.DataSource = LoadUserTable();
-        }
+
 
         private void Category_List_Load(object sender, EventArgs e)
         {
-            LoadUserTable();
-            Category_Table.DataSource = LoadUserTable();
-/*            Search_Txtbox.Text = " Search here";
-            Search_Txtbox.ForeColor = Color.Gray;*/
+            LoadCategoriesTable();
         }
 
         private void Category_Table_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -67,26 +70,7 @@ namespace Grocery_Shop
                 {
                     DataGridViewRow row = Category_Table.Rows[e.RowIndex];
                     int category_id =int.Parse(row.Cells[2].Value.ToString());
-                    try
-                    {
-                        string query = "DELETE FROM Categories WHERE Category_Id=@category_id";
-                        con.Open();
-                        SqlCommand cmd = new SqlCommand(query, con);
-                        cmd.Parameters.AddWithValue("@category_id", category_id);
-                        cmd.ExecuteNonQuery();
-                        Category_Table.Rows.RemoveAt(e.RowIndex);
-                        MessageBox.Show("Deleted Successfully");
-
-                    }
-                    catch
-                    {
-                        MessageBox.Show("error om Delete product");
-
-                    }
-                    finally
-                    {
-                        con.Close();
-                    }
+                    DeleteCategories(category_id, e);
                 }
 
             }
@@ -110,25 +94,7 @@ namespace Grocery_Shop
 
         private void Search_Txtbox_TextChanged(object sender, EventArgs e)
         {
-            try
-            {
-                DataTable dt = new DataTable();
-                string Category_name = Search_Txtbox.Text;
-                string query = "SELECT * FROM Categories WHERE Category_Name LIKE '%" + Category_name + "%'";
-                con.Open();
-                SqlCommand cmd = new SqlCommand(query, con);
-                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-                adapter.Fill(dt);
-                Category_Table.DataSource = dt;
-            }
-            catch
-            {
-                MessageBox.Show("Error in querey");
-            }
-            finally
-            {
-                con.Close();
-            }
+            LoadCategoriesTable();
         }
 
         private void Search_Txtbox_Click(object sender, EventArgs e)
@@ -137,20 +103,36 @@ namespace Grocery_Shop
         }
         private void Search_Txtbox_Enter(object sender, EventArgs e)
         {
-            if (Search_Txtbox.Text == "Search here")
-            {
-                Search_Txtbox.Clear();
-                Search_Txtbox.ForeColor = Color.Black;
-            }
+            textboxStyle.Textbox_Enter(Search_Txtbox, " Search here");
         }
 
         private void Search_Txtbox_Leave(object sender, EventArgs e)
         {
-            if (Search_Txtbox.Text == "")
+            textboxStyle.Textbox_Leave(Search_Txtbox, " Search here");
+        }
+        void DeleteCategories(int category_id, DataGridViewCellEventArgs e)
+        {
+            try
             {
-                Search_Txtbox.Text = "Search here";
-                Search_Txtbox.ForeColor = Color.Gray;
+                string query = "DELETE FROM Categories WHERE Category_Id=@category_id";
+                con.Open();
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@category_id", category_id);
+                cmd.ExecuteNonQuery();
+                Category_Table.Rows.RemoveAt(e.RowIndex);
+                //MessageBox.Show("Deleted Successfully");
+
+            }
+            catch
+            {
+                MessageBox.Show("error om Delete product");
+
+            }
+            finally
+            {
+                con.Close();
             }
         }
+
     }
 }

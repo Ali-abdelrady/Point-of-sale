@@ -91,7 +91,7 @@
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             this.Category_Table.RowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.Category_Table.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.Category_Table.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.Category_Table.Size = new System.Drawing.Size(1119, 712);
             this.Category_Table.TabIndex = 22;
             this.Category_Table.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Category_Table_CellContentClick);
@@ -160,7 +160,7 @@
             this.Search_Txtbox.Name = "Search_Txtbox";
             this.Search_Txtbox.Size = new System.Drawing.Size(353, 25);
             this.Search_Txtbox.TabIndex = 5;
-            this.Search_Txtbox.Text = "   Search here";
+            this.Search_Txtbox.Text = " Search here";
             this.Search_Txtbox.Click += new System.EventHandler(this.Search_Txtbox_Click);
             this.Search_Txtbox.TextChanged += new System.EventHandler(this.Search_Txtbox_TextChanged);
             this.Search_Txtbox.Enter += new System.EventHandler(this.Search_Txtbox_Enter);

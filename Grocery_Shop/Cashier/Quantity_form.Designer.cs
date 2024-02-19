@@ -41,6 +41,7 @@
             this.quantity_txtbox.Name = "quantity_txtbox";
             this.quantity_txtbox.Size = new System.Drawing.Size(122, 52);
             this.quantity_txtbox.TabIndex = 0;
+            this.quantity_txtbox.TextChanged += new System.EventHandler(this.quantity_txtbox_TextChanged);
             this.quantity_txtbox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.quantity_txtbox_KeyDown);
             // 
             // Quantity_form
@@ -50,10 +51,11 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(122, 52);
             this.Controls.Add(this.quantity_txtbox);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Quantity_form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Quantity";
             this.ResumeLayout(false);
             this.PerformLayout();
 

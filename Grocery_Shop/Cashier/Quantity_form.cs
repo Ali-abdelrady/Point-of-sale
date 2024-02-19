@@ -16,11 +16,13 @@ namespace Grocery_Shop
         int quantity;
         Cashier_Mainform cashier_form;
         Product product;
-        public Quantity_form(Cashier_Mainform f, Product p)
+        int currentQuantity;
+        public Quantity_form(Cashier_Mainform f, Product p ,int qty)
         {
             InitializeComponent();
             cashier_form = f;
             product = p;
+            currentQuantity = qty;
         }
 
         private void quantity_txtbox_KeyDown(object sender, KeyEventArgs e)
@@ -30,16 +32,16 @@ namespace Grocery_Shop
                 if (Number_Validation(quantity_txtbox.Text))
                 {
                     quantity = int.Parse(quantity_txtbox.Text);
-                    if(quantity > product.Cur_Amount)
+                    if(quantity > product.Cur_Amount - currentQuantity)
                     {
-                        MessageBox.Show("The quantity you ask for is not available for this product The Cuurent Amount is" + product.Cur_Amount);
+                        MessageBox.Show("The quantity you ask for is not available for this product The Cuurent Amount is" + (product.Cur_Amount - currentQuantity));
                         quantity_txtbox.Clear();
                     }
                     else
                     {
-                        float total = quantity * product.Price;
+                        
                         this.Hide();
-                        cashier_form.AddTo_Purchases_Table(product.Product_Name, product.Price, quantity, total);
+                        cashier_form.AddTo_Purchases_Table(quantity);
                     }
 
                 }
@@ -50,7 +52,7 @@ namespace Grocery_Shop
                 }
             }
         }
-        bool Number_Validation(string num)
+        private bool Number_Validation(string num)
         {
             if(num.Length == 0)
             {
@@ -66,6 +68,11 @@ namespace Grocery_Shop
                 i++;
             }
             return true;
+        }
+
+        private void quantity_txtbox_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

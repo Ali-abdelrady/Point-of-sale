@@ -47,7 +47,7 @@
             this.panel1.Font = new System.Drawing.Font("Tahoma", 10F);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(496, 46);
+            this.panel1.Size = new System.Drawing.Size(556, 46);
             this.panel1.TabIndex = 52;
             // 
             // panel2
@@ -62,7 +62,7 @@
             this.Close_Btn.Font = new System.Drawing.Font("Tahoma", 15F);
             this.Close_Btn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.Close_Btn.Image = ((System.Drawing.Image)(resources.GetObject("Close_Btn.Image")));
-            this.Close_Btn.Location = new System.Drawing.Point(452, 1);
+            this.Close_Btn.Location = new System.Drawing.Point(512, 0);
             this.Close_Btn.Name = "Close_Btn";
             this.Close_Btn.Size = new System.Drawing.Size(41, 46);
             this.Close_Btn.TabIndex = 25;
@@ -87,19 +87,18 @@
             this.reportViewer1.Location = new System.Drawing.Point(0, 50);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(493, 661);
+            this.reportViewer1.Size = new System.Drawing.Size(556, 661);
             this.reportViewer1.TabIndex = 53;
             // 
             // Transaction_Report
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(496, 707);
+            this.ClientSize = new System.Drawing.Size(556, 707);
             this.Controls.Add(this.reportViewer1);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Transaction_Report";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Transaction_Report";
             this.Load += new System.EventHandler(this.Transaction_Report_Load);
             this.panel1.ResumeLayout(false);

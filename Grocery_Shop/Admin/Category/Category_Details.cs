@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Grocery_Shop.Classes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,13 +14,14 @@ namespace Grocery_Shop
 {
     public partial class Category_Details : Form
     {
-        static string sql = "Data Source =ALIABDERADY\\SQLEXPRESS01; Initial Catalog=Shop; Integrated Security=True; User ID=''; Password = ''";
-        SqlConnection con = new SqlConnection(sql);
+        //Database Connection
+        private SqlConnection con;
         Category_List category_list;
         public Category_Details(Category_List form )
         {
             InitializeComponent();
             category_list = form;  
+            con = DatabaseManger.CreateConnection();
         }
 
         private void Cancel_Btn_Click(object sender, EventArgs e)
@@ -33,47 +35,22 @@ namespace Grocery_Shop
         }
         private void SaveUpdate_Btn_Click(object sender, EventArgs e)
         {
-            if (SaveUpdate_Btn.Text == "SAVE")
+            int category_id = category_list.Category_Id;
+            string category_name = Category_Txtbox.Text;
+            if (category_name.Length == 0)
             {
-                string category_name = Category_Txtbox.Text;
-                string query = "INSERT INTO Categories (Category_Name) VALUES(@name)";
-                try
-                {
-                    con.Open();
-                    SqlCommand cmd = new SqlCommand(query, con);
-                    cmd.Parameters.AddWithValue("@name", category_name);
-                    cmd.ExecuteNonQuery();
-                    MessageBox.Show("succeful addding");
-                    Category_Txtbox.Clear();
-                    category_list.RefreshTable();
-                }
-                catch
-                {
-                    MessageBox.Show("Error in Savnig to DB");
-                }
-                finally { con.Close(); }
+                MessageBox.Show("Fill The Empty Box");
             }
             else
             {
-                string category_name = Category_Txtbox.Text;
-                int category_id = category_list.Category_Id;
-                string query = "UPDATE Categories SET Category_Name=@category_name WHERE Category_Id=@Id";
-                try
+                if (SaveUpdate_Btn.Text == "SAVE")
                 {
-                    con.Open();
-                    SqlCommand cmd = new SqlCommand(query, con);
-                    cmd.Parameters.AddWithValue("@category_name", category_name);
-                    cmd.Parameters.AddWithValue("@Id", category_id);
-                    cmd.ExecuteNonQuery();
-                    MessageBox.Show("succeful updating");
-                    Category_Txtbox.Clear();
-                    category_list.RefreshTable();
+                    SaveCategories(category_name);
                 }
-                catch
+                else
                 {
-                    MessageBox.Show("Error in updatieng to DB");
+                    UpdateCategories(category_id, category_name);
                 }
-                finally { con.Close(); }
             }
         }
         public void Set_Btn_Txt(string name)
@@ -95,6 +72,45 @@ namespace Grocery_Shop
             {
                 SaveUpdate_Btn_Click(sender, e);
             }
+        }
+        void SaveCategories(string category_name)
+        {
+            string query = "INSERT INTO Categories (Category_Name) VALUES(@name)";
+            try
+            {
+                con.Open();
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@name", category_name);
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("succeful addding");
+                Category_Txtbox.Clear();
+                category_list.LoadCategoriesTable();
+            }
+            catch
+            {
+                MessageBox.Show("Error in Savnig to DB");
+            }
+            finally { con.Close(); }
+        }
+        void UpdateCategories(int category_id, string category_name)
+        {
+            string query = "UPDATE Categories SET Category_Name=@category_name WHERE Category_Id=@Id";
+            try
+            {
+                con.Open();
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@category_name", category_name);
+                cmd.Parameters.AddWithValue("@Id", category_id);
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("succeful updating");
+                Category_Txtbox.Clear();
+                category_list.LoadCategoriesTable();
+            }
+            catch
+            {
+                MessageBox.Show("Error in updatieng to DB");
+            }
+            finally { con.Close(); }
         }
     }
 }

@@ -10,17 +10,18 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Windows.Forms.DataVisualization.Charting;
+using Grocery_Shop.Classes;
 
 namespace Grocery_Shop
 {
     public partial class Dashboard : UserControl
     {
         //Database Connection
-        static string sql = "Data Source =ALIABDERADY\\SQLEXPRESS01; Initial Catalog=Shop; Integrated Security=True; User ID=''; Password = ''";
-        SqlConnection con = new SqlConnection(sql);
+        private SqlConnection con;
         public Dashboard()
         {
             InitializeComponent();
+            con = DatabaseManger.CreateConnection();
         }
 
         private void Dashboard_Load(object sender, EventArgs e)
@@ -34,6 +35,7 @@ namespace Grocery_Shop
         void Load_Daily_Sales()
         {
             DataTable dt=new DataTable();
+            string dailySales;
             try
             {
                 string query = "SELECT\r\nSUM(i.Item_Total) AS DAILY_SALES \r\nFROM \r\nTransaction_Item i \r\nINNER JOIN Transactions AS t ON t.Transaction_Id = i.Transaction_Id \r\nWHERE\r\nYEAR(t.Transaction_Date) = YEAR(GETDATE())\r\nAND \r\nMONTH(t.Transaction_Date) = MONTH(GETDATE()) ;";
@@ -41,7 +43,10 @@ namespace Grocery_Shop
                 SqlCommand cmd = new SqlCommand(query, con);
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 da.Fill(dt);
-                Sales_Lbl.Text = dt.Rows[0]["DAILY_SALES"].ToString();
+                dailySales = dt.Rows[0]["DAILY_SALES"].ToString();
+                if (dailySales == "")
+                    dailySales = "0";
+                Sales_Lbl.Text = dailySales;
             }
             catch
             {
@@ -147,11 +152,6 @@ namespace Grocery_Shop
             {
                 con.Close();
             }   
-
-        }
-
-        private void chart1_Click(object sender, EventArgs e)
-        {
 
         }
     }

@@ -21,34 +21,9 @@ namespace Grocery_Shop
             InitializeComponent();
              cashier_form=form;
         }
-
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void Discount_Form_Load(object sender, EventArgs e)
         {
             TotalPrice_lbl.Text = Total_Price.ToString();
-        }
-
-        private void Discount_txtbox_KeyUp(object sender, KeyEventArgs e)
-        {
-        }
-
-        private void DiscAmount_lbl_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void Discount_txtbox_TextChanged(object sender, EventArgs e)
@@ -73,10 +48,19 @@ namespace Grocery_Shop
 
         private void Confirm_btn_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            float discount_amount = float.Parse(DiscAmount_lbl.Text);
-            float total_discount = float.Parse(TotalPrice_lbl.Text) - discount_amount;
-            cashier_form.SetProductDiscount(Row_Index, discount_amount, total_discount);
+            if(Discount_txtbox.Text.Length == 0)
+            {
+
+                MessageBox.Show("Fill The Empty Box");
+
+            }
+            else
+            {
+                this.Hide();
+                float discount_amount = float.Parse(DiscAmount_lbl.Text);
+                float total_discount = float.Parse(TotalPrice_lbl.Text) - discount_amount;
+                cashier_form.SetProductDiscount(Row_Index, discount_amount, total_discount);
+            }
         }
     }
 }

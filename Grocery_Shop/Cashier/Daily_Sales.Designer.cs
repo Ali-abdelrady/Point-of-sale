@@ -28,21 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.Close_Btn = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.SoldItems_EndDate = new System.Windows.Forms.DateTimePicker();
             this.SoldItems_StartDate = new System.Windows.Forms.DateTimePicker();
             this.label8 = new System.Windows.Forms.Label();
             this.DailySales_Table = new System.Windows.Forms.DataGridView();
-            this.TotalSales_Lbl = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.Preview_SoldItems = new System.Windows.Forms.Label();
-            this.Close_Btn = new System.Windows.Forms.Label();
-            this.Load_Data = new System.Windows.Forms.Label();
             this.REF = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PCODE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DESCRIPTION = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,6 +46,12 @@
             this.QTY = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TOTAL_SALES = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.TotalSales_Lbl = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Preview_SoldItems = new System.Windows.Forms.Label();
+            this.Load_Data = new System.Windows.Forms.Label();
+            this.Emp_Combobox = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DailySales_Table)).BeginInit();
             this.SuspendLayout();
@@ -75,6 +76,19 @@
             this.panel2.Size = new System.Drawing.Size(797, 226);
             this.panel2.TabIndex = 25;
             // 
+            // Close_Btn
+            // 
+            this.Close_Btn.Dock = System.Windows.Forms.DockStyle.Right;
+            this.Close_Btn.Font = new System.Drawing.Font("Tahoma", 15F);
+            this.Close_Btn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.Close_Btn.Image = global::Grocery_Shop.Properties.Resources.icons8_close_window_50__1_;
+            this.Close_Btn.Location = new System.Drawing.Point(1305, 0);
+            this.Close_Btn.Name = "Close_Btn";
+            this.Close_Btn.Size = new System.Drawing.Size(41, 46);
+            this.Close_Btn.TabIndex = 25;
+            this.Close_Btn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Close_Btn.Click += new System.EventHandler(this.Close_Btn_Click);
+            // 
             // label1
             // 
             this.label1.Dock = System.Windows.Forms.DockStyle.Left;
@@ -91,7 +105,7 @@
             // 
             this.SoldItems_EndDate.CalendarFont = new System.Drawing.Font("Tahoma", 11F);
             this.SoldItems_EndDate.Font = new System.Drawing.Font("Tahoma", 11F);
-            this.SoldItems_EndDate.Location = new System.Drawing.Point(438, 61);
+            this.SoldItems_EndDate.Location = new System.Drawing.Point(400, 61);
             this.SoldItems_EndDate.Name = "SoldItems_EndDate";
             this.SoldItems_EndDate.Size = new System.Drawing.Size(265, 25);
             this.SoldItems_EndDate.TabIndex = 68;
@@ -129,14 +143,14 @@
             this.DailySales_Table.BackgroundColor = System.Drawing.Color.White;
             this.DailySales_Table.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.DailySales_Table.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(45)))), ((int)(((byte)(50)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 11F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DailySales_Table.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(45)))), ((int)(((byte)(50)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Tahoma", 11F);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DailySales_Table.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.DailySales_Table.ColumnHeadersHeight = 40;
             this.DailySales_Table.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.REF,
@@ -152,95 +166,16 @@
             this.DailySales_Table.Location = new System.Drawing.Point(7, 107);
             this.DailySales_Table.Name = "DailySales_Table";
             this.DailySales_Table.ReadOnly = true;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(251)))), ((int)(((byte)(248)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.MenuHighlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-            this.DailySales_Table.RowsDefaultCellStyle = dataGridViewCellStyle2;
-            this.DailySales_Table.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(251)))), ((int)(((byte)(248)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.MenuHighlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
+            this.DailySales_Table.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            this.DailySales_Table.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.DailySales_Table.Size = new System.Drawing.Size(1328, 605);
             this.DailySales_Table.TabIndex = 64;
             this.DailySales_Table.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DailySales_Table_CellContentClick);
-            // 
-            // TotalSales_Lbl
-            // 
-            this.TotalSales_Lbl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.TotalSales_Lbl.BackColor = System.Drawing.Color.Black;
-            this.TotalSales_Lbl.Font = new System.Drawing.Font("Tahoma", 20F);
-            this.TotalSales_Lbl.ForeColor = System.Drawing.Color.Lime;
-            this.TotalSales_Lbl.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.TotalSales_Lbl.Location = new System.Drawing.Point(1164, 57);
-            this.TotalSales_Lbl.Name = "TotalSales_Lbl";
-            this.TotalSales_Lbl.Size = new System.Drawing.Size(168, 38);
-            this.TotalSales_Lbl.TabIndex = 69;
-            this.TotalSales_Lbl.Text = "0.0";
-            this.TotalSales_Lbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label2
-            // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.BackColor = System.Drawing.Color.Black;
-            this.label2.Font = new System.Drawing.Font("Tahoma", 20F);
-            this.label2.ForeColor = System.Drawing.Color.Lime;
-            this.label2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label2.Location = new System.Drawing.Point(1295, 57);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(32, 38);
-            this.label2.TabIndex = 70;
-            this.label2.Text = "$";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // dataGridViewImageColumn1
-            // 
-            this.dataGridViewImageColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.dataGridViewImageColumn1.HeaderText = "";
-            this.dataGridViewImageColumn1.Image = global::Grocery_Shop.Properties.Resources.icons8_cancel_order_20;
-            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewImageColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dataGridViewImageColumn1.Width = 17;
-            // 
-            // Preview_SoldItems
-            // 
-            this.Preview_SoldItems.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Preview_SoldItems.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.Preview_SoldItems.Image = global::Grocery_Shop.Properties.Resources.icons8_printer_30__1_;
-            this.Preview_SoldItems.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Preview_SoldItems.Location = new System.Drawing.Point(891, 54);
-            this.Preview_SoldItems.Name = "Preview_SoldItems";
-            this.Preview_SoldItems.Size = new System.Drawing.Size(164, 38);
-            this.Preview_SoldItems.TabIndex = 67;
-            this.Preview_SoldItems.Text = "    PRINT PREVIEW";
-            this.Preview_SoldItems.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.Preview_SoldItems.Click += new System.EventHandler(this.Preview_SoldItems_Click);
-            // 
-            // Close_Btn
-            // 
-            this.Close_Btn.Dock = System.Windows.Forms.DockStyle.Right;
-            this.Close_Btn.Font = new System.Drawing.Font("Tahoma", 15F);
-            this.Close_Btn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.Close_Btn.Image = global::Grocery_Shop.Properties.Resources.icons8_close_window_50__1_;
-            this.Close_Btn.Location = new System.Drawing.Point(1305, 0);
-            this.Close_Btn.Name = "Close_Btn";
-            this.Close_Btn.Size = new System.Drawing.Size(41, 46);
-            this.Close_Btn.TabIndex = 25;
-            this.Close_Btn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Close_Btn.Click += new System.EventHandler(this.Close_Btn_Click);
-            // 
-            // Load_Data
-            // 
-            this.Load_Data.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Load_Data.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.Load_Data.Image = global::Grocery_Shop.Properties.Resources.icons8_cycle_30;
-            this.Load_Data.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Load_Data.Location = new System.Drawing.Point(748, 54);
-            this.Load_Data.Name = "Load_Data";
-            this.Load_Data.Size = new System.Drawing.Size(127, 37);
-            this.Load_Data.TabIndex = 71;
-            this.Load_Data.Text = "     LOAD DATA";
-            this.Load_Data.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.Load_Data.Click += new System.EventHandler(this.Load_Data_Click);
             // 
             // REF
             // 
@@ -317,12 +252,88 @@
             this.Column3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.Column3.Width = 17;
             // 
+            // TotalSales_Lbl
+            // 
+            this.TotalSales_Lbl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.TotalSales_Lbl.BackColor = System.Drawing.Color.Black;
+            this.TotalSales_Lbl.Font = new System.Drawing.Font("Tahoma", 20F);
+            this.TotalSales_Lbl.ForeColor = System.Drawing.Color.Lime;
+            this.TotalSales_Lbl.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.TotalSales_Lbl.Location = new System.Drawing.Point(1164, 57);
+            this.TotalSales_Lbl.Name = "TotalSales_Lbl";
+            this.TotalSales_Lbl.Size = new System.Drawing.Size(168, 38);
+            this.TotalSales_Lbl.TabIndex = 69;
+            this.TotalSales_Lbl.Text = "0.0";
+            this.TotalSales_Lbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.BackColor = System.Drawing.Color.Black;
+            this.label2.Font = new System.Drawing.Font("Tahoma", 20F);
+            this.label2.ForeColor = System.Drawing.Color.Lime;
+            this.label2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label2.Location = new System.Drawing.Point(1295, 57);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(32, 38);
+            this.label2.TabIndex = 70;
+            this.label2.Text = "$";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // dataGridViewImageColumn1
+            // 
+            this.dataGridViewImageColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.dataGridViewImageColumn1.HeaderText = "";
+            this.dataGridViewImageColumn1.Image = global::Grocery_Shop.Properties.Resources.icons8_cancel_order_20;
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewImageColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // Preview_SoldItems
+            // 
+            this.Preview_SoldItems.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Preview_SoldItems.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.Preview_SoldItems.Image = global::Grocery_Shop.Properties.Resources.icons8_printer_30__1_;
+            this.Preview_SoldItems.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Preview_SoldItems.Location = new System.Drawing.Point(986, 54);
+            this.Preview_SoldItems.Name = "Preview_SoldItems";
+            this.Preview_SoldItems.Size = new System.Drawing.Size(164, 38);
+            this.Preview_SoldItems.TabIndex = 67;
+            this.Preview_SoldItems.Text = "    PRINT PREVIEW";
+            this.Preview_SoldItems.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Preview_SoldItems.Click += new System.EventHandler(this.Preview_SoldItems_Click);
+            // 
+            // Load_Data
+            // 
+            this.Load_Data.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Load_Data.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.Load_Data.Image = global::Grocery_Shop.Properties.Resources.icons8_cycle_30;
+            this.Load_Data.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Load_Data.Location = new System.Drawing.Point(851, 54);
+            this.Load_Data.Name = "Load_Data";
+            this.Load_Data.Size = new System.Drawing.Size(127, 37);
+            this.Load_Data.TabIndex = 71;
+            this.Load_Data.Text = "     LOAD DATA";
+            this.Load_Data.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Load_Data.Click += new System.EventHandler(this.Load_Data_Click);
+            // 
+            // Emp_Combobox
+            // 
+            this.Emp_Combobox.Font = new System.Drawing.Font("Tahoma", 11F);
+            this.Emp_Combobox.FormattingEnabled = true;
+            this.Emp_Combobox.Location = new System.Drawing.Point(678, 60);
+            this.Emp_Combobox.Name = "Emp_Combobox";
+            this.Emp_Combobox.Size = new System.Drawing.Size(158, 26);
+            this.Emp_Combobox.TabIndex = 72;
+            // 
             // Daily_Sales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1346, 724);
+            this.ControlBox = false;
+            this.Controls.Add(this.Emp_Combobox);
             this.Controls.Add(this.Load_Data);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.TotalSales_Lbl);
@@ -332,10 +343,9 @@
             this.Controls.Add(this.DailySales_Table);
             this.Controls.Add(this.Preview_SoldItems);
             this.Controls.Add(this.panel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Daily_Sales";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Daily_Sales";
             this.Load += new System.EventHandler(this.Daily_Sales_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DailySales_Table)).EndInit();
@@ -366,5 +376,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn QTY;
         private System.Windows.Forms.DataGridViewTextBoxColumn TOTAL_SALES;
         private System.Windows.Forms.DataGridViewImageColumn Column3;
+        private System.Windows.Forms.ComboBox Emp_Combobox;
     }
 }
