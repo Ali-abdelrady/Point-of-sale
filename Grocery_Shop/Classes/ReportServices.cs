@@ -28,7 +28,7 @@ namespace Grocery_Shop.Classes
         {
             reportViewer.LocalReport.DataSources.Clear();
             ReportDataSource source = new ReportDataSource(dataset, dt);
-            reportViewer.LocalReport.ReportPath = @"C:\Users\hp\source\repos\Grocery_Shop\Grocery_Shop\Reports\"+ fileName +".rdlc";
+            reportViewer.LocalReport.ReportPath = "../../Reports/"+fileName+".rdlc";
             reportViewer.LocalReport.DataSources.Add(source);
             reportViewer.RefreshReport();
         }
