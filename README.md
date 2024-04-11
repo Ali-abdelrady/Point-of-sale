@@ -35,4 +35,25 @@ This project is implemented with Model–view–controller (MVC) software design
   <li>Install IDE (Visual Studio)</li>
 </ul>
 <hr>
+<h1>Problems</h1> 
+### Issue: Database Connection Failure on Another Computer
+
+**Problem**: The application fails to connect to the database when published and run on another computer.
+
+**Description**: After publishing the application and transferring it to another computer, users encounter a database connection error when attempting to launch the application. This issue occurs even when the database server is running and accessible from the new computer.
+
+**Context**: 
+- Operating System: Windows 10
+- Database Server: SQL Server 2019
+- Connection String: `Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\hp\source\repos\Grocery_Shop\Grocery_Shop\bin\Debug\PosDb.mdf;Integrated Security=True;Connect Timeout=30`
+
+## How to Contribute
+
+If you have experience with database connectivity issues and would like to help resolve this issue, you can contribute in the following ways:
+- Clone the repository to your local machine.
+- Set up the development environment
+- Investigate the code related to database connection and identify any potential issues.
+- Propose solutions and submit a pull request with your proposed fixes.
+
+Your contributions are greatly appreciated and will help improve the overall reliability and compatibility of the application.
 
