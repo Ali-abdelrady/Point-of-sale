@@ -25,7 +25,7 @@ This project is implemented with Model–view–controller (MVC) software design
 - Report generation
 <hr>
 <h1>Video</h1>
-<video src="https://github.com/Ali-abdelrady/Point-of-sale/assets/110298275/319f768f-4367-4a37-8240-cfacacca8e5f"></video>
+<video src="https://github.com/Ali-abdelrady/Point-of-sale/assets/110298275/319f768f-4367-4a37-8240-cfacacca8e5f" controls autoplay></video>
 <hr>
 <h1>Setup</h1>
 <ul>
