@@ -131,6 +131,7 @@ namespace Grocery_Shop
             Transaction_Report form = new Transaction_Report();
             form.ShowDialog();
             cashier.Calc_Final_Price();
+            cashier.Get_Next_TransactionId();
         }
 
         private void enter_btn_KeyDown(object sender, KeyEventArgs e)

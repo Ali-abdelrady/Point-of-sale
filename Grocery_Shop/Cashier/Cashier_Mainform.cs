@@ -327,7 +327,7 @@ namespace Grocery_Shop.Cashier
                 con.Close();
             }
         }
-        void Get_Next_TransactionId()
+        public void Get_Next_TransactionId()
         {
             DataTable dt = new DataTable();
             string query = "SELECT IDENT_CURRENT('Transactions')";

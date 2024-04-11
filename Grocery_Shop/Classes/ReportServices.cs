@@ -30,11 +30,9 @@ namespace Grocery_Shop.Classes
             string reportPath = System.IO.Path.Combine(exeFolder, "Reports", ""+fileName+".rdlc");
             reportViewer.LocalReport.DataSources.Clear();
             ReportDataSource source = new ReportDataSource(dataset, dt);
-<<<<<<< HEAD
+
             reportViewer.LocalReport.ReportPath = reportPath;
-=======
             reportViewer.LocalReport.ReportPath = "../../Reports/"+fileName+".rdlc";
->>>>>>> bdfb5ec96f6425a13c82fc973282de1ee8914a36
             reportViewer.LocalReport.DataSources.Add(source);
             reportViewer.RefreshReport();
         }
