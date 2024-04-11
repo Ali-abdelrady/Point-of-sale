@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Grocery_Shop.Classes
+﻿namespace Grocery_Shop.Classes
 {
     public class SoldItem_Details : Product
     {

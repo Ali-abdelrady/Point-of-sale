@@ -1,10 +1,9 @@
 ﻿using Microsoft.Reporting.WinForms;
+using SixLabors.ImageSharp.Drawing;
 using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
+using System.Windows.Forms;
 
 namespace Grocery_Shop.Classes
 {
@@ -26,9 +25,12 @@ namespace Grocery_Shop.Classes
         //Methods
         public void Display_Report()
         {
+
+            string exeFolder = AppDomain.CurrentDomain.BaseDirectory;
+            string reportPath = System.IO.Path.Combine(exeFolder, "Reports", ""+fileName+".rdlc");
             reportViewer.LocalReport.DataSources.Clear();
             ReportDataSource source = new ReportDataSource(dataset, dt);
-            reportViewer.LocalReport.ReportPath = @"C:\Users\hp\source\repos\Grocery_Shop\Grocery_Shop\Reports\"+ fileName +".rdlc";
+            reportViewer.LocalReport.ReportPath = reportPath;
             reportViewer.LocalReport.DataSources.Add(source);
             reportViewer.RefreshReport();
         }

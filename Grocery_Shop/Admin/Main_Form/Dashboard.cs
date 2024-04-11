@@ -1,15 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
-using System.Windows.Forms.DataVisualization.Charting;
 using Grocery_Shop.Classes;
 
 namespace Grocery_Shop
@@ -24,7 +16,7 @@ namespace Grocery_Shop
             con = DatabaseManger.CreateConnection();
         }
 
-        private void Dashboard_Load(object sender, EventArgs e)
+        public void Dashboard_Load(object sender, EventArgs e)
         {
             Load_Daily_Sales();
             Load_Critical_Items();
@@ -34,19 +26,19 @@ namespace Grocery_Shop
         }
         void Load_Daily_Sales()
         {
-            DataTable dt=new DataTable();
-            string dailySales;
+            int cnt =0;
             try
             {
                 string query = "SELECT\r\nSUM(i.Item_Total) AS DAILY_SALES \r\nFROM \r\nTransaction_Item i \r\nINNER JOIN Transactions AS t ON t.Transaction_Id = i.Transaction_Id \r\nWHERE\r\nYEAR(t.Transaction_Date) = YEAR(GETDATE())\r\nAND \r\nMONTH(t.Transaction_Date) = MONTH(GETDATE()) ;";
                 con.Open();
                 SqlCommand cmd = new SqlCommand(query, con);
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                da.Fill(dt);
-                dailySales = dt.Rows[0]["DAILY_SALES"].ToString();
-                if (dailySales == "")
-                    dailySales = "0";
-                Sales_Lbl.Text = dailySales;
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    if (dr["DAILY_SALES"].GetType().ToString() == "System.DBNull")break;
+                    cnt = int.Parse(dr["DAILY_SALES"].ToString());
+                }
+                Sales_Lbl.Text = cnt.ToString();
             }
             catch
             {
@@ -59,15 +51,18 @@ namespace Grocery_Shop
         }
         void Load_Critical_Items()
         {
-            DataTable dt = new DataTable();
+            int cnt = 0;
             try
             {
-                string query = "SELECT \r\nCOUNT(Product_Id)\r\nFROM \r\nProducts\r\nWHERE \r\nCur_Amount < 3";
+                string query = "SELECT \r\nCOUNT(Product_Id) AS cnt\r\nFROM \r\nProducts\r\nWHERE \r\nCur_Amount < 3";
                 con.Open();
                 SqlCommand cmd = new SqlCommand(query, con);
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                da.Fill(dt);
-                CriticalItems_Lbl.Text = dt.Rows[0][0].ToString();
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    cnt = int.Parse(dr["cnt"].ToString());
+                }
+                CriticalItems_Lbl.Text = cnt.ToString();
             }
             catch
             {
@@ -80,15 +75,18 @@ namespace Grocery_Shop
         }
         void Load_Available_Stock()
         {
-            DataTable dt = new DataTable();
             try
             {
+                int cnt = 0;
                 string query = "SELECT \r\nSUM(Cur_Amount) AS STOCK_ON_HAND\r\nFROM \r\nProducts;";
                 con.Open();
                 SqlCommand cmd = new SqlCommand(query, con);
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                da.Fill(dt);
-                Stock_Lbl.Text = dt.Rows[0][0].ToString();
+                SqlDataReader dr = cmd.ExecuteReader();
+                while(dr.Read())
+                {
+                    cnt = int.Parse(dr["STOCK_ON_HAND"].ToString());
+                }
+                Stock_Lbl.Text = cnt.ToString();
             }
             catch
             {
@@ -101,15 +99,18 @@ namespace Grocery_Shop
         }
         void Load_Vendors()
         {
-            DataTable dt = new DataTable();
+            int cnt = 0;
             try
             {
                 string query = "SELECT COUNT(Vendor_Id) AS Count\r\nFROM\r\nVendors;";
                 con.Open();
                 SqlCommand cmd = new SqlCommand(query, con);
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                da.Fill(dt);
-                Vendor_lbl.Text = dt.Rows[0][0].ToString();
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    cnt = int.Parse(dr["Count"].ToString());
+                }
+                Vendor_lbl.Text = cnt.ToString();
             }
             catch
             {

@@ -116,6 +116,7 @@
             // 
             // Confirmation_Txtbox
             // 
+            this.Confirmation_Txtbox.Font = new System.Drawing.Font("Tahoma", 11F);
             this.Confirmation_Txtbox.Location = new System.Drawing.Point(162, 116);
             this.Confirmation_Txtbox.Multiline = true;
             this.Confirmation_Txtbox.Name = "Confirmation_Txtbox";
@@ -136,6 +137,7 @@
             // 
             // Password_Txtbox
             // 
+            this.Password_Txtbox.Font = new System.Drawing.Font("Tahoma", 11F);
             this.Password_Txtbox.Location = new System.Drawing.Point(162, 80);
             this.Password_Txtbox.Multiline = true;
             this.Password_Txtbox.Name = "Password_Txtbox";

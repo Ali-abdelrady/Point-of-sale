@@ -1,21 +1,9 @@
 ﻿using Grocery_Shop.Classes;
-using Microsoft.Reporting.Map.WebForms.BingMaps;
-using MySql.Simple;
-using SixLabors.ImageSharp;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
 using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml.Linq;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using Color = System.Drawing.Color;
 
 namespace Grocery_Shop
@@ -123,7 +111,7 @@ namespace Grocery_Shop
             }
             catch
             {
-                MessageBox.Show("ERORR");
+                //MessageBox.Show("ERORR");
             }
             finally
             {
@@ -138,14 +126,22 @@ namespace Grocery_Shop
             {
                 if (User_Table.Rows.Count > 0)
                 {
-                    var res= MessageBox.Show("Any transcation this user made will be deleted from all tables ", "Title", MessageBoxButtons.OKCancel);
-                    if(res == DialogResult.OK)
+                    if(Count_Admins() > 1)
                     {
-                        DataGridViewRow row = User_Table.Rows[e.RowIndex];
-                        int emp_id = int.Parse(row.Cells[1].Value.ToString());
-                        string username = row.Cells[6].Value.ToString();
-                        string password = row.Cells[7].Value.ToString();
-                        DeleteAccount(emp_id,username,password,e);
+                        var res= MessageBox.Show("Any transcation this user made will be deleted from all tables ", "Title", MessageBoxButtons.OKCancel);
+                        if(res == DialogResult.OK)
+                        {
+                            DataGridViewRow row = User_Table.Rows[e.RowIndex];
+                            int emp_id = int.Parse(row.Cells[1].Value.ToString());
+                            string username = row.Cells[6].Value.ToString();
+                            string password = row.Cells[7].Value.ToString();
+                            DeleteAccount(emp_id,username,password,e);
+
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("it must be at least 1 amdin in this program");
                     }
 
                 }
@@ -295,6 +291,17 @@ namespace Grocery_Shop
         bool Is_Empty(string username, string password,string new_password ,string confirm)
         {
             return username.Length == 0 || password.Length == 0 || confirm.Length == 0 || new_password.Length == 0;
+        }
+        int Count_Admins()
+        {
+            int cnt = 0;
+            string query = "SELECT COUNT(*)  AS cnt FROM UserAccounts WHERE Role = 'Admin'";
+            con.Open();
+            using (SqlCommand cmd = new SqlCommand(query,con))
+            {
+                cnt = Convert.ToInt32(cmd.ExecuteScalar());
+            }
+            return cnt;
         }
     }
 

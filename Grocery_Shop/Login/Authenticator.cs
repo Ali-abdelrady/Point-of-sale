@@ -31,8 +31,8 @@ namespace Grocery_Shop.Login
                 cmd.Parameters.AddWithValue("@Password", Password);
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                 adapter.Fill(dt);
-                Global.Role = dt.Rows[0]["Role"].ToString().TrimEnd();
-                Global.Emp_Id = int.Parse(dt.Rows[0]["Emp_Id"].ToString());
+                User.Role = dt.Rows[0]["Role"].ToString().TrimEnd();
+                User.Emp_Id = int.Parse(dt.Rows[0]["Emp_Id"].ToString());
                 if (dt.Rows.Count > 0) // if the user exsit
                 {
                     return true; 

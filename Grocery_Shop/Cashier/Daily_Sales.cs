@@ -1,15 +1,9 @@
 ﻿using Grocery_Shop.Classes;
 using Grocery_Shop.Reports;
-using MySqlX.XDevAPI.Relational;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Grocery_Shop.Cashier
@@ -106,7 +100,7 @@ namespace Grocery_Shop.Cashier
         void Fill_EmpCombobox()
         {
             string query;
-            if (Global.Role == "Admin")
+            if (User.Role == "Admin")
             {
                 query = "SELECT RTRIM(First_Name)+' '+RTRIM(Last_Name) AS NAME , Emp_Id  FROM Employees WHERE Emp_Id != @Emp_Id";
             }
@@ -120,7 +114,7 @@ namespace Grocery_Shop.Cashier
             {
                 con.Open();
                 SqlCommand cmd = new SqlCommand(query, con);
-                cmd.Parameters.AddWithValue("@Emp_Id", Global.Emp_Id);
+                cmd.Parameters.AddWithValue("@Emp_Id", User.Emp_Id);
                 cmd.ExecuteNonQuery();
                 SqlDataReader dr = cmd.ExecuteReader();
                 while (dr.Read())

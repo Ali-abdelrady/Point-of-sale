@@ -48,9 +48,24 @@
             this.label2 = new System.Windows.Forms.Label();
             this.Save_Btn = new System.Windows.Forms.Button();
             this.StockIn_Table = new System.Windows.Forms.DataGridView();
+            this.PCODE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Date_time = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Brand_Col = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Delete_Cell = new System.Windows.Forms.DataGridViewImageColumn();
             this.metroTabPage2 = new MetroFramework.Controls.MetroTabPage();
             this.End_Date = new System.Windows.Forms.DateTimePicker();
             this.StockHistory_Table = new System.Windows.Forms.DataGridView();
+            this.Stock_Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
             this.Start_Date = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
             this.LoadRecord_Btn = new System.Windows.Forms.Button();
@@ -81,21 +96,6 @@
             this.SrockIn_lbl = new System.Windows.Forms.Label();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.PCODE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Date_time = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Brand_Col = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Delete_Cell = new System.Windows.Forms.DataGridViewImageColumn();
-            this.Stock_Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
             this.Stock_Adjustment.SuspendLayout();
             this.metroTabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.StockIn_Table)).BeginInit();
@@ -116,7 +116,7 @@
             this.Stock_Adjustment.Controls.Add(this.metroTabPage3);
             this.Stock_Adjustment.Location = new System.Drawing.Point(3, 60);
             this.Stock_Adjustment.Name = "Stock_Adjustment";
-            this.Stock_Adjustment.SelectedIndex = 1;
+            this.Stock_Adjustment.SelectedIndex = 0;
             this.Stock_Adjustment.Size = new System.Drawing.Size(1114, 709);
             this.Stock_Adjustment.TabIndex = 1;
             this.Stock_Adjustment.UseSelectable = true;
@@ -282,6 +282,62 @@
             this.StockIn_Table.TabIndex = 21;
             this.StockIn_Table.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.StockIn_Table_CellContentClick);
             // 
+            // PCODE
+            // 
+            this.PCODE.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.PCODE.DataPropertyName = "Product_Id";
+            this.PCODE.HeaderText = "PCODE";
+            this.PCODE.Name = "PCODE";
+            this.PCODE.Width = 77;
+            // 
+            // Column2
+            // 
+            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column2.DataPropertyName = "Name";
+            this.Column2.HeaderText = " DESCRIPTION";
+            this.Column2.Name = "Column2";
+            this.Column2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // Column3
+            // 
+            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.Column3.DataPropertyName = "Cur_Amount";
+            this.Column3.HeaderText = "QTY";
+            this.Column3.Name = "Column3";
+            this.Column3.Width = 62;
+            // 
+            // Date_time
+            // 
+            this.Date_time.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Date_time.DataPropertyName = "Entry_Date";
+            this.Date_time.HeaderText = "STOCK IN DATE";
+            this.Date_time.Name = "Date_time";
+            // 
+            // Column4
+            // 
+            this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column4.DataPropertyName = "Emp_Id";
+            this.Column4.HeaderText = "STOCK IN BY";
+            this.Column4.Name = "Column4";
+            // 
+            // Brand_Col
+            // 
+            this.Brand_Col.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.Brand_Col.DataPropertyName = "Name";
+            this.Brand_Col.HeaderText = "VENDOR";
+            this.Brand_Col.Name = "Brand_Col";
+            this.Brand_Col.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Brand_Col.Width = 69;
+            // 
+            // Delete_Cell
+            // 
+            this.Delete_Cell.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Delete_Cell.DataPropertyName = "Delete";
+            this.Delete_Cell.HeaderText = "";
+            this.Delete_Cell.Image = global::Grocery_Shop.Properties.Resources.icons8_trash_20;
+            this.Delete_Cell.Name = "Delete_Cell";
+            this.Delete_Cell.Width = 5;
+            // 
             // metroTabPage2
             // 
             this.metroTabPage2.Controls.Add(this.End_Date);
@@ -357,6 +413,76 @@
             this.StockHistory_Table.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.StockHistory_Table.Size = new System.Drawing.Size(1106, 587);
             this.StockHistory_Table.TabIndex = 57;
+            // 
+            // Stock_Id
+            // 
+            this.Stock_Id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.Stock_Id.DataPropertyName = "Stock_Id";
+            this.Stock_Id.HeaderText = "REF #";
+            this.Stock_Id.Name = "Stock_Id";
+            this.Stock_Id.ReadOnly = true;
+            this.Stock_Id.Width = 72;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Product_Id";
+            this.dataGridViewTextBoxColumn2.HeaderText = "PCODE";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Width = 77;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "Product_Name";
+            this.dataGridViewTextBoxColumn1.HeaderText = " DESCRIPTION";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "Quantity";
+            this.dataGridViewTextBoxColumn3.HeaderText = "QTY";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.Width = 62;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "Entry_Date";
+            this.dataGridViewTextBoxColumn4.HeaderText = "STOCK IN DATE";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "StockBy";
+            this.dataGridViewTextBoxColumn5.HeaderText = "STOCK IN BY";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "Vendor_Name";
+            this.dataGridViewTextBoxColumn6.HeaderText = "VENDOR";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            this.dataGridViewTextBoxColumn6.Width = 88;
+            // 
+            // dataGridViewImageColumn3
+            // 
+            this.dataGridViewImageColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.dataGridViewImageColumn3.DataPropertyName = "Delete";
+            this.dataGridViewImageColumn3.HeaderText = "DELETE";
+            this.dataGridViewImageColumn3.Image = global::Grocery_Shop.Properties.Resources.icons8_trash_20;
+            this.dataGridViewImageColumn3.Name = "dataGridViewImageColumn3";
+            this.dataGridViewImageColumn3.ReadOnly = true;
+            this.dataGridViewImageColumn3.Width = 63;
             // 
             // Start_Date
             // 
@@ -751,132 +877,6 @@
             this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
             this.dataGridViewImageColumn2.ReadOnly = true;
             this.dataGridViewImageColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // PCODE
-            // 
-            this.PCODE.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.PCODE.DataPropertyName = "Product_Id";
-            this.PCODE.HeaderText = "PCODE";
-            this.PCODE.Name = "PCODE";
-            this.PCODE.Width = 77;
-            // 
-            // Column2
-            // 
-            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column2.DataPropertyName = "Name";
-            this.Column2.HeaderText = " DESCRIPTION";
-            this.Column2.Name = "Column2";
-            this.Column2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // Column3
-            // 
-            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.Column3.DataPropertyName = "Cur_Amount";
-            this.Column3.HeaderText = "QTY";
-            this.Column3.Name = "Column3";
-            this.Column3.Width = 62;
-            // 
-            // Date_time
-            // 
-            this.Date_time.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Date_time.DataPropertyName = "Entry_Date";
-            this.Date_time.HeaderText = "STOCK IN DATE";
-            this.Date_time.Name = "Date_time";
-            // 
-            // Column4
-            // 
-            this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column4.DataPropertyName = "Emp_Id";
-            this.Column4.HeaderText = "STOCK IN BY";
-            this.Column4.Name = "Column4";
-            // 
-            // Brand_Col
-            // 
-            this.Brand_Col.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.Brand_Col.DataPropertyName = "Name";
-            this.Brand_Col.HeaderText = "VENDOR";
-            this.Brand_Col.Name = "Brand_Col";
-            this.Brand_Col.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Brand_Col.Width = 69;
-            // 
-            // Delete_Cell
-            // 
-            this.Delete_Cell.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Delete_Cell.DataPropertyName = "Delete";
-            this.Delete_Cell.HeaderText = "";
-            this.Delete_Cell.Image = global::Grocery_Shop.Properties.Resources.icons8_trash_20;
-            this.Delete_Cell.Name = "Delete_Cell";
-            this.Delete_Cell.Width = 5;
-            // 
-            // Stock_Id
-            // 
-            this.Stock_Id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.Stock_Id.DataPropertyName = "Stock_Id";
-            this.Stock_Id.HeaderText = "REF #";
-            this.Stock_Id.Name = "Stock_Id";
-            this.Stock_Id.ReadOnly = true;
-            this.Stock_Id.Width = 72;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "Product_Id";
-            this.dataGridViewTextBoxColumn2.HeaderText = "PCODE";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.Width = 77;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "Product_Name";
-            this.dataGridViewTextBoxColumn1.HeaderText = " DESCRIPTION";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "Quantity";
-            this.dataGridViewTextBoxColumn3.HeaderText = "QTY";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            this.dataGridViewTextBoxColumn3.Width = 62;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "Entry_Date";
-            this.dataGridViewTextBoxColumn4.HeaderText = "STOCK IN DATE";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "StockBy";
-            this.dataGridViewTextBoxColumn5.HeaderText = "STOCK IN BY";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "Vendor_Name";
-            this.dataGridViewTextBoxColumn6.HeaderText = "VENDOR";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            this.dataGridViewTextBoxColumn6.Width = 88;
-            // 
-            // dataGridViewImageColumn3
-            // 
-            this.dataGridViewImageColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.dataGridViewImageColumn3.DataPropertyName = "Delete";
-            this.dataGridViewImageColumn3.HeaderText = "DELETE";
-            this.dataGridViewImageColumn3.Image = global::Grocery_Shop.Properties.Resources.icons8_trash_20;
-            this.dataGridViewImageColumn3.Name = "dataGridViewImageColumn3";
-            this.dataGridViewImageColumn3.ReadOnly = true;
-            this.dataGridViewImageColumn3.Width = 63;
             // 
             // StockEntry_Form
             // 

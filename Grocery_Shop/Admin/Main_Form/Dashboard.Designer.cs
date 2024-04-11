@@ -93,7 +93,7 @@
             this.Sales_Lbl.Name = "Sales_Lbl";
             this.Sales_Lbl.Size = new System.Drawing.Size(30, 33);
             this.Sales_Lbl.TabIndex = 25;
-            this.Sales_Lbl.Text = "1";
+            this.Sales_Lbl.Text = "0";
             this.Sales_Lbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // Stock_Lbl
@@ -107,7 +107,7 @@
             this.Stock_Lbl.Name = "Stock_Lbl";
             this.Stock_Lbl.Size = new System.Drawing.Size(30, 33);
             this.Stock_Lbl.TabIndex = 33;
-            this.Stock_Lbl.Text = "1";
+            this.Stock_Lbl.Text = "0";
             this.Stock_Lbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label12
@@ -147,7 +147,7 @@
             this.CriticalItems_Lbl.Name = "CriticalItems_Lbl";
             this.CriticalItems_Lbl.Size = new System.Drawing.Size(30, 33);
             this.CriticalItems_Lbl.TabIndex = 37;
-            this.CriticalItems_Lbl.Text = "1";
+            this.CriticalItems_Lbl.Text = "0";
             this.CriticalItems_Lbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label16
@@ -287,7 +287,7 @@
             this.Vendor_lbl.Name = "Vendor_lbl";
             this.Vendor_lbl.Size = new System.Drawing.Size(30, 33);
             this.Vendor_lbl.TabIndex = 29;
-            this.Vendor_lbl.Text = "1";
+            this.Vendor_lbl.Text = "0";
             this.Vendor_lbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label14

@@ -3,8 +3,6 @@ using Grocery_Shop.Classes;
 using Grocery_Shop.Login;
 using IronSoftware.Drawing;
 using System;
-using System.Data;
-using System.Data.SqlClient;
 using System.Windows.Forms;
 
 namespace Grocery_Shop
@@ -31,7 +29,7 @@ namespace Grocery_Shop
 
                 if(isAuthenticated)
                 {
-                    if (Global.Role == "Admin")
+                    if (User.Role == "Admin")
                     {
                         this.Hide();
                         Admin form = new Admin();

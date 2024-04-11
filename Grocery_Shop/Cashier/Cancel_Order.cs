@@ -1,15 +1,7 @@
 ﻿using Grocery_Shop.Classes;
 using System;
-using System.Collections.Generic;
-using System.Collections.Specialized;
-using System.ComponentModel;
-using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Drawing.Printing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Grocery_Shop.Cashier
@@ -36,7 +28,7 @@ namespace Grocery_Shop.Cashier
         private void Cancel_Order_Load(object sender, EventArgs e)
         {
             Load_SoldItem_Details();
-            CancelBy_Textbox.Text = Global.Role;
+            CancelBy_Textbox.Text = User.Role;
         }
 
         private void Load_SoldItem_Details()

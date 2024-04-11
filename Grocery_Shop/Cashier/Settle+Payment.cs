@@ -1,20 +1,11 @@
-﻿using Google.Protobuf.WellKnownTypes;
-using Grocery_Shop.Cashier;
+﻿using Grocery_Shop.Cashier;
 using Grocery_Shop.Classes;
 using Grocery_Shop.Reports;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Data.Common;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Grocery_Shop
 {
@@ -237,10 +228,10 @@ namespace Grocery_Shop
                 con.Open();
                 string query1 = "INSERT INTO Transactions (Store_Id,Emp_Id,Transaction_Date) VALUES (1,@emp_id,@date)";
                 SqlCommand cmd = new SqlCommand(query1, con);
-                cmd.Parameters.AddWithValue("@emp_id", Global.Emp_Id);
+                cmd.Parameters.AddWithValue("@emp_id", User.Emp_Id);
                 cmd.Parameters.AddWithValue("@date", DateTime.Now.ToShortDateString());
                 cmd.ExecuteNonQuery();
-                MessageBox.Show("Added Succssefuly");
+                //MessageBox.Show("Added Succssefuly");
             }
             catch
             {

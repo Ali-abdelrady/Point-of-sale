@@ -1,12 +1,6 @@
-﻿using IronSoftware.Drawing;
-using SixLabors.ImageSharp;
-using SixLabors.ImageSharp.ColorSpaces;
-using System.Drawing;
-using System;
+﻿using System;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-using System.Data;
-using System.Collections.Generic;
 using Grocery_Shop.Login;
 using Grocery_Shop.Classes;
 using Grocery_Shop.Cashier;
@@ -40,6 +34,7 @@ namespace Grocery_Shop
 
         private void dashborad_btn_Click(object sender, EventArgs e)
         {
+            dashboard2.Dashboard_Load(sender, e);
             dashboard2.Visible = true;
             productList_Form2.Visible = false;
             category_List2.Visible = false;
@@ -112,6 +107,8 @@ namespace Grocery_Shop
         private void StockEntry_Btn_Click(object sender, EventArgs e)
         {
             stockEntry_Form2.Visible = true;
+            //stockEntry_Form2
+            stockEntry_Form2.Fill_ComboBox();
             userAccount_Form1.Visible = false;
             productList_Form2.Visible = false;
             category_List2.Visible = false;
@@ -122,13 +119,10 @@ namespace Grocery_Shop
 
         }
 
-        private void userAccount_Form2_Load(object sender, EventArgs e)
-        {
-
-        }
 
         private void Records_Btn_Click(object sender, EventArgs e)
         {
+            records_Form2.Records_Form_Load(sender,e);
             stockEntry_Form2.Visible = false;
             userAccount_Form1.Visible = false;
             productList_Form2.Visible = false;
@@ -229,7 +223,7 @@ namespace Grocery_Shop
         {
 
         }
-        void Set_Forms_Sizes()
+/*        void Set_Forms_Sizes()
         {
             dashboard2.Width = 1241;
             dashboard2.Height = 1100;
@@ -240,7 +234,7 @@ namespace Grocery_Shop
             stockEntry_Form2.Visible = false;
             records_Form2.Visible = false;
             vendor_List1.Visible = false;
-        }
+        }*/
 
         private void SalesHistory_Btn_Click(object sender, EventArgs e)
         {

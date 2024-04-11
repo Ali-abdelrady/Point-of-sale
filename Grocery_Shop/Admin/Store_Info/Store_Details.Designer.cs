@@ -128,6 +128,7 @@
             // 
             // PhoneNumber_Txtbox
             // 
+            this.PhoneNumber_Txtbox.Font = new System.Drawing.Font("Tahoma", 11F);
             this.PhoneNumber_Txtbox.Location = new System.Drawing.Point(141, 146);
             this.PhoneNumber_Txtbox.Multiline = true;
             this.PhoneNumber_Txtbox.Name = "PhoneNumber_Txtbox";
@@ -136,6 +137,7 @@
             // 
             // Address_Txtbox
             // 
+            this.Address_Txtbox.Font = new System.Drawing.Font("Tahoma", 11F);
             this.Address_Txtbox.Location = new System.Drawing.Point(141, 110);
             this.Address_Txtbox.Multiline = true;
             this.Address_Txtbox.Name = "Address_Txtbox";
@@ -151,10 +153,10 @@
             this.label2.TabIndex = 44;
             this.label2.Text = "ADDRESS";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // StoreName_Txtbox
             // 
+            this.StoreName_Txtbox.Font = new System.Drawing.Font("Tahoma", 11F);
             this.StoreName_Txtbox.Location = new System.Drawing.Point(141, 74);
             this.StoreName_Txtbox.Multiline = true;
             this.StoreName_Txtbox.Name = "StoreName_Txtbox";

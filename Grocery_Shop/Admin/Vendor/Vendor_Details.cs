@@ -1,18 +1,8 @@
 ﻿using Grocery_Shop.Classes;
-using Microsoft.Reporting.Map.WebForms.BingMaps;
-using MySql.Simple;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
 using System.Linq;
-using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace Grocery_Shop
 {
@@ -24,6 +14,7 @@ namespace Grocery_Shop
 
         Vendor_List vendor_form =new Vendor_List();
         Vendor vendor = new Vendor();
+        StockEntry_Form stock = new StockEntry_Form();  
         public Vendor_Details(Vendor_List f,Vendor v)
         {
             InitializeComponent();

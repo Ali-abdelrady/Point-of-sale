@@ -60,7 +60,7 @@ namespace Grocery_Shop.Reports
                 string query = "SELECT s.Name AS STORE_NAME, s.Address AS ADDRESS, e.Emp_Id AS CASHIER, IDENT_CURRENT('Transactions') AS REF\r\nFROM Store_Details AS s, Employees AS e\r\nWHERE e.Emp_Id=@emp_id;\r\n";
                 con.Open();
                 SqlCommand cmd = new SqlCommand(query, con);
-                cmd.Parameters.AddWithValue("@emp_id", Global.Emp_Id);
+                cmd.Parameters.AddWithValue("@emp_id", User.Emp_Id);
                 cmd.ExecuteNonQuery();
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                 adapter.Fill(dt);

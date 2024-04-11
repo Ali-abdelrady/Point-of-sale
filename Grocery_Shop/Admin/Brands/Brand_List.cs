@@ -1,15 +1,8 @@
 ﻿using Grocery_Shop.Classes;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml.Linq;
 
 namespace Grocery_Shop
 {
@@ -72,7 +65,7 @@ namespace Grocery_Shop
                 {
                     DataGridViewRow row = Brands_Table.Rows[e.RowIndex];
                     int brand_id = int.Parse(row.Cells[2].Value.ToString());
-
+                    Console.WriteLine("The Brand ID :"+brand_id);
                     DeleteBrands(brand_id, e);
                 }
             }
@@ -127,7 +120,7 @@ namespace Grocery_Shop
             }
             catch
             {
-                MessageBox.Show("error om Delete product");
+                MessageBox.Show("Error On Delete Brand");
 
             }
             finally

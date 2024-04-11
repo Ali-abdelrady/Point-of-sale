@@ -58,7 +58,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Brands_Table.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.Brands_Table.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.Brands_Table.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.Brands_Table.BackgroundColor = System.Drawing.Color.White;
             this.Brands_Table.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Brands_Table.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;

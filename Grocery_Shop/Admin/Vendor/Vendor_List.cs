@@ -1,23 +1,17 @@
 ﻿using Grocery_Shop.Classes;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml.Linq;
 
 namespace Grocery_Shop
 {
     public partial class Vendor_List : UserControl
     {
         //Setter And Getter
-        Vendor vendor=new Vendor();
         TextboxStyles textboxStyle = new TextboxStyles();
+        Vendor vendor = new Vendor();
         //Database Connection
         private SqlConnection con;
         public Vendor_List()
@@ -79,22 +73,7 @@ namespace Grocery_Shop
                     Vendors_Table.Rows.RemoveAt(e.RowIndex);
 
                     //Delete From The Database Table  
-                    string query = "DELETE FROM Vendors Where Vendor_Id=@Id";
-                    try
-                    {
-                        con.Open();
-                        SqlCommand cmd = new SqlCommand(query, con);
-                        cmd.Parameters.AddWithValue("@Id", vendor_id);
-                        cmd.ExecuteNonQuery();
-                    }
-                    catch
-                    {
-                        MessageBox.Show("Error in Deleting at Vendors Table ");
-                    }
-                    finally
-                    {
-                        con.Close();
-                    }
+                    Delete_Vendor(vendor_id);
                 }
             }
             else if (Vendors_Table.Columns[e.ColumnIndex].HeaderText == "EDIT")
@@ -102,13 +81,17 @@ namespace Grocery_Shop
 
                 if (Vendors_Table.Rows.Count > 0)
                 {
-                    int vendor_id = int.Parse(Vendors_Table.Rows[e.RowIndex].Cells[2].Value.ToString().TrimEnd());
+                    string name = CellValue(3, e);
+                    string address = CellValue(4, e); ;
+                    string email = CellValue(5, e); ;
+                    string phoneNumber = CellValue(6, e); ;
+                    int vendor_id = int.Parse(CellValue(2,e));
                     //Set Values To the Obj
                     vendor.Vendor_id = vendor_id;
-                    vendor.Vendor_Name = Get_Cell_Value(3, e);
-                    vendor.Address = Get_Cell_Value(4, e);
-                    vendor.Email= Get_Cell_Value(5, e);
-                    vendor.PhoneNumber= Get_Cell_Value(6, e);
+                    vendor.Vendor_Name = name;
+                    vendor.Address = address;
+                    vendor.Email = email;
+                    vendor.PhoneNumber = phoneNumber;
                     //open the form
                     Vendor_Details Form = new Vendor_Details(this,vendor);
                     Form.Change_Btn_Text("UPDATE");
@@ -126,9 +109,9 @@ namespace Grocery_Shop
 
             textboxStyle.Textbox_Leave(Search_Txtbox, " Search here");
         }
-        String Get_Cell_Value(int index, DataGridViewCellEventArgs e)
+        String CellValue(int index, DataGridViewCellEventArgs e)
         {
-           return Vendors_Table.Rows[e.RowIndex].Cells[index].Value.ToString();  
+           return Vendors_Table.Rows[e.RowIndex].Cells[index].Value.ToString().TrimEnd();  
         }
 
         private void Search_Txtbox_TextChanged(object sender, EventArgs e)
@@ -140,6 +123,25 @@ namespace Grocery_Shop
         {
             Search_Txtbox.Text = " Search here";
             Search_Txtbox.ForeColor = Color.Gray;
+        }
+        private void Delete_Vendor(int vendor_id)
+        {
+            string query = "DELETE FROM Vendors Where Vendor_Id=@Id";
+            try
+            {
+                con.Open();
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@Id", vendor_id);
+                cmd.ExecuteNonQuery();
+            }
+            catch
+            {
+                MessageBox.Show("Error in Deleting at Vendors Table ");
+            }
+            finally
+            {
+                con.Close();
+            }
         }
     }
 }

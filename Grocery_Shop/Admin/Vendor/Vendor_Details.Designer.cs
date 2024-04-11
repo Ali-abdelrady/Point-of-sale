@@ -85,6 +85,7 @@
             // 
             // Name_Txtbox
             // 
+            this.Name_Txtbox.Font = new System.Drawing.Font("Tahoma", 11F);
             this.Name_Txtbox.Location = new System.Drawing.Point(213, 90);
             this.Name_Txtbox.Multiline = true;
             this.Name_Txtbox.Name = "Name_Txtbox";
@@ -133,7 +134,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(184, 46);
             this.label1.TabIndex = 24;
-            this.label1.Text = "Category Details";
+            this.label1.Text = "Vendor Details";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label2
@@ -148,6 +149,7 @@
             // 
             // Email_Txtbox
             // 
+            this.Email_Txtbox.Font = new System.Drawing.Font("Tahoma", 11F);
             this.Email_Txtbox.Location = new System.Drawing.Point(213, 172);
             this.Email_Txtbox.Multiline = true;
             this.Email_Txtbox.Name = "Email_Txtbox";
@@ -166,6 +168,7 @@
             // 
             // Address_Textbox
             // 
+            this.Address_Textbox.Font = new System.Drawing.Font("Tahoma", 11F);
             this.Address_Textbox.Location = new System.Drawing.Point(213, 132);
             this.Address_Textbox.Multiline = true;
             this.Address_Textbox.Name = "Address_Textbox";
@@ -174,6 +177,7 @@
             // 
             // Number_TxtBox
             // 
+            this.Number_TxtBox.Font = new System.Drawing.Font("Tahoma", 11F);
             this.Number_TxtBox.Location = new System.Drawing.Point(213, 211);
             this.Number_TxtBox.Multiline = true;
             this.Number_TxtBox.Name = "Number_TxtBox";

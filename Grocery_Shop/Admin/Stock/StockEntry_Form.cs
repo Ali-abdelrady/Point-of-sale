@@ -1,15 +1,9 @@
 ﻿using Grocery_Shop.Classes;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
 using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Grocery_Shop
@@ -28,14 +22,15 @@ namespace Grocery_Shop
 
         private void StockEntry_Form_Load(object sender, EventArgs e)
         {
-            Fill_ComboBox();
             Set_EmpName();
             LoadProductsTable();
             // Make The first index in combobox in appear
             Cmd_Combobox.SelectedIndex = 0;
         }
-        private void Fill_ComboBox()
+        public void Fill_ComboBox()
         {
+            //First you have to leatr combobox
+            Vendor_Cmbox.Items.Clear();
             try
             {
                 string query = "SELECT Vendor_Id,Name FROM Vendors";
@@ -47,11 +42,12 @@ namespace Grocery_Shop
                     Vendor_Id.Add(int.Parse(dr["Vendor_Id"].ToString()));
                     Vendor_Cmbox.Items.Add(dr["Name"].ToString().TrimEnd());
                 }
+                if(Vendor_Cmbox.Items.Count == 0) Vendor_Cmbox.Items.Add("None");
                 Vendor_Cmbox.SelectedIndex = 0;
             }
             catch 
             {
-                MessageBox.Show("Error In Filling Combobox");
+                //MessageBox.Show("Error In Filling Vendors Combobox");
             }
             finally
             {
@@ -65,7 +61,7 @@ namespace Grocery_Shop
                 string query = "SELECT RTRIM(First_Name)+' '+RTRIM(Middle_Name)+' '+RTRIM(Last_Name) AS NAME  FROM Employees WHERE Emp_Id=@Emp_Id";
                 con.Open();
                 SqlCommand cmd = new SqlCommand( query, con);
-                cmd.Parameters.AddWithValue("@Emp_Id",Global.Emp_Id);
+                cmd.Parameters.AddWithValue("@Emp_Id",User.Emp_Id);
                 cmd.ExecuteNonQuery();
                 SqlDataReader dr = cmd.ExecuteReader();
                 if(dr.Read())
@@ -114,12 +110,11 @@ namespace Grocery_Shop
         private void Save_Btn_Click(object sender, EventArgs e)
         {
             //Check If There Is Items In The Table
-            if(Vendor_Cmbox.Text.Length > 0 && StockIn_Table.Rows.Count > 0)
+            if(Vendor_Cmbox.Text != "None" && StockIn_Table.Rows.Count > 0 && StockBy_txtbox.Text.Length != 0)
             {
                 int vendor_id = Vendor_Id[Vendor_Cmbox.SelectedIndex];
                 string date = Stock_Date.Value.Date.ToString();
-                try
-                {
+
                     //Insert Values In Stock Entry Table 
                     InsertInto_StockEntryTable(vendor_id,date);
 
@@ -138,50 +133,77 @@ namespace Grocery_Shop
                         Update_ProductsTable(product_id, qty);
 
                     }
-
                     MessageBox.Show("Succssefully adding");
                     //Clear Table
                     StockIn_Table.Rows.Clear();
-                }
-                catch
-                {
-                    MessageBox.Show("Error in Adding in the stock");
-                }
-                finally
-                {
-                    con.Close();
-                }
+                    LoadProductsTable();
             }
             else
             {
-                MessageBox.Show("There is no vendors to select");
+                MessageBox.Show("Check Your Vendors And Admins List To Make This Operation ");
             }
         }
         private void InsertInto_StockEntryTable(int vendor_id,string date )
         {
             string query = "INSERT INTO \r\nStock_Entries\r\n(Vendor_Id,Emp_Id,Entry_Date)\r\nVALUES \r\n(@Vendor_Id,@Emp_Id,@Entry_Date);";
             con.Open();
-            SqlCommand cmd = new SqlCommand(query, con);
-            cmd.Parameters.AddWithValue("@Vendor_Id", vendor_id);
-            cmd.Parameters.AddWithValue("@Emp_Id", Global.Emp_Id);
-            cmd.Parameters.AddWithValue("@Entry_Date", date);
-            cmd.ExecuteNonQuery();
+            try
+            {
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@Vendor_Id", vendor_id);
+                cmd.Parameters.AddWithValue("@Emp_Id", User.Emp_Id);
+                cmd.Parameters.AddWithValue("@Entry_Date", date);
+                cmd.ExecuteNonQuery();
+            }
+            catch
+            {
+                MessageBox.Show("Error on adding to stock entry table");
+            }
+            finally
+            {
+                con.Close();
+            }
         }
         private void InsertInto_StockItemsTable(int product_id , int qty)
         {
+            con.Open();
             string query2 = "INSERT INTO \r\nStockEntries_Items\r\n(Stock_Id,Product_Id,Quantity)\r\nVALUES\r\n(IDENT_CURRENT('Stock_Entries'),@Product_Id,@Quantity);";
-            SqlCommand cmd2 = new SqlCommand(query2, con);
-            cmd2.Parameters.AddWithValue("@Product_Id", product_id);
-            cmd2.Parameters.AddWithValue("@Quantity", qty);
-            cmd2.ExecuteNonQuery();
+            try
+            {
+                SqlCommand cmd2 = new SqlCommand(query2, con);
+                cmd2.Parameters.AddWithValue("@Product_Id", product_id);
+                cmd2.Parameters.AddWithValue("@Quantity", qty);
+                cmd2.ExecuteNonQuery();
+
+            }
+            catch
+            {
+                MessageBox.Show("Error on adding to stock items table");
+            }
+            finally
+            {
+                con.Close();
+            }
         }
         private void Update_ProductsTable(int product_id, int qty)
         {
+            con.Open();
             string query3 = "UPDATE \r\nProducts\r\nSET\r\nCur_Amount = Cur_Amount + @qty\r\nWHERE \r\nProduct_Id=@product_id;";
-            SqlCommand cmd3 = new SqlCommand(query3, con);
-            cmd3.Parameters.AddWithValue("@qty", qty);
-            cmd3.Parameters.AddWithValue("@product_id", product_id);
-            cmd3.ExecuteNonQuery();
+            try
+            {
+                SqlCommand cmd3 = new SqlCommand(query3, con);
+                cmd3.Parameters.AddWithValue("@qty", qty);
+                cmd3.Parameters.AddWithValue("@product_id", product_id);
+                cmd3.ExecuteNonQuery();
+            }
+            catch
+            {
+                MessageBox.Show("Error on  updating table");
+            }
+            finally
+            {
+                con.Close();
+            }
         }
         //--------------------- Stock In History Form ------------------
         private void LoadRecord_Btn_Click(object sender, EventArgs e)
@@ -287,7 +309,7 @@ namespace Grocery_Shop
         }
         bool Is_Vaild(string newQty , string Curqty ,int cmd)
         {
-            if (newQty == "")
+            if (newQty == "" || Pcode_Textbox.Text.Length == 0)
             {
                 MessageBox.Show("Fill The Empty textboxes");
                 return false;

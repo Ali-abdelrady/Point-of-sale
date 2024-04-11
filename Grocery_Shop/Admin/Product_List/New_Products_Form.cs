@@ -1,15 +1,8 @@
 ﻿using Grocery_Shop.Classes;
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Data.SqlClient;
-using System.Diagnostics;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Grocery_Shop
@@ -60,10 +53,12 @@ namespace Grocery_Shop
             int product_id = product.Product_Id;
             string product_name = ProductName_txtbox.Text.ToString();
             string barcode = Barcode_Txtbox.Text.ToString();
-            int brand_id = Brand_Id[Brand_Combox.SelectedIndex];
-            int category_id = Category_Id[Category_Combox.SelectedIndex];
             string price = Price_Txtbox.Text.ToString();
-            if(Is_Empty(product_name,barcode, Price_Txtbox.Text.ToString()))
+            if(Brand_Combox.Text == "None" || Category_Combox.Text == "None")
+            {
+                MessageBox.Show("You Have Add Brands And Categories To Add New product");
+            }
+            else if(Is_Empty(product_name,barcode, Price_Txtbox.Text.ToString()))
             {
                 MessageBox.Show("Fill All Empty Boxes");
             }
@@ -74,6 +69,8 @@ namespace Grocery_Shop
             }
             else
             {
+                int brand_id = Brand_Id[Brand_Combox.SelectedIndex];
+                int category_id = Category_Id[Category_Combox.SelectedIndex];
                 //Check If the btn iS Save Or Update
                 if (SaveUpdate_Btn.Text == "SAVE")
                 {
@@ -104,12 +101,13 @@ namespace Grocery_Shop
                     Brand_Id.Add(int.Parse(rd["Brand_Id"].ToString().TrimEnd()));
                     Brand_Combox.Items.Add(rd["Brand_Name"].ToString().TrimEnd());
                 }
+                if (Brand_Combox.Items.Count == 0) Brand_Combox.Items.Add("None");
                 Brand_Combox.SelectedIndex = 0;
                 //MessageBox.Show("sucees on Filling Combobox");
             }
             catch 
             {
-                MessageBox.Show("Error on Filling Brands Combobox");
+                //MessageBox.Show("PLease Fill Brands with Data");
             }
             finally 
             { 
@@ -130,11 +128,12 @@ namespace Grocery_Shop
                     Category_Id.Add(int.Parse(rd["Category_Id"].ToString().TrimEnd()));
                     Category_Combox.Items.Add(rd["Category_Name"].ToString().TrimEnd());
                 }
+                if(Category_Combox.Items.Count == 0)Category_Combox.Items.Add("None");
                 Category_Combox.SelectedIndex = 0;
             }
             catch
             {
-                MessageBox.Show("Error on Filling Brands Combobox");
+                //MessageBox.Show("Error on Filling Brands Combobox");
             }
             finally
             {
